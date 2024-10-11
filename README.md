@@ -30,6 +30,15 @@ Supports Unity platforms:
 Create a new `MonoBehaviour` script in Unity with the following content:
 
 ```csharp
+using UnityEngine;
+using XmobiTea.Data;
+using XmobiTea.Logging;
+using XmobiTea.Logging.Unity;
+using XmobiTea.ProtonNet.Client;
+using XmobiTea.ProtonNet.Client.Socket;
+using XmobiTea.ProtonNet.Networking;
+using XmobiTea.ProtonNet.Networking.Extensions;
+
 public class ProtonNetworkBehaviour : MonoBehaviour {
     IClientPeerFactory clientPeerFactory;
     ISocketClientPeer socketClientPeer;

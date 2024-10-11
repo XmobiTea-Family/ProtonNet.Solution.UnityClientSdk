@@ -4,7 +4,7 @@ namespace XmobiTea.Logging.Unity
     /// Factory class to create instances of <see cref="UnityLogger"/>.
     /// This class is a singleton, with the single instance accessible via the <see cref="Instance"/> property.
     /// </summary>
-    sealed class UnityLoggerFactory : ILoggerFactory
+    public sealed class UnityLoggerFactory : ILoggerFactory
     {
         /// <summary>
         /// Gets the singleton instance of the <see cref="UnityLoggerFactory"/>.
