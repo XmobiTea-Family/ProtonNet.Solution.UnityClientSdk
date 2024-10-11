@@ -1,0 +1,1401 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Binary.MessagePack</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Binary.MessagePack.BinaryConverter">
+            <summary>
+            Provides methods for serializing and deserializing objects using MessagePack.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.BinaryConverter.serializer">
+            <summary>
+            Gets the serializer for converting objects to binary format.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.BinaryConverter.deserializer">
+            <summary>
+            Gets the deserializer for converting binary data back to objects.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.BinaryConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.Serialize``1(``0)">
+            <summary>
+            Serializes the specified object to a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="tObj">The object to serialize.</param>
+            <returns>A byte array containing the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.Serialize``1(System.IO.Stream,``0)">
+            <summary>
+            Serializes the specified object and writes the binary data to the provided stream.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="stream">The stream to write the serialized data to.</param>
+            <param name="tObj">The object to serialize.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes data from the provided stream into an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="stream">The stream containing the binary data.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes the specified byte array into an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="data">The byte array containing the binary data.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.TryParse``1(System.IO.Stream,``0@)">
+            <summary>
+            Tries to deserialize data from the provided stream into an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="stream">The stream containing the binary data.</param>
+            <param name="tValue">When this method returns, contains the deserialized object.</param>
+            <returns><c>true</c> if the deserialization succeeded; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.BinaryConverter.TryParse``1(System.Byte[],``0@)">
+            <summary>
+            Tries to deserialize the specified byte array into an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="data">The byte array containing the binary data.</param>
+            <param name="tValue">When this method returns, contains the deserialized object.</param>
+            <returns><c>true</c> if the deserialization succeeded; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer">
+            <summary>
+            Defines the contract for a binary deserializer capable of deserializing data from binary streams and byte arrays.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer.GetReader(System.Byte)">
+            <summary>Gets the appropriate binary reader for a given MessagePack type code.</summary>
+            <param name="messagePackTypeCode">The type code representing the binary data type.</param>
+            <returns>The binary reader capable of reading the specified data type.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer.Deserialize``1(System.IO.Stream)">
+            <summary>Deserializes binary data into a specified type from a stream.</summary>
+            <typeparam name="T">The type into which the data will be deserialized.</typeparam>
+            <param name="stream">The stream containing the binary data.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer.Deserialize``1(System.Byte[])">
+            <summary>Deserializes binary data into a specified type from a byte array.</summary>
+            <typeparam name="T">The type into which the data will be deserialized.</typeparam>
+            <param name="data">The byte array containing the binary data.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer">
+            <summary>
+            Implements the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer"/> interface, providing deserialization functionality for binary data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.messagePackTypeCodeWithReaderDict">
+            <summary>
+            Gets the dictionary mapping MessagePack type codes to their corresponding binary readers.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.binaryTypeCodeWithReaderDict">
+            <summary>
+            Gets the dictionary mapping binary type codes to their corresponding binary readers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer"/> class and sets up the readers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.AddReaders">
+            <summary>
+            Adds readers for both binary type codes and MessagePack type codes to their respective dictionaries.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.AddBinaryTypeCodeReaders">
+            <summary>
+            Adds readers based on binary type codes.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.AddMessagePackTypeCodeReaders">
+            <summary>
+            Adds readers based on MessagePack type codes.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.GetReader(System.Byte)">
+            <summary>
+            Gets the appropriate binary reader for a given MessagePack type code.
+            </summary>
+            <param name="messagePackTypeCode">The type code representing the binary data type.</param>
+            <returns>The binary reader capable of reading the specified data type.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes binary data into a specified type from a byte array.
+            </summary>
+            <typeparam name="T">The type into which the data will be deserialized.</typeparam>
+            <param name="data">The byte array containing the binary data.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.BinaryDeserializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes binary data into a specified type from a stream.
+            </summary>
+            <typeparam name="T">The type into which the data will be deserialized.</typeparam>
+            <param name="stream">The stream containing the binary data.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.AbstractCollectionBinaryReader`1">
+            <summary>
+            Provides a base class for reading binary data for collection types from a stream and interpreting it according to a type code.
+            </summary>
+            <typeparam name="T">The type of data to read.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.AbstractCollectionBinaryReader`1.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.AbstractCollectionBinaryReader`1"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.AbstractCollectionBinaryReader`1.GetCollectionLength(System.IO.Stream,System.Byte)">
+            <summary>
+            Gets the length of the collection from the binary stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="byteLength">The number of bytes representing the length of the collection.</param>
+            <returns>The length of the collection as a uint.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.AbstractCollectionBinaryReader`1.IsMasked(System.Byte,System.Byte,System.Byte,System.UInt32@)">
+            <summary>
+            Determines whether the provided type code matches the expected definition, and extracts the length value if applicable.
+            </summary>
+            <param name="definitionMessageTypeCode">The expected type code definition.</param>
+            <param name="messagePackTypeCode">The actual type code from the message pack.</param>
+            <param name="valueMask">The mask to apply to the type code to extract the length.</param>
+            <param name="length">When this method returns, contains the extracted length if the mask matched; otherwise, zero.</param>
+            <returns><c>true</c> if the type code matches the definition; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.ArrayBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing array types from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ArrayBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.ArrayBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ArrayBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with arrays.
+            </summary>
+            <returns>The binary type code for arrays as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ArrayBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes an array from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as an array.</param>
+            <returns>A list representing the deserialized array.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.BinaryBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing binary data (byte arrays) from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BinaryBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.BinaryBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BinaryBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with binary data (byte arrays).
+            </summary>
+            <returns>The binary type code for binary data as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BinaryBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes binary data (byte array) from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as a byte array.</param>
+            <returns>A byte array representing the deserialized binary data.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.BooleanBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing boolean values from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BooleanBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.BooleanBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BooleanBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with boolean values.
+            </summary>
+            <returns>The binary type code for boolean values as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.BooleanBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes a boolean value from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as a boolean.</param>
+            <returns>A boolean value representing the deserialized data.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.IBinaryReader">
+            <summary>
+            Defines methods for reading binary data from a stream and interpreting it according to a type code.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.IBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with the reader.
+            </summary>
+            <returns>The binary type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.IBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and interprets binary data from the specified stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data.</param>
+            <returns>The interpreted object.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.IBinaryReader`1">
+            <summary>
+            Defines methods for reading binary data of a specific type from a stream and interpreting it according to a type code.
+            </summary>
+            <typeparam name="T">The type of data to read.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.IBinaryReader`1.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and interprets binary data of type <typeparamref name="T"/> from the specified stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data.</param>
+            <returns>The interpreted object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1">
+            <summary>
+            Provides a base class for reading binary data of a specific type from a stream and interpreting it according to a type code.
+            </summary>
+            <typeparam name="T">The type of data to read.</typeparam>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.binaryDeserializer">
+            <summary>
+            Gets the binary deserializer used for interpreting binary data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with the reader.
+            </summary>
+            <returns>The binary type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and interprets binary data of type <typeparamref name="T"/> from the specified stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="binaryTypeCode">The type code used to interpret the binary data.</param>
+            <returns>The interpreted object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.XmobiTea#Binary#MessagePack#Deserialize#Reader#Core#IBinaryReader#Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and interprets binary data from the specified stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="binaryTypeCode">The type code used to interpret the binary data.</param>
+            <returns>The interpreted object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.ReadBytes(System.IO.Stream,System.UInt16)">
+            <summary>
+            Reads a specified number of bytes from the stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="length">The number of bytes to read.</param>
+            <returns>An array of bytes read from the stream.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.Core.BinaryReader`1.ReadByte(System.IO.Stream)">
+            <summary>
+            Reads a single byte from the stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <returns>The byte read from the stream.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.ExtensionBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing extension data from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ExtensionBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.ExtensionBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ExtensionBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with extension data.
+            </summary>
+            <returns>The binary type code for extension data as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.ExtensionBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes extension data from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as an extension.</param>
+            <returns>A tuple containing the type specifier and the byte array representing the deserialized extension data.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.FloatBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing floating-point numbers from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.FloatBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.FloatBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.FloatBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with floating-point numbers.
+            </summary>
+            <returns>The binary type code for floating-point numbers as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.FloatBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes a floating-point number from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as a floating-point number.</param>
+            <returns>An object representing the deserialized floating-point number, either as a <see cref="T:System.Double"/> or a <see cref="T:System.Single"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.IntegerBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing integer values from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.IntegerBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.IntegerBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.IntegerBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with integers.
+            </summary>
+            <returns>The binary type code for integers as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.IntegerBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes an integer value from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as an integer.</param>
+            <returns>An object representing the deserialized integer value, which can be a signed or unsigned integer of various sizes.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.MapBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing map (dictionary) data from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.MapBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.MapBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.MapBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with maps (dictionaries).
+            </summary>
+            <returns>The binary type code for maps as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.MapBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes a map (dictionary) from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as a map.</param>
+            <returns>A dictionary representing the deserialized map data.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.NilBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing 'nil' values (representing null) from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.NilBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.NilBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.NilBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with 'nil' values.
+            </summary>
+            <returns>The binary type code for 'nil' as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.NilBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes a 'nil' value from the specified binary stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as 'nil'.</param>
+            <returns>Always returns null, as 'nil' represents a null value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.StringBinaryReader">
+            <summary>
+            Implements a binary reader for deserializing string data from a binary stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.StringBinaryReader.#ctor(XmobiTea.Binary.MessagePack.Deserialize.IBinaryDeserializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Deserialize.Reader.StringBinaryReader"/> class.
+            </summary>
+            <param name="binaryDeserializer">The binary deserializer used for interpreting binary data.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.StringBinaryReader.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with string data.
+            </summary>
+            <returns>The binary type code for strings as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Deserialize.Reader.StringBinaryReader.Read(System.IO.Stream,System.Byte)">
+            <summary>
+            Reads and deserializes a string from the specified binary stream based on the provided type code.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="messagePackTypeCode">The type code used to interpret the binary data as a string.</param>
+            <returns>A string representing the deserialized data.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Helper.BinaryUtils">
+            <summary>
+            Provides utility methods for handling binary data, particularly for MessagePack serialization.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.TypeOfDictionary">
+            <summary>
+            Gets the <see cref="T:System.Type"/> representing non-generic dictionaries.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.TypeOfGenericDictionary">
+            <summary>
+            Gets the <see cref="T:System.Type"/> representing generic dictionaries.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.TypeOfCollection">
+            <summary>
+            Gets the <see cref="T:System.Type"/> representing non-generic collections.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.TypeOfGenericCollection">
+            <summary>
+            Gets the <see cref="T:System.Type"/> representing generic collections.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.#cctor">
+            <summary>
+            Initializes the static members of the <see cref="T:XmobiTea.Binary.MessagePack.Helper.BinaryUtils"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.IsBigEndian">
+            <summary>
+            Determines whether the system is big-endian.
+            </summary>
+            <returns>True if the system is big-endian; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.SwapIfLittleEndian(System.Byte[]@)">
+            <summary>
+            Swaps the byte order of the given buffer if the system is little-endian.
+            </summary>
+            <param name="buffer">The byte array to potentially swap.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Helper.BinaryUtils.GetBinaryTypeCode(System.Type)">
+            <summary>
+            Gets the binary type code associated with a specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The type to get the binary type code for.</param>
+            <returns>The binary type code as a byte.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer">
+            <summary>
+            Provides methods for serializing objects into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer.GetWriter(System.Byte)">
+            <summary>
+            Gets a binary writer based on the binary type code.
+            </summary>
+            <param name="binaryTypeCode">The binary type code.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter"/> corresponding to the type code.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer.GetWriter(System.Type)">
+            <summary>
+            Gets a binary writer based on the type of the object.
+            </summary>
+            <param name="type">The type of the object.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter"/> corresponding to the type.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer.Serialize``1(``0)">
+            <summary>
+            Serializes an object to a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="tObj">The object to serialize.</param>
+            <returns>A byte array representing the serialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer.Serialize``1(System.IO.Stream,``0)">
+            <summary>
+            Serializes an object and writes it to a stream.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="stream">The stream to write the serialized data to.</param>
+            <param name="tObj">The object to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer">
+            <summary>
+            Implements the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer"/> interface to provide serialization capabilities for various data types.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.writerDict">
+            <summary>
+            A dictionary mapping binary type codes to their corresponding writers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer"/> class and sets up the writers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.AddWriters">
+            <summary>
+            Adds all the supported writers to the dictionary.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.GetWriter(System.Byte)">
+            <summary>
+            Gets a binary writer based on the binary type code.
+            </summary>
+            <param name="binaryTypeCode">The binary type code.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter"/> corresponding to the type code.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.GetWriter(System.Type)">
+            <summary>
+            Gets a binary writer based on the type of the object.
+            </summary>
+            <param name="type">The type of the object.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter"/> corresponding to the type.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.Serialize``1(``0)">
+            <summary>
+            Serializes an object to a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="tObj">The object to serialize.</param>
+            <returns>A byte array representing the serialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.BinarySerializer.Serialize``1(System.IO.Stream,``0)">
+            <summary>
+            Serializes an object and writes it to a stream.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="stream">The stream to write the serialized data to.</param>
+            <param name="tObj">The object to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.AbstractCollectionBinaryWriter`1">
+            <summary>
+            Provides an abstract base class for implementing binary writers for collection types.
+            </summary>
+            <typeparam name="T">The type of the collection to be serialized.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.AbstractCollectionBinaryWriter`1.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.AbstractCollectionBinaryWriter`1"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.AbstractCollectionBinaryWriter`1.GetLengthBytes(System.Int64,XmobiTea.Binary.MessagePack.Types.SupportedLengths)">
+            <summary>
+            Converts the length of the collection into a byte array, considering the supported lengths and endianness.
+            </summary>
+            <param name="length">The length of the collection.</param>
+            <param name="supported">The supported length formats.</param>
+            <returns>A byte array representing the length in binary format.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.AbstractCollectionBinaryWriter`1.GetLength(System.Byte,System.Int32)">
+            <summary>
+            Combines the MessagePack type code with the length to produce the final byte representation.
+            </summary>
+            <param name="messagePackTypeCode">The MessagePack type code for the collection.</param>
+            <param name="length">The length of the collection.</param>
+            <returns>The combined byte representing the type and length.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter">
+            <summary>
+            Provides functionality to serialize arrays into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with arrays.
+            </summary>
+            <returns>The binary type code for arrays.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter.GetMessagePackTypeCode(System.Collections.ICollection)">
+            <summary>
+            Gets the MessagePack type code based on the length of the array.
+            </summary>
+            <param name="value">The array for which to determine the type code.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter.GetDataLength(System.Collections.ICollection)">
+            <summary>
+            Gets the total length of the serialized data for the array.
+            </summary>
+            <param name="value">The array for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ArrayBinaryWriter.Write(System.IO.Stream,System.Collections.ICollection)">
+            <summary>
+            Writes the array to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The array to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter">
+            <summary>
+            Provides functionality to serialize binary data (byte arrays) into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with binary data (byte arrays).
+            </summary>
+            <returns>The binary type code for binary data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter.GetMessagePackTypeCode(System.Byte[])">
+            <summary>
+            Gets the MessagePack type code based on the length of the binary data.
+            </summary>
+            <param name="value">The binary data (byte array) for which to determine the type code.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter.GetDataLength(System.Byte[])">
+            <summary>
+            Gets the total length of the serialized data for the binary data (byte array).
+            </summary>
+            <param name="value">The binary data (byte array) for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BinaryBinaryWriter.Write(System.IO.Stream,System.Byte[])">
+            <summary>
+            Writes the binary data (byte array) to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The binary data (byte array) to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter">
+            <summary>
+            Provides functionality to serialize boolean values into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with boolean values.
+            </summary>
+            <returns>The binary type code for boolean values.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter.GetMessagePackTypeCode(System.Boolean)">
+            <summary>
+            Gets the MessagePack type code for the specified boolean value.
+            </summary>
+            <param name="value">The boolean value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter.GetDataLength(System.Boolean)">
+            <summary>
+            Gets the length of the serialized data for the boolean value.
+            </summary>
+            <param name="value">The boolean value to determine the data length for.</param>
+            <returns>The length of the data as an integer.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.BooleanBinaryWriter.Write(System.IO.Stream,System.Boolean)">
+            <summary>
+            Writes the specified boolean value to the provided stream in binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The boolean value to write.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter">
+            <summary>
+            Defines the contract for a binary writer capable of serializing objects into a binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter.GetBinaryTypeCode">
+            <summary>Gets the binary type code associated with the data type.</summary>
+            <returns>The binary type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter.GetMessagePackTypeCode(System.Object)">
+            <summary>Gets the MessagePack type code for the specified value.</summary>
+            <param name="value">The value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter.GetDataLength(System.Object)">
+            <summary>Gets the length of the data when serialized.</summary>
+            <param name="value">The value to determine the data length for.</param>
+            <returns>The length of the data as an integer.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter.Write(System.IO.Stream,System.Object)">
+            <summary>Writes the specified value to the provided stream in binary format.</summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter`1">
+            <summary>
+            Defines the contract for a binary writer capable of serializing objects of a specific type <typeparamref name="T"/> into a binary format.
+            </summary>
+            <typeparam name="T">The type of object that this writer will serialize.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter`1.GetMessagePackTypeCode(`0)">
+            <summary>Gets the MessagePack type code for the specified value.</summary>
+            <param name="value">The value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter`1.GetDataLength(`0)">
+            <summary>Gets the length of the data when serialized.</summary>
+            <param name="value">The value to determine the data length for.</param>
+            <returns>The length of the data as an integer.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.IBinaryWriter`1.Write(System.IO.Stream,`0)">
+            <summary>Writes the specified value to the provided stream in binary format.</summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1">
+            <summary>
+            Provides an abstract base class for implementing binary writers for specific data types.
+            </summary>
+            <typeparam name="T">The type of object that this writer will serialize.</typeparam>
+        </member>
+        <member name="P:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.binarySerializer">
+            <summary>
+            Gets the binary serializer used by this writer to serialize other objects.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.GetBinaryTypeCode">
+            <summary>Gets the binary type code associated with the data type.</summary>
+            <returns>The binary type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.GetMessagePackTypeCode(`0)">
+            <summary>Gets the MessagePack type code for the specified value.</summary>
+            <param name="value">The value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.GetDataLength(`0)">
+            <summary>Gets the length of the data when serialized.</summary>
+            <param name="value">The value to determine the data length for.</param>
+            <returns>The length of the data as an integer.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.Write(System.IO.Stream,`0)">
+            <summary>Writes the specified value to the provided stream in binary format.</summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.XmobiTea#Binary#MessagePack#Serialize#Writer#Core#IBinaryWriter#GetDataLength(System.Object)">
+            <summary>Gets the length of the data when serialized.</summary>
+            <param name="value">The value to determine the data length for.</param>
+            <returns>The length of the data as an integer.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.XmobiTea#Binary#MessagePack#Serialize#Writer#Core#IBinaryWriter#Write(System.IO.Stream,System.Object)">
+            <summary>Writes the specified value to the provided stream in binary format.</summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.XmobiTea#Binary#MessagePack#Serialize#Writer#Core#IBinaryWriter#GetMessagePackTypeCode(System.Object)">
+            <summary>Gets the MessagePack type code for the specified value.</summary>
+            <param name="value">The value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.WriteBytes(System.IO.Stream,System.Byte[])">
+            <summary>
+            Writes the specified byte array to the provided stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="data">The byte array to write.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.WriteByte(System.IO.Stream,System.Byte)">
+            <summary>
+            Writes the specified byte to the provided stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="data">The byte to write.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.Core.BinaryWriter`1"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter">
+            <summary>
+            Provides functionality to serialize extension types (tuples of sbyte and byte arrays) into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with extension types.
+            </summary>
+            <returns>The binary type code for extension types.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter.GetMessagePackTypeCode(System.Tuple{System.SByte,System.Byte[]})">
+            <summary>
+            Gets the MessagePack type code for the specified extension value.
+            </summary>
+            <param name="value">The extension value (tuple of sbyte and byte array) to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter.GetDataLength(System.Tuple{System.SByte,System.Byte[]})">
+            <summary>
+            Gets the total length of the serialized data for the extension value.
+            </summary>
+            <param name="value">The extension value (tuple of sbyte and byte array) for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.ExtensionBinaryWriter.Write(System.IO.Stream,System.Tuple{System.SByte,System.Byte[]})">
+            <summary>
+            Writes the extension value (tuple of sbyte and byte array) to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The extension value (tuple of sbyte and byte array) to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter">
+            <summary>
+            Provides functionality to serialize floating-point numbers (both single and double precision) into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with floating-point numbers.
+            </summary>
+            <returns>The binary type code for floating-point numbers.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter.GetMessagePackTypeCode(System.Object)">
+            <summary>
+            Gets the MessagePack type code for the specified floating-point value.
+            </summary>
+            <param name="value">The floating-point value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter.GetDataLength(System.Object)">
+            <summary>
+            Gets the total length of the serialized data for the floating-point value.
+            </summary>
+            <param name="value">The floating-point value for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.FloatBinaryWriter.Write(System.IO.Stream,System.Object)">
+            <summary>
+            Writes the floating-point value to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The floating-point value to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter">
+            <summary>
+            Provides functionality to serialize integer values (both signed and unsigned) into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with integer values.
+            </summary>
+            <returns>The binary type code for integer values.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.IsSigned(System.Object)">
+            <summary>
+            Determines whether the specified value is a signed integer.
+            </summary>
+            <param name="value">The integer value to check.</param>
+            <returns><c>true</c> if the value is signed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.GetMessagePackTypeCode(System.Object)">
+            <summary>
+            Gets the MessagePack type code for the specified integer value.
+            </summary>
+            <param name="value">The integer value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.GetDataLength(System.Object)">
+            <summary>
+            Gets the total length of the serialized data for the integer value.
+            </summary>
+            <param name="value">The integer value for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.IntegerBinaryWriter.Write(System.IO.Stream,System.Object)">
+            <summary>
+            Writes the integer value to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The integer value to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter">
+            <summary>
+            Provides functionality to serialize dictionary objects into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with dictionaries.
+            </summary>
+            <returns>The binary type code for dictionaries.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter.GetMessagePackTypeCode(System.Collections.IDictionary)">
+            <summary>
+            Gets the MessagePack type code for the specified dictionary value.
+            </summary>
+            <param name="value">The dictionary value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter.GetDataLength(System.Collections.IDictionary)">
+            <summary>
+            Gets the total length of the serialized data for the dictionary value.
+            </summary>
+            <param name="value">The dictionary value for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.MapBinaryWriter.Write(System.IO.Stream,System.Collections.IDictionary)">
+            <summary>
+            Writes the dictionary value to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The dictionary value to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter">
+            <summary>
+            Provides functionality to serialize a null or nil object into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with nil objects.
+            </summary>
+            <returns>The binary type code for nil objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter.GetMessagePackTypeCode(System.Object)">
+            <summary>
+            Gets the MessagePack type code for a nil object.
+            </summary>
+            <param name="value">The object value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter.GetDataLength(System.Object)">
+            <summary>
+            Gets the total length of the serialized data for the nil object.
+            </summary>
+            <param name="value">The nil object for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.NilBinaryWriter.Write(System.IO.Stream,System.Object)">
+            <summary>
+            Writes the nil object to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The nil object to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter">
+            <summary>
+            Provides functionality to serialize a string into MessagePack binary format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter.#ctor(XmobiTea.Binary.MessagePack.Serialize.IBinarySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter"/> class.
+            </summary>
+            <param name="binarySerializer">The binary serializer used by this writer.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter.GetBinaryTypeCode">
+            <summary>
+            Gets the binary type code associated with strings.
+            </summary>
+            <returns>The binary type code for strings.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter.GetMessagePackTypeCode(System.String)">
+            <summary>
+            Gets the MessagePack type code for a given string.
+            </summary>
+            <param name="value">The string value to determine the MessagePack type code for.</param>
+            <returns>The MessagePack type code as a byte.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter.GetDataLength(System.String)">
+            <summary>
+            Gets the total length of the serialized data for the given string.
+            </summary>
+            <param name="value">The string for which to calculate the data length.</param>
+            <returns>The total length of the serialized data.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.MessagePack.Serialize.Writer.StringBinaryWriter.Write(System.IO.Stream,System.String)">
+            <summary>
+            Writes the string to the provided stream in MessagePack binary format.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="value">The string to serialize.</param>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode">
+            <summary>
+            Represents the different binary type codes used in the MessagePack format.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Integer">
+            <summary>
+            Represents the binary type code for integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Nil">
+            <summary>
+            Represents the binary type code for nil (null) values.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Boolean">
+            <summary>
+            Represents the binary type code for boolean values.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Float">
+            <summary>
+            Represents the binary type code for floating-point numbers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.String">
+            <summary>
+            Represents the binary type code for strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Binary">
+            <summary>
+            Represents the binary type code for binary data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Array">
+            <summary>
+            Represents the binary type code for arrays.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Map">
+            <summary>
+            Represents the binary type code for maps (dictionaries).
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.BinaryTypeCode.Extension">
+            <summary>
+            Represents the binary type code for extension types.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode">
+            <summary>
+            Represents the different type codes used in the MessagePack format.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Nil">
+            <summary>
+            Represents the type code for nil (null) values.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.NeverUsed">
+            <summary>
+            Represents a type code that is never used.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.True">
+            <summary>
+            Represents the type code for the boolean value true.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.False">
+            <summary>
+            Represents the type code for the boolean value false.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.NegativeIntFix">
+            <summary>
+            Represents the type code for fixed negative integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.PositiveIntFix">
+            <summary>
+            Represents the type code for fixed positive integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.UInt8">
+            <summary>
+            Represents the type code for unsigned 8-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.UInt16">
+            <summary>
+            Represents the type code for unsigned 16-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.UInt32">
+            <summary>
+            Represents the type code for unsigned 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.UInt64">
+            <summary>
+            Represents the type code for unsigned 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Int8">
+            <summary>
+            Represents the type code for signed 8-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Int16">
+            <summary>
+            Represents the type code for signed 16-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Int32">
+            <summary>
+            Represents the type code for signed 32-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Int64">
+            <summary>
+            Represents the type code for signed 64-bit integers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Float32">
+            <summary>
+            Represents the type code for 32-bit floating-point numbers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Float64">
+            <summary>
+            Represents the type code for 64-bit floating-point numbers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.StrFix">
+            <summary>
+            Represents the type code for fixed-length strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Str8">
+            <summary>
+            Represents the type code for 8-bit length-prefixed strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Str16">
+            <summary>
+            Represents the type code for 16-bit length-prefixed strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Str32">
+            <summary>
+            Represents the type code for 32-bit length-prefixed strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Bin8">
+            <summary>
+            Represents the type code for 8-bit length-prefixed binary data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Bin16">
+            <summary>
+            Represents the type code for 16-bit length-prefixed binary data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Bin32">
+            <summary>
+            Represents the type code for 32-bit length-prefixed binary data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ArrayFix">
+            <summary>
+            Represents the type code for fixed-length arrays.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Array16">
+            <summary>
+            Represents the type code for 16-bit length-prefixed arrays.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Array32">
+            <summary>
+            Represents the type code for 32-bit length-prefixed arrays.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.MapFix">
+            <summary>
+            Represents the type code for fixed-length maps.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Map16">
+            <summary>
+            Represents the type code for 16-bit length-prefixed maps.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Map32">
+            <summary>
+            Represents the type code for 32-bit length-prefixed maps.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ExtFix1">
+            <summary>
+            Represents the type code for fixed-length extension types of 1 byte.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ExtFix2">
+            <summary>
+            Represents the type code for fixed-length extension types of 2 bytes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ExtFix4">
+            <summary>
+            Represents the type code for fixed-length extension types of 4 bytes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ExtFix8">
+            <summary>
+            Represents the type code for fixed-length extension types of 8 bytes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.ExtFix16">
+            <summary>
+            Represents the type code for fixed-length extension types of 16 bytes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Ext8">
+            <summary>
+            Represents the type code for 8-bit length-prefixed extension types.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Ext16">
+            <summary>
+            Represents the type code for 16-bit length-prefixed extension types.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.MessagePackTypeCode.Ext32">
+            <summary>
+            Represents the type code for 32-bit length-prefixed extension types.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Binary.MessagePack.Types.SupportedLengths">
+            <summary>
+            Defines flags representing the supported lengths for data encoding in MessagePack.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.Byte1">
+            <summary>
+            Supports 1-byte length.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.Short2">
+            <summary>
+            Supports 2-byte length.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.Int4">
+            <summary>
+            Supports 4-byte length.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.Long8">
+            <summary>
+            Supports 8-byte length.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.All">
+            <summary>
+            Supports all length types.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.FromShortUpward">
+            <summary>
+            Supports lengths from 2 bytes and upward.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.MessagePack.Types.SupportedLengths.None">
+            <summary>
+            No length is supported.
+            </summary>
+        </member>
+    </members>
+</doc>

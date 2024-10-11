@@ -1,0 +1,811 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Data.Converter</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Data.Converter.DataConverter">
+            <summary>
+            Provides methods for serializing and deserializing objects and arrays using custom converters.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.DataConverter.serializeConverter">
+            <summary>
+            Gets the serializer converter instance.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.DataConverter.deserializeConverter">
+            <summary>
+            Gets the deserializer converter instance.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Data.Converter.DataConverter"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.DeserializeObject``1(XmobiTea.Data.GNHashtable)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNHashtable"/> to an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of object to deserialize.</typeparam>
+            <param name="gnHashtable">The GNHashtable to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.DeserializeObject(XmobiTea.Data.GNHashtable,System.Type)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNHashtable"/> to an object of the specified type.
+            </summary>
+            <param name="gnHashtable">The GNHashtable to deserialize.</param>
+            <param name="cls">The type of object to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.DeserializeArray``1(XmobiTea.Data.GNArray)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNArray"/> to a list of objects of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of objects in the list.</typeparam>
+            <param name="gnArray">The GNArray to deserialize.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.DeserializeArray(XmobiTea.Data.GNArray,System.Type)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNArray"/> to a list of objects of the specified type.
+            </summary>
+            <param name="gnArray">The GNArray to deserialize.</param>
+            <param name="cls">The type of objects in the list.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.SerializeObject(System.Object)">
+            <summary>
+            Serializes an object to a <see cref="T:XmobiTea.Data.GNHashtable"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>The serialized GNHashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.DataConverter.SerializeArray(System.Collections.IList)">
+            <summary>
+            Serializes a list of objects to a <see cref="T:XmobiTea.Data.GNArray"/>.
+            </summary>
+            <param name="objLst">The list of objects to serialize.</param>
+            <returns>The serialized GNArray.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Helper.DetectSupport">
+            <summary>
+            Provides utility methods for type detection.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Helper.DetectSupport.isNumber(System.Object)">
+            <summary>
+            Determines whether the specified value is a numeric type.
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>
+            <c>true</c> if the value is a numeric type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Helper.DetectSupport.IsInt(System.Object)">
+            <summary>
+            Determines whether the specified value is a integer numeric type.
+            </summary>
+            <param name="value">The value to check.</param>
+            <returns>
+            <c>true</c> if the value is an integer numeric type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.IDataConverter">
+            <summary>
+            Defines methods for serializing and deserializing objects and arrays.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.DeserializeObject``1(XmobiTea.Data.GNHashtable)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNHashtable"/> to an object of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of object to deserialize.</typeparam>
+            <param name="gnHashtable">The GNHashtable to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.DeserializeObject(XmobiTea.Data.GNHashtable,System.Type)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNHashtable"/> to an object of the specified type.
+            </summary>
+            <param name="gnHashtable">The GNHashtable to deserialize.</param>
+            <param name="cls">The type of object to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.DeserializeArray``1(XmobiTea.Data.GNArray)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNArray"/> to a list of objects of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of objects in the list.</typeparam>
+            <param name="gnArray">The GNArray to deserialize.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.DeserializeArray(XmobiTea.Data.GNArray,System.Type)">
+            <summary>
+            Deserializes a <see cref="T:XmobiTea.Data.GNArray"/> to a list of objects of the specified type.
+            </summary>
+            <param name="gnArray">The GNArray to deserialize.</param>
+            <param name="cls">The type of objects in the list.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.SerializeObject(System.Object)">
+            <summary>
+            Serializes an object to a <see cref="T:XmobiTea.Data.GNHashtable"/>.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>The serialized GNHashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.IDataConverter.SerializeArray(System.Collections.IList)">
+            <summary>
+            Serializes a list of objects to a <see cref="T:XmobiTea.Data.GNArray"/>.
+            </summary>
+            <param name="objLst">The list of objects to serialize.</param>
+            <returns>The serialized GNArray.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.IDataMemberFieldInfoTypeMapper">
+            <summary>
+            Interface for mapping data member fields to metadata information.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.IDataMemberFieldInfoTypeMapper.GetGNEnhancedObjectFieldMetadata(System.Type)">
+            <summary>
+            Retrieves metadata for the fields of a specified class.
+            </summary>
+            <param name="cls">The class type to retrieve metadata for.</param>
+            <returns>An array of field metadata information.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper">
+            <summary>
+            Implements the IDataMemberFieldInfoTypeMapper interface to map data member fields to metadata information.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.declaredFieldsMap">
+            <summary>
+            A dictionary that stores metadata for each class type.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.#ctor">
+            <summary>
+            Initializes a new instance of the DataMemberFieldInfoTypeMapper class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.GetGNEnhancedObjectFieldMetadata(System.Type)">
+            <summary>
+            Retrieves metadata for the fields of a specified class.
+            </summary>
+            <param name="cls">The class type to retrieve metadata for.</param>
+            <returns>An array of field metadata information.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.GenerateGNEnhancedObjectFieldMetadata(System.Type)">
+            <summary>
+            Generates metadata for the fields of a specified class.
+            </summary>
+            <param name="cls">The class type to generate metadata for.</param>
+            <returns>An array of generated field metadata information.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetFieldGNEnhancedObjectFieldMetadata(System.Collections.Generic.IList{System.Reflection.FieldInfo},System.Int32,XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata[]@)">
+            <summary>
+            Sets metadata for fields.
+            </summary>
+            <param name="fieldInfoLst">The list of field information.</param>
+            <param name="offset">The offset in the metadata array.</param>
+            <param name="metadatas">The metadata array to populate.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetPropertyGNEnhancedObjectFieldMetadata(System.Collections.Generic.IList{System.Reflection.PropertyInfo},System.Int32,XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata[]@)">
+            <summary>
+            Sets metadata for properties.
+            </summary>
+            <param name="propertyInfoLst">The list of property information.</param>
+            <param name="offset">The offset in the metadata array.</param>
+            <param name="metadatas">The metadata array to populate.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetStringDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using StringDataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The StringDataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetBooleanDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.BooleanDataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using BooleanDataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The BooleanDataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetGNHashtableDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using GNHashtableDataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The GNHashtableDataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetGNArrayDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using GNArrayDataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The GNArrayDataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetNumberDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using NumberDataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The NumberDataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetOtherDataMemberAttribute(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.DataMemberAttribute)">
+            <summary>
+            Set the metadata for GNEnhancedObjectField using a generic DataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The DataMemberAttribute providing the field data.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DataMemberFieldInfoTypeMapper.SetupGNEnhancedObjectFieldMetadata(XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata,XmobiTea.Data.Converter.Rpc.DataMemberAttribute)">
+            <summary>
+            Sets up the basic metadata for GNEnhancedObjectField using DataMemberAttribute.
+            </summary>
+            <param name="gnEnhancedObjectFieldMetadata">The metadata object to be updated.</param>
+            <param name="dataMemberAnno">The DataMemberAttribute providing the initial field data.</param>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.IDeserializeConverter">
+            <summary>
+            Interface for converting GNHashtable and GNArray objects to their respective types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.IDeserializeConverter.DeserializeObject(XmobiTea.Data.GNHashtable,System.Type)">
+            <summary>
+            Deserializes a GNHashtable to a specified object type.
+            </summary>
+            <param name="gnHashtable">The GNHashtable object to deserialize.</param>
+            <param name="cls">The target class type to deserialize into.</param>
+            <returns>An object of the specified type deserialized from the GNHashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.IDeserializeConverter.DeserializeArray(XmobiTea.Data.GNArray,System.Type)">
+            <summary>
+            Deserializes a GNArray to a specified list type.
+            </summary>
+            <param name="gnArray">The GNArray object to deserialize.</param>
+            <param name="cls">The target class type for the elements in the list.</param>
+            <returns>A list of objects deserialized from the GNArray.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.DeserializeConverter">
+            <summary>
+            Implementation of IDeserializeConverter for converting GNHashtable and GNArray objects to their respective types.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.DeserializeConverter.DeserializeParserDelegate">
+            <summary>
+            Delegate for handling different types of deserialization parsing.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.DeserializeConverter.deserializerParserDict">
+            <summary>
+            Dictionary mapping GNFieldDataType to corresponding deserialization handlers.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.DeserializeConverter.dataMemberFieldInfoMapper">
+            <summary>
+            Mapper for retrieving metadata about data member fields.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.#ctor(XmobiTea.Data.Converter.Models.IDataMemberFieldInfoTypeMapper)">
+            <summary>
+            Initializes a new instance of the DeserializeConverter class.
+            </summary>
+            <param name="dataMemberFieldInfoMapper">The mapper to retrieve field metadata information.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.AddDeserializeParserHandlers">
+            <summary>
+            Adds deserialization handlers for different GNFieldDataType values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.GetDeserializeParserHandler(XmobiTea.Data.Converter.Types.GNFieldDataType)">
+            <summary>
+            Retrieves the appropriate deserialization handler based on the GNFieldDataType.
+            </summary>
+            <param name="gnFieldType">The GNFieldDataType to get the handler for.</param>
+            <returns>The corresponding deserialization handler.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.DeserializeObject(XmobiTea.Data.GNHashtable,System.Type)">
+            <summary>
+            Deserializes a GNHashtable to the specified object type.
+            </summary>
+            <param name="gnHashtable">The GNHashtable to deserialize.</param>
+            <param name="cls">The target class type for deserialization.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.DeserializeArray(XmobiTea.Data.GNArray,System.Type)">
+            <summary>
+            Deserializes a GNArray to a list of the specified type.
+            </summary>
+            <param name="gnArray">The GNArray to deserialize.</param>
+            <param name="cls">The target class type for the elements in the list.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.DeserializeConverter.CastList(System.Collections.IList,System.Type,System.Boolean)">
+            <summary>
+            Cast the originObjectList to other List with other type.
+            </summary>
+            <param name="objectLst">The origin object list to cast.</param>
+            <param name="cls">The type of value want to cast.</param>
+            <param name="isArray">This is Array or List</param>
+            <returns>The IList after cast success.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata">
+            <summary>
+            Interface defining metadata for fields in a GNEnhanced object.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.Code">
+            <summary>
+            Gets or sets the code representing the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.IsOptional">
+            <summary>
+            Gets or sets a value indicating whether the field is optional.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.GNFieldType">
+            <summary>
+            Gets or sets the GNFieldDataType representing the type of the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.DefaultValue">
+            <summary>
+            Gets or sets the default value of the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.ActiveConditionValid">
+            <summary>
+            Gets or sets a value indicating whether the active condition for the field is valid.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MustNonNull">
+            <summary>
+            Gets or sets a value indicating whether the field must be non-null.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MinLength">
+            <summary>
+            Gets or sets the minimum length of the field value if applicable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MaxLength">
+            <summary>
+            Gets or sets the maximum length of the field value if applicable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MinValue">
+            <summary>
+            Gets or sets the minimum value of the field if applicable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MaxValue">
+            <summary>
+            Gets or sets the maximum value of the field if applicable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.MustInt">
+            <summary>
+            Gets or sets a value indicating whether the field value must be an integer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.FieldInfo">
+            <summary>
+            Gets the FieldInfo associated with the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.PropertyInfo">
+            <summary>
+            Gets the PropertyInfo associated with the property.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.Name">
+            <summary>
+            Gets the name of the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.FieldType">
+            <summary>
+            Gets the FieldDataType representing the type of the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata.Cls">
+            <summary>
+            Gets the type of the class that contains the field.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata">
+            <summary>
+            Implementation of IGNEnhancedObjectFieldMetadata that provides metadata for fields in a GNEnhanced object.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.Code">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.IsOptional">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.GNFieldType">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.DefaultValue">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.ActiveConditionValid">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MustNonNull">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MinLength">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MaxLength">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MinValue">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MaxValue">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.MustInt">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.Name">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.FieldType">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.Cls">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.FieldInfo">
+            <inheritdoc />
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.PropertyInfo">
+            <inheritdoc />
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.GNEnhancedObjectFieldMetadata.#ctor(System.String,XmobiTea.Data.Converter.Types.FieldDataType,System.Type,System.Reflection.FieldInfo,System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the GNEnhancedObjectFieldMetadata class.
+            </summary>
+            <param name="name">The name of the field.</param>
+            <param name="fieldType">The type of the field.</param>
+            <param name="cls">The class type that contains the field.</param>
+            <param name="fieldInfo">The FieldInfo object associated with the field.</param>
+            <param name="propertyInfo">The PropertyInfo object associated with the property.</param>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.ISerializeConverter">
+            <summary>
+            Interface for converting objects and lists to GNHashtable and GNArray respectively.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.ISerializeConverter.SerializeObject(System.Object)">
+            <summary>
+            Serializes an object to a GNHashtable.
+            </summary>
+            <param name="obj">The object to serialize.</param>
+            <returns>A GNHashtable representing the serialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.ISerializeConverter.SerializeArray(System.Collections.IList)">
+            <summary>
+            Serializes a list of objects to a GNArray.
+            </summary>
+            <param name="objLst">The list of objects to serialize.</param>
+            <returns>A GNArray representing the serialized list.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.SerializeConverter">
+            <summary>
+            Implementation of ISerializeConverter for converting objects and lists to GNHashtable and GNArray.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Models.SerializeConverter.SerializeParserDelegate">
+            <summary>
+            Delegate for handling the serialization of individual fields.
+            </summary>
+            <param name="declaredField">The metadata of the field being serialized.</param>
+            <param name="value">The value of the field being serialized.</param>
+            <param name="gnHashtable">The GNHashtable to which the serialized data will be added.</param>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.SerializeConverter.serializeParserDict">
+            <summary>
+            Dictionary mapping GNFieldDataType to appropriate serialization handlers.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Models.SerializeConverter.dataMemberFieldInfoMapper">
+            <summary>
+            Mapper for obtaining field metadata for a given type.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.#ctor(XmobiTea.Data.Converter.Models.IDataMemberFieldInfoTypeMapper)">
+            <summary>
+            Initializes a new instance of the SerializeConverter class.
+            </summary>
+            <param name="dataMemberFieldInfoMapper">The mapper for obtaining field metadata.</param>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.AddSerializeParserHandlers">
+            <summary>
+            Adds handlers for serializing different field types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.StringSerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a string field.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.BooleanSerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a boolean field.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.GNHashtableSerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a GNHashtable field.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.GNArraySerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a GNArray field.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.NumberSerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a numeric field.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.OtherSerializer(XmobiTea.Data.Converter.Models.IGNEnhancedObjectFieldMetadata,System.Object,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Serializes a field of other types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.SerializeObject(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:XmobiTea.Data.Converter.Models.SerializeConverter.SerializeArray(System.Collections.IList)">
+            <inheritdoc />
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.BooleanDataMemberAttribute">
+            <summary>
+            Attribute for marking fields that represent boolean data members.
+            Extends DataMemberAttribute with additional boolean-specific metadata.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.BooleanDataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Overrides to return GNFieldDataType.Boolean.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.BooleanDataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default boolean value for the field.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.DataMemberAttribute">
+            <summary>
+            Base attribute for marking fields that represent data members in an object.
+            Provides common properties for specifying metadata such as field type, code, and default value.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.DataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Default is GNFieldDataType.Other.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.DataMemberAttribute.Code">
+            <summary>
+            Gets or sets the code associated with the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.DataMemberAttribute.IsOptional">
+            <summary>
+            Gets or sets a value indicating whether the field is optional.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.DataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default value for the field.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute">
+            <summary>
+            Attribute for marking fields that represent GNArray data members.
+            Extends DataMemberAttribute with additional GNArray-specific metadata.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Overrides to return GNFieldDataType.GNArray.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default GNArray value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.MustNonNull">
+            <summary>
+            Gets or sets a value indicating whether the GNArray must not be null.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.MinLength">
+            <summary>
+            Gets or sets the minimum length of the GNArray.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.MaxLength">
+            <summary>
+            Gets or sets the maximum length of the GNArray.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNArrayDataMemberAttribute.ElementCls">
+            <summary>
+            Gets or sets the type of elements contained within the GNArray.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute">
+            <summary>
+            Attribute for marking fields that represent GNHashtable data members.
+            Extends DataMemberAttribute with additional GNHashtable-specific metadata.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Overrides to return GNFieldDataType.GNHashtable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default GNHashtable value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute.MustNonNull">
+            <summary>
+            Gets or sets a value indicating whether the GNHashtable must not be null.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute.MinLength">
+            <summary>
+            Gets or sets the minimum length of the GNHashtable.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.GNHashtableDataMemberAttribute.MaxLength">
+            <summary>
+            Gets or sets the maximum length of the GNHashtable.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute">
+            <summary>
+            Attribute for marking fields that represent numeric data members.
+            Extends DataMemberAttribute with additional number-specific metadata.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Overrides to return GNFieldDataType.Number.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default numeric value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute.MinValue">
+            <summary>
+            Gets or sets the minimum value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute.MaxValue">
+            <summary>
+            Gets or sets the maximum value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.NumberDataMemberAttribute.MustInt">
+            <summary>
+            Gets or sets a value indicating whether the field must represent an integer.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute">
+            <summary>
+            Attribute for marking fields that represent string data members.
+            Extends DataMemberAttribute with additional string-specific metadata.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute.GNFieldType">
+            <summary>
+            Gets the type of the field represented by this attribute. Overrides to return GNFieldDataType.String.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute.DefaultValue">
+            <summary>
+            Gets or sets the default string value for the field.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute.MustNonNull">
+            <summary>
+            Gets or sets a value indicating whether the string must not be null.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute.MinLength">
+            <summary>
+            Gets or sets the minimum length of the string.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Converter.Rpc.StringDataMemberAttribute.MaxLength">
+            <summary>
+            Gets or sets the maximum length of the string.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Types.FieldDataType">
+            <summary>
+            Enumeration representing various field data types.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.FieldDataType.Boolean">
+            <summary>
+            Represents a boolean data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.FieldDataType.Number">
+            <summary>
+            Represents a numeric data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.FieldDataType.String">
+            <summary>
+            Represents a string data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.FieldDataType.Array">
+            <summary>
+            Represents an array data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.FieldDataType.Object">
+            <summary>
+            Represents an object data field.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.Converter.Types.GNFieldDataType">
+            <summary>
+            Enumeration representing different types of data fields.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.Other">
+            <summary>
+            Represents a field type that is not specifically categorized.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.Number">
+            <summary>
+            Represents a numeric data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.String">
+            <summary>
+            Represents a string data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.Boolean">
+            <summary>
+            Represents a boolean data field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.GNHashtable">
+            <summary>
+            Represents a field that is a GNHashtable.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Converter.Types.GNFieldDataType.GNArray">
+            <summary>
+            Represents a field that is a GNArray.
+            </summary>
+        </member>
+    </members>
+</doc>

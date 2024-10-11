@@ -1,0 +1,2237 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.ProtonNetCommon</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.ProtonNetCommon.Extensions.ArrayExtensions">
+            <summary>
+            Provides extension methods for array manipulation.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.ArrayExtensions.Fill``1(``0[],``0)">
+            <summary>
+            Fills all elements of the array with the specified value.
+            </summary>
+            <typeparam name="T">The type of elements in the array.</typeparam>
+            <param name="arr">The array to be filled.</param>
+            <param name="value">The value to fill the array with.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.ArrayExtensions.ToClone``1(``0[],System.Int32,System.Int32)">
+            <summary>
+            Creates a new array that is a clone of a portion of the source array.
+            </summary>
+            <typeparam name="T">The type of elements in the array.</typeparam>
+            <param name="source">The source array to clone from.</param>
+            <param name="start">The starting index of the portion to clone.</param>
+            <param name="end">The ending index (exclusive) of the portion to clone.</param>
+            <returns>A new array that is a clone of the specified portion of the source array.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions">
+            <summary>
+            Provides extension methods for creating various types of HTTP requests.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewHeadRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String)">
+            <summary>
+            Creates a new HTTP HEAD request.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the HEAD request.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewGetRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String)">
+            <summary>
+            Creates a new HTTP GET request.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the GET request.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewPostRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String,System.String,System.String)">
+            <summary>
+            Creates a new HTTP POST request with string content.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the POST request.</param>
+            <param name="content">The string content to be sent in the POST request.</param>
+            <param name="contentType">The MIME type of the content. Defaults to text/plain.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewPostRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String,System.Byte[],System.String)">
+            <summary>
+            Creates a new HTTP POST request with binary content.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the POST request.</param>
+            <param name="content">The byte array content to be sent in the POST request.</param>
+            <param name="contentType">The MIME type of the content. Defaults to application/octet-stream.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewPutRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String,System.String,System.String)">
+            <summary>
+            Creates a new HTTP PUT request with string content.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the PUT request.</param>
+            <param name="content">The string content to be sent in the PUT request.</param>
+            <param name="contentType">The MIME type of the content. Defaults to text/plain.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewPutRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String,System.Byte[],System.String)">
+            <summary>
+            Creates a new HTTP PUT request with binary content.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the PUT request.</param>
+            <param name="content">The byte array content to be sent in the PUT request.</param>
+            <param name="contentType">The MIME type of the content. Defaults to application/octet-stream.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewDeleteRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String)">
+            <summary>
+            Creates a new HTTP DELETE request.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the DELETE request.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewOptionsRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String)">
+            <summary>
+            Creates a new HTTP OPTIONS request.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the OPTIONS request.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpRequestExtensions.NewTraceRequest(XmobiTea.ProtonNetCommon.HttpRequest,System.String)">
+            <summary>
+            Creates a new HTTP TRACE request.
+            </summary>
+            <param name="request">The HTTP request instance to modify.</param>
+            <param name="url">The URL for the TRACE request.</param>
+            <returns>The modified HTTP request instance.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions">
+            <summary>
+            Provides extension methods for creating various types of HTTP responses.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeOkResponse(XmobiTea.ProtonNetCommon.HttpResponse,XmobiTea.ProtonNetCommon.Types.StatusCode)">
+            <summary>
+            Creates a new HTTP 200 OK response.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="status">The status code for the response. Defaults to 200 OK.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeErrorResponse(XmobiTea.ProtonNetCommon.HttpResponse,XmobiTea.ProtonNetCommon.Types.StatusCode,System.String)">
+            <summary>
+            Creates a new HTTP error response with the specified status code and error message.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="status">The status code for the response.</param>
+            <param name="error">The error message to include in the response body.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeHeadResponse(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Creates a new HTTP 200 OK HEAD response.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeGetResponse(XmobiTea.ProtonNetCommon.HttpResponse,System.String,System.String)">
+            <summary>
+            Creates a new HTTP 200 OK GET response with string content.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="content">The string content to include in the response body.</param>
+            <param name="contentType">The MIME type of the content. Defaults to text/plain.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeGetResponse(XmobiTea.ProtonNetCommon.HttpResponse,System.Byte[],System.String)">
+            <summary>
+            Creates a new HTTP 200 OK GET response with binary content.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="content">The byte array content to include in the response body.</param>
+            <param name="contentType">The MIME type of the content. Defaults to application/octet-stream.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeOptionsResponse(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Creates a new HTTP 200 OK OPTIONS response.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="allow">The allowed HTTP methods to include in the Allow header. Defaults to a standard set of methods.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeTraceResponse(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Creates a new HTTP 200 OK TRACE response with string content.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="request">The string content to include in the response body, representing the original request.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.HttpResponseExtensions.MakeTraceResponse(XmobiTea.ProtonNetCommon.HttpResponse,System.Byte[])">
+            <summary>
+            Creates a new HTTP 200 OK TRACE response with binary content.
+            </summary>
+            <param name="response">The HTTP response instance to modify.</param>
+            <param name="request">The byte array content to include in the response body, representing the original request.</param>
+            <returns>The modified HTTP response instance.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Extensions.StringExtensions">
+            <summary>
+            Provides extension methods for string manipulation.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Extensions.StringExtensions.RemoveSuffix(System.String,System.Char)">
+            <summary>
+            Removes the specified character suffix from the end of the string, if it exists.
+            </summary>
+            <param name="self">The string instance to modify.</param>
+            <param name="toRemove">The character to remove from the end of the string.</param>
+            <returns>
+            A new string without the specified suffix, or the original string if the suffix does not exist.
+            </returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Helper.MimeUtils">
+            <summary>
+            Provides utility methods for handling MIME types based on file extensions.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.Helper.MimeUtils.extensionWithMimeDict">
+            <summary>
+            A dictionary mapping file extensions to their corresponding MIME types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Helper.MimeUtils.#cctor">
+            <summary>
+            Static constructor to initialize the dictionary and populate it with common MIME types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Helper.MimeUtils.AddExtensionWithMimes">
+            <summary>
+            Populates the dictionary with common file extensions and their associated MIME types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Helper.MimeUtils.GetMimeName(System.String)">
+            <summary>
+            Gets the MIME type associated with the given file extension.
+            </summary>
+            <param name="extension">The file extension for which to retrieve the MIME type.</param>
+            <returns>
+            The corresponding MIME type if the extension is found; otherwise, null.
+            </returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Helper.Utils">
+            <summary>
+            Provides utility methods for handling socket errors.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.Helper.Utils.IsIgnoreDisconnectError(System.Net.Sockets.SocketError)">
+            <summary>
+            Determines whether the specified socket error should be ignored in the context of a disconnect operation.
+            </summary>
+            <param name="error">The socket error to evaluate.</param>
+            <returns>
+            True if the error is one of the following: ConnectionAborted, ConnectionRefused, ConnectionReset, OperationAborted, or Shutdown.
+            Otherwise, false.
+            </returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.HttpRequest">
+            <summary>
+            Represents an HTTP request with properties for the method, URL, protocol, headers, cookies, and body.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Method">
+            <summary>
+            Gets the HTTP method of the request (e.g., GET, POST).
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Url">
+            <summary>
+            Gets the URL of the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Protocol">
+            <summary>
+            Gets the protocol version (e.g., HTTP/1.1).
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Headers">
+            <summary>
+            Gets the list of headers in the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.HeaderCount">
+            <summary>
+            Gets header count in the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Cookies">
+            <summary>
+            Gets the list of cookies in the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.CookieCount">
+            <summary>
+            Gets cookie count in the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodyIndex">
+            <summary>
+            Gets the index in the buffer where the body starts.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodySize">
+            <summary>
+            Gets the size of the body in bytes.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodyLength">
+            <summary>
+            Gets the total length of the body.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodyLengthProvided">
+            <summary>
+            Indicates whether the body length was provided in the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.Cache">
+            <summary>
+            Gets the buffer that caches the request data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.CacheSize">
+            <summary>
+            Gets the size of the cache.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.IsEmpty">
+            <summary>
+            Indicates whether the request is empty.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.IsErrorSet">
+            <summary>
+            Indicates whether an error is set on the request.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodyAsString">
+            <summary>
+            Gets the body of the request as a string.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpRequest.BodyAsBytes">
+            <summary>
+            Gets the body of the request as a byte array.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.#ctor">
+            <summary>
+            Initializes a new instance of the HttpRequest class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the HttpRequest class with the specified method, URL, and protocol.
+            </summary>
+            <param name="method">The HTTP method (e.g., GET, POST).</param>
+            <param name="url">The URL of the request.</param>
+            <param name="protocol">The protocol version (default is HTTP/1.1).</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.GetHeader(System.Int32)">
+            <summary>
+            Gets the header at the specified index.
+            </summary>
+            <param name="i">The index of the header.</param>
+            <returns>A tuple containing the header name and value.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.GetHeader(System.String)">
+            <summary>
+            Gets the value of the header with the specified key.
+            </summary>
+            <param name="key">The name of the header.</param>
+            <returns>The value of the header, or null if not found.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.GetCookie(System.Int32)">
+            <summary>
+            Gets the cookie at the specified index.
+            </summary>
+            <param name="i">The index of the cookie.</param>
+            <returns>A tuple containing the cookie name and value.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.GetCookie(System.String)">
+            <summary>
+            Gets the value of the cookie with the specified name.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <returns>The value of the cookie, or null if not found.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.Clear">
+            <summary>
+            Clears the request, resetting all properties to their default values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetBegin(System.String,System.String,System.String)">
+            <summary>
+            Sets the initial request line (method, URL, protocol).
+            </summary>
+            <param name="method">The HTTP method.</param>
+            <param name="url">The URL of the request.</param>
+            <param name="protocol">The protocol version (default is HTTP/1.1).</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetHeader(System.String,System.String)">
+            <summary>
+            Adds a header to the request.
+            </summary>
+            <param name="key">The name of the header.</param>
+            <param name="value">The value of the header.</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetCookie(System.String,System.String)">
+            <summary>
+            Sets a cookie in the request.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.AddCookie(System.String,System.String)">
+            <summary>
+            Adds a cookie to the request.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetBody(System.String)">
+            <summary>
+            Sets the body of the request as a string.
+            </summary>
+            <param name="body">The body content as a string.</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetBody(System.Byte[])">
+            <summary>
+            Sets the body of the request as a byte array.
+            </summary>
+            <param name="body">The body content as a byte array.</param>
+            <returns>The current HttpRequest instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.IsPendingHeader">
+            <summary>
+            Determines whether the request is pending headers.
+            </summary>
+            <returns>True if headers are pending; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.IsPendingBody">
+            <summary>
+            Determines whether the request is pending body data.
+            </summary>
+            <returns>True if body data is pending; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetHeaderBuffer(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sets the header buffer from the provided byte array.
+            </summary>
+            <param name="buffer">The byte array containing the header data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the data in the buffer.</param>
+            <returns>True if the headers were successfully set; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpRequest.SetBodyBuffer(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sets the body buffer from the provided byte array.
+            </summary>
+            <param name="buffer">The byte array containing the body data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the data in the buffer.</param>
+            <returns>True if the body was successfully set; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.HttpResponse">
+            <summary>
+            Represents an HTTP response, encapsulating the protocol, status, headers, cookies, and body of the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.Protocol">
+            <summary>
+            Gets the HTTP protocol used in the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.HeaderCount">
+            <summary>
+            Gets the count of headers in the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.CookieCount">
+            <summary>
+            Gets the count of cookies in the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.Cache">
+            <summary>
+            Gets the memory buffer that stores the response data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.IsEmpty">
+            <summary>
+            Indicates whether the response body is empty.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.IsErrorSet">
+            <summary>
+            Indicates whether an error has been set in the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.Status">
+            <summary>
+            Gets the HTTP status code of the response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.BodyAsString">
+            <summary>
+            Gets the body of the response as a string.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.HttpResponse.BodyAsBytes">
+            <summary>
+            Gets the body of the response as a byte array.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.#ctor(XmobiTea.ProtonNetCommon.Types.StatusCode,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> class with the specified status and protocol.
+            </summary>
+            <param name="status">The HTTP status code.</param>
+            <param name="protocol">The HTTP protocol (default is <see cref="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultHttpProtocol"/>).</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.GetHeader(System.Int32)">
+            <summary>
+            Gets the header at the specified index.
+            </summary>
+            <param name="i">The index of the header.</param>
+            <returns>A tuple containing the header name and value.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.GetHeader(System.String)">
+            <summary>
+            Gets the value of the specified header.
+            </summary>
+            <param name="key">The name of the header.</param>
+            <returns>The value of the header, or null if not found.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.GetCookie(System.Int32)">
+            <summary>
+            Gets the cookie at the specified index.
+            </summary>
+            <param name="i">The index of the cookie.</param>
+            <returns>A tuple containing the cookie name and value.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.GetCookie(System.String)">
+            <summary>
+            Gets the value of the specified cookie.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <returns>The value of the cookie, or null if not found.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.Clear">
+            <summary>
+            Clears the current response, resetting all properties.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetBegin(XmobiTea.ProtonNetCommon.Types.StatusCode,System.String)">
+            <summary>
+            Sets the beginning of the response with the specified status and protocol.
+            </summary>
+            <param name="status">The HTTP status code.</param>
+            <param name="protocol">The HTTP protocol (default is <see cref="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultHttpProtocol"/>).</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetContentType(System.String)">
+            <summary>
+            Sets the Content-Type header for the response based on the file extension.
+            </summary>
+            <param name="extension">The file extension.</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetHeader(System.String,System.String)">
+            <summary>
+            Sets a header with the specified key and value.
+            </summary>
+            <param name="key">The name of the header.</param>
+            <param name="value">The value of the header.</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetCookie(System.String,System.String,System.Int32,System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets a cookie with the specified name, value, and optional parameters.
+            </summary>
+            <param name="name">The name of the cookie.</param>
+            <param name="value">The value of the cookie.</param>
+            <param name="maxAge">The maximum age of the cookie in seconds (default is 86400 seconds).</param>
+            <param name="path">The path where the cookie is valid.</param>
+            <param name="domain">The domain where the cookie is valid.</param>
+            <param name="secure">Indicates whether the cookie is secure (default is true).</param>
+            <param name="strict">Indicates whether the cookie should be SameSite=Strict (default is true).</param>
+            <param name="httpOnly">Indicates whether the cookie is HttpOnly (default is true).</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetBody(System.String)">
+            <summary>
+            Sets the body of the response with the specified string content.
+            </summary>
+            <param name="body">The body content as a string.</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetBody(System.Byte[])">
+            <summary>
+            Sets the body of the response with the specified byte array content.
+            </summary>
+            <param name="body">The body content as a byte array.</param>
+            <returns>The current <see cref="T:XmobiTea.ProtonNetCommon.HttpResponse"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.IsPendingHeader">
+            <summary>
+            Indicates whether the response is pending header processing.
+            </summary>
+            <returns>True if the response is pending header processing, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.IsPendingBody">
+            <summary>
+            Indicates whether the response is pending body processing.
+            </summary>
+            <returns>True if the response is pending body processing, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetHeaderBuffer(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sets the header buffer with the specified byte array data.
+            </summary>
+            <param name="buffer">The byte array containing header data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the data to write.</param>
+            <returns>True if the header processing is complete, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.HttpResponse.SetBodyBuffer(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sets the body buffer with the specified byte array data.
+            </summary>
+            <param name="buffer">The byte array containing body data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the data to write.</param>
+            <returns>True if the body processing is complete, otherwise false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.IMemoryBuffer">
+            <summary>
+            Interface defining the operations for a memory buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.IMemoryBuffer.Capacity">
+            <summary>
+            Gets the capacity of the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.IMemoryBuffer.Buffer">
+            <summary>
+            Gets the byte array buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.IMemoryBuffer.Length">
+            <summary>
+            Gets the current length of the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.IMemoryBuffer.Position">
+            <summary>
+            Gets the current position in the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.IMemoryBuffer.Item(System.Int32)">
+            <summary>
+            Gets the byte at the specified index.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.IsEmpty">
+            <summary>
+            Checks if the buffer is empty.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.ToArray">
+            <summary>
+            Converts the buffer to a byte array.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.ToArray(System.Int32,System.Int32)">
+            <summary>
+            Converts a portion of the buffer to a byte array.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Clear">
+            <summary>
+            Clears the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.ExtractString(System.Int32,System.Int32)">
+            <summary>
+            Extracts a string from the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes a portion of the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Reserve(System.Int32)">
+            <summary>
+            Reserves additional capacity for the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Resize(System.Int32)">
+            <summary>
+            Resizes the buffer to the specified length.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Shift(System.Int32)">
+            <summary>
+            Shifts the current position in the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Write(System.Byte)">
+            <summary>
+            Writes a byte to the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Write(System.String)">
+            <summary>
+            Writes a string to the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Write(System.Byte[])">
+            <summary>
+            Writes a byte array to the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IMemoryBuffer.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a portion of a byte array to the buffer.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.MemoryBuffer">
+            <summary>
+            Implementation of the IMemoryBuffer interface, providing methods to manage a byte buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.currentBuffer">
+            <summary>
+            Gets or sets the current buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.currentLength">
+            <summary>
+            Gets or sets the current length of the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.currentPosition">
+            <summary>
+            Gets or sets the current position in the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.Capacity">
+            <summary>
+            Gets the capacity of the current buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.Buffer">
+            <summary>
+            Gets the current buffer as a byte array.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.Length">
+            <summary>
+            Gets the current length of the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.Position">
+            <summary>
+            Gets the current position in the buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.MemoryBuffer.Item(System.Int32)">
+            <summary>
+            Gets the byte at the specified index in the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.#ctor">
+            <summary>
+            Initializes a new instance of the MemoryBuffer class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the MemoryBuffer class with the specified capacity.
+            </summary>
+            <param name="capacity">The initial capacity of the buffer.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the MemoryBuffer class with the specified byte array.
+            </summary>
+            <param name="buffer">The initial byte array.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.IsEmpty">
+            <summary>
+            Checks if the buffer is empty.
+            </summary>
+            <returns>True if the buffer is empty; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.ToArray">
+            <summary>
+            Converts the entire buffer to a byte array.
+            </summary>
+            <returns>A new byte array containing the contents of the buffer.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.ToArray(System.Int32,System.Int32)">
+            <summary>
+            Converts a portion of the buffer to a byte array.
+            </summary>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the portion to convert.</param>
+            <returns>A new byte array containing the specified portion of the buffer.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Clear">
+            <summary>
+            Clears the buffer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.ExtractString(System.Int32,System.Int32)">
+            <summary>
+            Extracts a string from the buffer.
+            </summary>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the string to extract.</param>
+            <returns>The extracted string.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the position and length are invalid.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes a portion of the buffer.
+            </summary>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the portion to remove.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the position and length are invalid.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Reserve(System.Int32)">
+            <summary>
+            Reserves additional capacity for the buffer.
+            </summary>
+            <param name="capacity">The new capacity to reserve.</param>
+            <exception cref="T:System.ArgumentException">Thrown when the capacity is less than 0.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Resize(System.Int32)">
+            <summary>
+            Resizes the buffer to the specified length.
+            </summary>
+            <param name="length">The new length of the buffer.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Shift(System.Int32)">
+            <summary>
+            Shifts the current position in the buffer by the specified amount.
+            </summary>
+            <param name="positionAmount">The amount by which to shift the position.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Write(System.Byte)">
+            <summary>
+            Writes a byte to the buffer.
+            </summary>
+            <param name="value">The byte to write.</param>
+            <returns>The number of bytes written (1).</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Write(System.String)">
+            <summary>
+            Writes a string to the buffer.
+            </summary>
+            <param name="text">The string to write.</param>
+            <returns>The number of bytes written.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Write(System.Byte[])">
+            <summary>
+            Writes a byte array to the buffer.
+            </summary>
+            <param name="buffer">The byte array to write.</param>
+            <returns>The number of bytes written.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.MemoryBuffer.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a portion of a byte array to the buffer.
+            </summary>
+            <param name="buffer">The byte array to write from.</param>
+            <param name="position">The starting position in the byte array.</param>
+            <param name="length">The number of bytes to write.</param>
+            <returns>The number of bytes written.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.INetworkStatistics">
+            <summary>
+            Interface for retrieving network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetBytesSent">
+            <summary>
+            Gets the total number of bytes sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetBytesReceived">
+            <summary>
+            Gets the total number of bytes received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetBytesPending">
+            <summary>
+            Gets the total number of bytes pending to be sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetBytesSending">
+            <summary>
+            Gets the total number of bytes currently being sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetPacketSent">
+            <summary>
+            Gets the total number of packets sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.INetworkStatistics.GetPacketReceived">
+            <summary>
+            Gets the total number of packets received.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics">
+            <summary>
+            Interface for modifying network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.ChangeBytesSent(System.Int64)">
+            <summary>
+            Increases the number of bytes sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.ChangeBytesReceived(System.Int64)">
+            <summary>
+            Increases the number of bytes received by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.ChangeBytesPending(System.Int64)">
+            <summary>
+            Increases the number of bytes pending by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.ChangeBytesSending(System.Int64)">
+            <summary>
+            Increases the number of bytes being sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.SetBytesSent(System.Int64)">
+            <summary>
+            Sets the total number of bytes sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.SetBytesReceived(System.Int64)">
+            <summary>
+            Sets the total number of bytes received to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.SetBytesPending(System.Int64)">
+            <summary>
+            Sets the total number of bytes pending to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.SetBytesSending(System.Int64)">
+            <summary>
+            Sets the total number of bytes being sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.IncPacketSent">
+            <summary>
+            Increments the total number of packets sent by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.IncPacketReceived">
+            <summary>
+            Increments the total number of packets received by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeNetworkStatistics.Reset">
+            <summary>
+            Resets all network statistics to zero.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.NetworkStatistics">
+            <summary>
+            Class that implements INetworkStatistics, providing basic retrieval of network statistics.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.bytesSent">
+            <summary>
+            Total number of bytes sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.bytesReceived">
+            <summary>
+            Total number of bytes received.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.bytesPending">
+            <summary>
+            Total number of bytes pending to be sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.bytesSending">
+            <summary>
+            Total number of bytes currently being sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.packetSent">
+            <summary>
+            Total number of packets sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.NetworkStatistics.packetReceived">
+            <summary>
+            Total number of packets received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetBytesSent">
+            <summary>
+            Gets the total number of bytes sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetBytesReceived">
+            <summary>
+            Gets the total number of bytes received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetBytesPending">
+            <summary>
+            Gets the total number of bytes pending to be sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetBytesSending">
+            <summary>
+            Gets the total number of bytes currently being sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetPacketSent">
+            <summary>
+            Gets the total number of packets sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.NetworkStatistics.GetPacketReceived">
+            <summary>
+            Gets the total number of packets received.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics">
+            <summary>
+            Class that implements IChangeNetworkStatistics, providing methods to modify and retrieve network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.ChangeBytesSent(System.Int64)">
+            <summary>
+            Increases the number of bytes sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.ChangeBytesReceived(System.Int64)">
+            <summary>
+            Increases the number of bytes received by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.ChangeBytesPending(System.Int64)">
+            <summary>
+            Increases the number of bytes pending by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.ChangeBytesSending(System.Int64)">
+            <summary>
+            Increases the number of bytes being sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.SetBytesSent(System.Int64)">
+            <summary>
+            Sets the total number of bytes sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.SetBytesReceived(System.Int64)">
+            <summary>
+            Sets the total number of bytes received to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.SetBytesPending(System.Int64)">
+            <summary>
+            Sets the total number of bytes pending to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.SetBytesSending(System.Int64)">
+            <summary>
+            Sets the total number of bytes being sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.IncPacketSent">
+            <summary>
+            Increments the total number of packets sent by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.IncPacketReceived">
+            <summary>
+            Increments the total number of packets received by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeNetworkStatistics.Reset">
+            <summary>
+            Resets all network statistics to zero.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.IServerNetworkStatistics">
+            <summary>
+            Interface for retrieving server network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IServerNetworkStatistics.GetBytesSent">
+            <summary>
+            Gets the total number of bytes sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IServerNetworkStatistics.GetBytesReceived">
+            <summary>
+            Gets the total number of bytes received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IServerNetworkStatistics.GetPacketSent">
+            <summary>
+            Gets the total number of packets sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IServerNetworkStatistics.GetPacketReceived">
+            <summary>
+            Gets the total number of packets received.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics">
+            <summary>
+            Interface for modifying server network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.ChangeBytesSent(System.Int64)">
+            <summary>
+            Increases the number of bytes sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.ChangeBytesReceived(System.Int64)">
+            <summary>
+            Increases the number of bytes received by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.SetBytesSent(System.Int64)">
+            <summary>
+            Sets the total number of bytes sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.SetBytesReceived(System.Int64)">
+            <summary>
+            Sets the total number of bytes received to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.IncPacketSent">
+            <summary>
+            Increments the total number of packets sent by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.IncPacketReceived">
+            <summary>
+            Increments the total number of packets received by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IChangeServerNetworkStatistics.Reset">
+            <summary>
+            Resets all server network statistics to zero.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.ServerNetworkStatistics">
+            <summary>
+            Class that implements IServerNetworkStatistics, providing basic retrieval of server network statistics.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.bytesSent">
+            <summary>
+            Total number of bytes sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.bytesReceived">
+            <summary>
+            Total number of bytes received.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.packetSent">
+            <summary>
+            Total number of packets sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.packetReceived">
+            <summary>
+            Total number of packets received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.GetBytesSent">
+            <summary>
+            Gets the total number of bytes sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.GetBytesReceived">
+            <summary>
+            Gets the total number of bytes received.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.GetPacketSent">
+            <summary>
+            Gets the total number of packets sent.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ServerNetworkStatistics.GetPacketReceived">
+            <summary>
+            Gets the total number of packets received.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics">
+            <summary>
+            Class that implements IChangeServerNetworkStatistics, providing methods to modify and retrieve server network statistics.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.ChangeBytesSent(System.Int64)">
+            <summary>
+            Increases the number of bytes sent by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.ChangeBytesReceived(System.Int64)">
+            <summary>
+            Increases the number of bytes received by the specified amount.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.SetBytesSent(System.Int64)">
+            <summary>
+            Sets the total number of bytes sent to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.SetBytesReceived(System.Int64)">
+            <summary>
+            Sets the total number of bytes received to the specified value.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.IncPacketSent">
+            <summary>
+            Increments the total number of packets sent by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.IncPacketReceived">
+            <summary>
+            Increments the total number of packets received by one.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.ChangeServerNetworkStatistics.Reset">
+            <summary>
+            Resets all server network statistics to zero.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.IWebSocket">
+            <summary>
+            Interface defining the contract for WebSocket operations and events.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Invoked when a WebSocket connection is being established.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsConnected(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Invoked when a WebSocket connection has been successfully established.
+            </summary>
+            <param name="response">The HTTP response confirming the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest,XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Invoked when a WebSocket connection is being established, allowing to modify the response.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+            <param name="response">The HTTP response confirming the connection.</param>
+            <returns>True if the connection should be accepted; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsConnected(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Invoked when a WebSocket connection has been successfully established.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsDisconnecting">
+            <summary>
+            Invoked when a WebSocket connection is about to be closed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsDisconnected">
+            <summary>
+            Invoked when a WebSocket connection has been closed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket message has been received.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsClose(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket close frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the close frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the close frame data.</param>
+            <param name="status">The close status code.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket ping frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the ping frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the ping frame data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket pong frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the pong frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the pong frame data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsError(System.String)">
+            <summary>
+            Invoked when a WebSocket error occurs, providing an error message.
+            </summary>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.OnWsError(System.Net.Sockets.SocketError)">
+            <summary>
+            Invoked when a WebSocket error occurs, providing a SocketError.
+            </summary>
+            <param name="error">The SocketError that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.IWebSocket.SendUpgrade(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Sends an HTTP response to complete the WebSocket upgrade process.
+            </summary>
+            <param name="response">The HTTP response to be sent.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.WebSocket">
+            <summary>
+            An implement of interface WebSocket
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.WebSocket.RandomProvider">
+            <summary>
+            Provides a thread-safe random number generator for generating random bytes.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.RandomProvider.random">
+            <summary>
+            The static random instance used to generate random bytes.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.RandomProvider.NextBytes(System.Byte[])">
+            <summary>
+            Fills the specified buffer with random bytes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.WebSocket.WS_MAGIC_STRING_SALT">
+            <summary>
+            The magic string used in WebSocket key validation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.originWs">
+            <summary>
+            The origin WebSocket that implements the IWebSocket interface.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.opcode">
+            <summary>
+            The operation code for the current WebSocket frame.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.headerSize">
+            <summary>
+            The size of the WebSocket frame header.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.payloadSize">
+            <summary>
+            The size of the WebSocket frame payload.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.receiveLock">
+            <summary>
+            The lock object used to synchronize access to the receive buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.receiveFrameBuffer">
+            <summary>
+            The buffer used to store the received WebSocket frame.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.receiveFinalBuffer">
+            <summary>
+            The buffer used to store the final WebSocket frame after processing.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.receiveMask">
+            <summary>
+            The masking key used to decode the WebSocket frame payload.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.handshaked">
+            <summary>
+            Indicates whether the WebSocket handshake has been completed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.frameReceived">
+            <summary>
+            Indicates whether the WebSocket frame has been fully received.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.finalReceived">
+            <summary>
+            Indicates whether the WebSocket frame has been fully processed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.sendLock">
+            <summary>
+            The lock object used to synchronize access to the send buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.sendBuffer">
+            <summary>
+            The buffer used to store the WebSocket frame to be sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.sendMask">
+            <summary>
+            The masking key used to encode the WebSocket frame payload.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.WebSocket.nonce">
+            <summary>
+            The nonce used during the WebSocket handshake.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.#ctor(XmobiTea.ProtonNetCommon.IWebSocket)">
+            <summary>
+            Initializes a new instance of the WebSocket class with the specified origin WebSocket.
+            </summary>
+            <param name="originWs">The origin WebSocket instance.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.PerformClientUpgrade(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Performs the WebSocket client upgrade.
+            </summary>
+            <param name="response">The HTTP response for the upgrade.</param>
+            <param name="id">The WebSocket ID.</param>
+            <returns>True if the upgrade was successful, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.PerformServerUpgrade(XmobiTea.ProtonNetCommon.HttpRequest,XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Performs the WebSocket server upgrade.
+            </summary>
+            <param name="request">The HTTP request initiating the upgrade.</param>
+            <param name="response">The HTTP response for the upgrade.</param>
+            <returns>True if the upgrade was successful, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.PrepareSendFrame(System.Byte,System.Boolean,System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Prepares the WebSocket frame to be sent.
+            </summary>
+            <param name="opcode">The operation code of the WebSocket frame.</param>
+            <param name="mask">Indicates whether the frame should be masked.</param>
+            <param name="buffer">The buffer containing the data to be sent.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the data to be sent.</param>
+            <param name="status">The status code for the frame, if applicable.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.PrepareReceiveFrame(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Prepares the WebSocket frame received for processing.
+            </summary>
+            <param name="buffer">The buffer containing the received frame.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.ClearWsBuffers">
+            <summary>
+            Clears the WebSocket buffers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.InitWsNonce">
+            <summary>
+            Initializes the WebSocket nonce with random bytes.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Invoked when a WebSocket connection is being established.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsConnected(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Invoked when a WebSocket connection has been successfully established.
+            </summary>
+            <param name="response">The HTTP response confirming the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest,XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Invoked when a WebSocket connection is being established, allowing to modify the response.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+            <param name="response">The HTTP response confirming the connection.</param>
+            <returns>True if the connection should be accepted; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsConnected(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Invoked when a WebSocket connection has been successfully established.
+            </summary>
+            <param name="request">The HTTP request initiating the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsDisconnecting">
+            <summary>
+            Invoked when a WebSocket connection is about to be closed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsDisconnected">
+            <summary>
+            Invoked when a WebSocket connection has been closed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket message has been received.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsClose(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket close frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the close frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the close frame data.</param>
+            <param name="status">The close status code.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket ping frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the ping frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the ping frame data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Invoked when a WebSocket pong frame has been received.
+            </summary>
+            <param name="buffer">The buffer containing the pong frame data.</param>
+            <param name="position">The position in the buffer where the data starts.</param>
+            <param name="length">The length of the pong frame data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsError(System.String)">
+            <summary>
+            Invoked when a WebSocket error occurs, providing an error message.
+            </summary>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.OnWsError(System.Net.Sockets.SocketError)">
+            <summary>
+            Invoked when a WebSocket error occurs, providing a SocketError.
+            </summary>
+            <param name="error">The SocketError that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.WebSocket.SendUpgrade(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Sends an HTTP response to complete the WebSocket upgrade process.
+            </summary>
+            <param name="response">The HTTP response to be sent.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.SslOptions">
+            <summary>
+            Represents the SSL/TLS context used for secure communications.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.SslOptions.SslProtocols">
+            <summary>
+            Gets the SSL/TLS protocols to be used.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.SslOptions.X509Certificate">
+            <summary>
+            Gets the certificate used for SSL/TLS.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetCommon.SslOptions.Certificates">
+            <summary>
+            Gets the collection of certificates used for SSL/TLS.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetCommon.SslOptions.#ctor(System.Security.Authentication.SslProtocols,System.Security.Cryptography.X509Certificates.X509Certificate)">
+            <summary>
+            Initializes a new instance of the SslOptions class with the specified protocols and certificate.
+            </summary>
+            <param name="protocols">The SSL/TLS protocols to be used.</param>
+            <param name="certificate">The certificate used for SSL/TLS.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.Constance">
+            <summary>
+            Provides constant values commonly used in HTTP operations.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultHttpProtocol">
+            <summary>
+            The default HTTP protocol version used in requests and responses.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultTextContentType">
+            <summary>
+            The default content type for text-based content, with UTF-8 character encoding.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultEmptyContentType">
+            <summary>
+            The default content type for cases where no specific content type is provided.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.Constance.DefaultOptionsAllow">
+            <summary>
+            The default set of allowed HTTP methods, typically used in response to OPTIONS requests.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.HeaderNames">
+            <summary>
+            Provides a set of commonly used HTTP header names as constants.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.CacheControl">
+            <summary>
+            Represents the "cache-control" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.Cookie">
+            <summary>
+            Represents the "cookie" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.SetCookie">
+            <summary>
+            Represents the "set-cookie" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.ContentType">
+            <summary>
+            Represents the "content-type" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.ContentLength">
+            <summary>
+            Represents the "content-length" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.Allow">
+            <summary>
+            Represents the "allow" HTTP header, typically used in response to OPTIONS requests.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.Connection">
+            <summary>
+            Represents the "connection" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.Upgrade">
+            <summary>
+            Represents the "upgrade" HTTP header, commonly used in WebSocket connections.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.SecWebSocketAccept">
+            <summary>
+            Represents the "sec-websocket-accept" HTTP header, used in WebSocket handshake responses.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.SecWebSocketKey">
+            <summary>
+            Represents the "sec-websocket-key" HTTP header, used in WebSocket handshake requests.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderNames.SecWebSocketVersion">
+            <summary>
+            Represents the "sec-websocket-version" HTTP header, used to specify the WebSocket protocol version.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.HeaderValues">
+            <summary>
+            Provides a set of commonly used HTTP header values as constants.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderValues.KeepAliveUpgrade">
+            <summary>
+            Represents the "keep-alive, upgrade" value, typically used in the "connection" HTTP header.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderValues.Upgrade">
+            <summary>
+            Represents the "upgrade" value, used in the "connection" or "upgrade" HTTP headers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderValues.WebSocket">
+            <summary>
+            Represents the "websocket" value, used in the "upgrade" HTTP header to initiate WebSocket connections.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderValues.MessageHttp">
+            <summary>
+            Represents the "message/http" value, used in the "content-type" HTTP header for HTTP TRACE requests.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.HeaderValues.SecWsVersion">
+            <summary>
+            Represents the WebSocket protocol version "13", used in the "sec-websocket-version" HTTP header.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.MethodNames">
+            <summary>
+            This static class provides constant values representing HTTP method names.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Get">
+            <summary>
+            Represents the HTTP GET method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Head">
+            <summary>
+            Represents the HTTP HEAD method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Post">
+            <summary>
+            Represents the HTTP POST method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Put">
+            <summary>
+            Represents the HTTP PUT method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Delete">
+            <summary>
+            Represents the HTTP DELETE method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Options">
+            <summary>
+            Represents the HTTP OPTIONS method.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.MethodNames.Trace">
+            <summary>
+            Represents the HTTP TRACE method.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.SpecialBytes">
+            <summary>
+            This static class provides commonly used byte arrays representing specific characters or strings.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialBytes.Spacebar">
+            <summary>
+            Represents the byte array for a space character.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialBytes.NewLine">
+            <summary>
+            Represents the byte array for a new line sequence (\r\n).
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialBytes.ColonSpacebar">
+            <summary>
+            Represents the byte array for a colon followed by a space (": ").
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialBytes.SemiColonSpacebar">
+            <summary>
+            Represents the byte array for a semicolon followed by a space ("; ").
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialBytes.Equals">
+            <summary>
+            Represents the byte array for an equals sign ("=").
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.SpecialChars">
+            <summary>
+            This static class provides commonly used character constants.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.NewLine">
+            <summary>
+            Represents the newline character ('\n').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.CarriageReturn">
+            <summary>
+            Represents the carriage return character ('\r').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.HorizontalTab">
+            <summary>
+            Represents the horizontal tab character ('\t').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.VerticalTab">
+            <summary>
+            Represents the vertical tab character ('\v').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Spacebar">
+            <summary>
+            Represents the space character (' ').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Colon">
+            <summary>
+            Represents the colon character (':').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Semicolon">
+            <summary>
+            Represents the semicolon character (';').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Number0">
+            <summary>
+            Represents the digit '0' character.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Number9">
+            <summary>
+            Represents the digit '9' character.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.QuestionMark">
+            <summary>
+            Represents the question mark character ('?').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Slash">
+            <summary>
+            Represents the forward slash character ('/').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Backslash">
+            <summary>
+            Represents the backslash character ('\\').
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.SpecialChars.Equals">
+            <summary>
+            Represents the equals sign character ('=').
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.StatusCode">
+            <summary>
+            This enum represents various HTTP status codes as defined by the 
+            HTTP/1.1 standard and related extensions.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Continue">
+            <summary>
+            Indicates that the client should continue with its request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.SwitchingProtocols">
+            <summary>
+            Indicates that the server is switching protocols as requested by the client.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Processing">
+            <summary>
+            Indicates that the server has received and is processing the request, 
+            but no response is available yet.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.EarlyHints">
+            <summary>
+            A response code to provide early hints of the final HTTP status.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.OK">
+            <summary>
+            Indicates that the request has succeeded.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Created">
+            <summary>
+            Indicates that the request has been fulfilled and a new resource has been created.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Accepted">
+            <summary>
+            Indicates that the request has been accepted for processing, but the processing is not complete.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NonAuthoritativeInformation">
+            <summary>
+            Indicates that the request was successful but the information may be from a third-party source.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NoContent">
+            <summary>
+            Indicates that the request was successful but there is no content to send in the response.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.ResetContent">
+            <summary>
+            Indicates that the server successfully processed the request and is instructing the client to reset the view.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.PartialContent">
+            <summary>
+            Indicates that the server successfully processed a partial GET request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.MultiStatus">
+            <summary>
+            Indicates that the message body contains multiple status codes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.AlreadyReported">
+            <summary>
+            Indicates that the members of a DAV binding have already been enumerated.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.IMUsed">
+            <summary>
+            Indicates that the server has fulfilled the GET request for the resource and that the response is a representation of the result of one or more instance manipulations applied to the current instance.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Ambiguous">
+            <summary>
+            Indicates that the request has more than one possible response.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.MultipleChoices">
+            <summary>
+            Indicates that the request has more than one possible response.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Moved">
+            <summary>
+            Indicates that the resource has been moved to a different URL permanently.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.MovedPermanently">
+            <summary>
+            Indicates that the resource has been moved to a different URL permanently.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Found">
+            <summary>
+            Indicates that the resource has been found at a different URL temporarily.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Redirect">
+            <summary>
+            Indicates that the resource has been found at a different URL temporarily.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RedirectMethod">
+            <summary>
+            Indicates that the resource can be found at a different URL and that the request method should not be changed.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.SeeOther">
+            <summary>
+            Indicates that the resource can be found at a different URL and that the request method should not be changed.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NotModified">
+            <summary>
+            Indicates that the resource has not been modified since the last request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.UseProxy">
+            <summary>
+            Indicates that the client must use a proxy to access the requested resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Unused">
+            <summary>
+            This status code is no longer used and is reserved.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RedirectKeepVerb">
+            <summary>
+            Indicates that the request should be repeated with the same method, but to a different URL.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.TemporaryRedirect">
+            <summary>
+            Indicates that the request should be repeated with the same method, but to a different URL.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.PermanentRedirect">
+            <summary>
+            Indicates that the resource has been moved permanently, and future requests should use a different URL.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.BadRequest">
+            <summary>
+            Indicates that the server cannot process the request due to a client error.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Unauthorized">
+            <summary>
+            Indicates that the request requires user authentication.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.PaymentRequired">
+            <summary>
+            Indicates that payment is required to access the resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Forbidden">
+            <summary>
+            Indicates that the server understands the request but refuses to authorize it.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NotFound">
+            <summary>
+            Indicates that the server cannot find the requested resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.MethodNotAllowed">
+            <summary>
+            Indicates that the request method is not allowed for the resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NotAcceptable">
+            <summary>
+            Indicates that the server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.ProxyAuthenticationRequired">
+            <summary>
+            Indicates that the client must authenticate with the proxy before sending the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RequestTimeout">
+            <summary>
+            Indicates that the server timed out waiting for the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Conflict">
+            <summary>
+            Indicates that the request could not be processed because of a conflict with the current state of the resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Gone">
+            <summary>
+            Indicates that the requested resource is no longer available and will not be available again.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.LengthRequired">
+            <summary>
+            Indicates that the request did not specify the length of its content, which is required by the requested resource.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.PreconditionFailed">
+            <summary>
+            Indicates that one or more preconditions in the request header fields evaluated to false when tested on the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RequestEntityTooLarge">
+            <summary>
+            Indicates that the request is larger than the server is willing or able to process.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RequestUriTooLong">
+            <summary>
+            Indicates that the URI requested by the client is too long to be processed by the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.UnsupportedMediaType">
+            <summary>
+            Indicates that the server cannot process the request because the media format of the requested data is not supported by the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RequestedRangeNotSatisfiable">
+            <summary>
+            Indicates that the range specified by the Range header field in the request cannot be fulfilled.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.ExpectationFailed">
+            <summary>
+            Indicates that the server cannot meet the requirements of the Expect request-header field.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.MisdirectedRequest">
+            <summary>
+            Indicates that the server cannot process the request because it was directed to an inappropriate server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.UnprocessableEntity">
+            <summary>
+            Indicates that the server cannot process the request due to a semantic error in the client's request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.Locked">
+            <summary>
+            Indicates that the resource is locked.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.FailedDependency">
+            <summary>
+            Indicates that the request failed because it depended on another request that failed.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.UpgradeRequired">
+            <summary>
+            Indicates that the client should switch to a different protocol such as TLS/1.0.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.PreconditionRequired">
+            <summary>
+            Indicates that the origin server requires the request to be conditional.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.TooManyRequests">
+            <summary>
+            Indicates that the user has sent too many requests in a given amount of time.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.RequestHeaderFieldsTooLarge">
+            <summary>
+            Indicates that the server is unwilling to process the request because its header fields are too large.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.UnavailableForLegalReasons">
+            <summary>
+            Indicates that the server is denying access to the resource as a consequence of a legal demand.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.InternalServerError">
+            <summary>
+            Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NotImplemented">
+            <summary>
+            Indicates that the server does not support the functionality required to fulfill the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.BadGateway">
+            <summary>
+            Indicates that the server, while acting as a gateway or proxy, received an invalid response from an inbound server it accessed while attempting to fulfill the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.ServiceUnavailable">
+            <summary>
+            Indicates that the server is currently unable to handle the request due to temporary overloading or maintenance of the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.GatewayTimeout">
+            <summary>
+            Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.HttpVersionNotSupported">
+            <summary>
+            Indicates that the server does not support the HTTP protocol version used in the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.VariantAlsoNegotiates">
+            <summary>
+            Indicates that the server has an internal configuration error and the request could not be completed.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.InsufficientStorage">
+            <summary>
+            Indicates that the server is unable to store the representation needed to complete the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.LoopDetected">
+            <summary>
+            Indicates that the server detected an infinite loop while processing the request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NotExtended">
+            <summary>
+            Indicates that further extensions to the request are required for the server to fulfill it.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.StatusCode.NetworkAuthenticationRequired">
+            <summary>
+            Indicates that the client needs to authenticate to gain network access.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes">
+            <summary>
+            This class contains constant byte values representing WebSocket operation codes.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.FIN">
+            <summary>
+            Indicates the final fragment in a WebSocket message.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.TEXT">
+            <summary>
+            Represents a text frame in WebSocket.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.BINARY">
+            <summary>
+            Represents a binary frame in WebSocket.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.CLOSE">
+            <summary>
+            Indicates a connection close frame in WebSocket.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.PING">
+            <summary>
+            Represents a ping frame in WebSocket.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetCommon.Types.WebSocketOpCodes.PONG">
+            <summary>
+            Represents a pong frame in WebSocket.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Bean</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Bean.Attributes.AutoBindAttribute">
+            <summary>
+            Attribute used to automatically bind a field or property to a specific type.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Bean.Attributes.AutoBindAttribute.Type">
+            <summary>
+            Gets the type to which the field or property should be bound.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Attributes.AutoBindAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Bean.Attributes.AutoBindAttribute"/> class with the specified type.
+            </summary>
+            <param name="type">The type to bind to.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.Attributes.AutoBindAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Bean.Attributes.AutoBindAttribute"/> class with no specific type.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.Attributes.SingletonAttribute">
+            <summary>
+            Attribute used to mark a class as a singleton.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Attributes.SingletonAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Bean.Attributes.SingletonAttribute"/> class.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.Factory.ISingletonFactory">
+            <summary>
+            Defines the interface for a singleton factory.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.ISingletonFactory.CreateSingleton(System.Type,System.Object[])">
+            <summary>Creates a singleton instance of the specified type.</summary>
+            <param name="type">The type of the singleton to create.</param>
+            <param name="args">The arguments to pass to the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.ISingletonFactory.GetSingleton(System.Type)">
+            <summary>Gets the singleton instance of the specified type.</summary>
+            <param name="type">The type of the singleton to retrieve.</param>
+            <returns>The singleton instance of the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.ISingletonFactory.SetSingleton(System.Type,System.Object)">
+            <summary>Sets the singleton instance for the specified type.</summary>
+            <param name="type">The type of the singleton to set.</param>
+            <param name="singletonObj">The singleton instance to set.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.ISingletonFactory.GetSingletons">
+            <summary>Gets all singleton instances managed by this factory.</summary>
+            <returns>An enumerable collection of singleton instances.</returns>
+        </member>
+        <member name="T:XmobiTea.Bean.Factory.SingletonFactory">
+            <summary>
+            A factory class for creating and managing singleton instances.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Bean.Factory.SingletonFactory.typeObject">
+            <summary>
+            Gets the Type object for the base object class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.#cctor">
+            <summary>
+            Static constructor to initialize the <see cref="T:XmobiTea.Bean.Factory.SingletonFactory"/> class.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Bean.Factory.SingletonFactory.singletonDict">
+            <summary>
+            A dictionary to store singleton instances mapped by their types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Bean.Factory.SingletonFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.GetSingleton(System.Type)">
+            <summary>
+            Gets the singleton instance of the specified type.
+            </summary>
+            <param name="type">The type of the singleton to retrieve.</param>
+            <returns>The singleton instance of the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.CreateSingleton(System.Type,System.Object[])">
+            <summary>
+            Creates a singleton instance of the specified type.
+            </summary>
+            <param name="type">The type of the singleton to create.</param>
+            <param name="args">The arguments to pass to the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.SetSingleton(System.Type,System.Object)">
+            <summary>
+            Sets the singleton instance for the specified type.
+            </summary>
+            <param name="type">The type of the singleton to set.</param>
+            <param name="singletonObj">The singleton instance to set.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.Factory.SingletonFactory.GetSingletons">
+            <summary>
+            Gets all singleton instances managed by this factory.
+            </summary>
+            <returns>An enumerable collection of singleton instances.</returns>
+        </member>
+        <member name="T:XmobiTea.Bean.ISingletonContext">
+            <summary>
+            Defines methods for managing singleton instances in the context.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.GetSingleton``1">
+            <summary>Gets a singleton instance of the specified type.</summary>
+            <typeparam name="T">The type of the singleton.</typeparam>
+            <returns>The singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.GetSingleton(System.Type)">
+            <summary>Gets a singleton instance of the specified type.</summary>
+            <param name="type">The type of the singleton.</param>
+            <returns>The singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.CreateSingleton``1(System.Object[])">
+            <summary>Creates a singleton instance of the specified type.</summary>
+            <typeparam name="T">The type of the singleton.</typeparam>
+            <param name="args">The arguments for the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.CreateSingleton(System.Type,System.Object[])">
+            <summary>Creates a singleton instance of the specified type.</summary>
+            <param name="type">The type of the singleton.</param>
+            <param name="args">The arguments for the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.SetSingleton(System.Object,System.Type)">
+            <summary>Sets a singleton instance for the specified type.</summary>
+            <param name="singletonObj">The singleton instance.</param>
+            <param name="type">The type to associate with the singleton.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.SetSingleton``1(``0)">
+            <summary>Sets a singleton instance for the specified type.</summary>
+            <typeparam name="T">The type to associate with the singleton.</typeparam>
+            <param name="singletonObj">The singleton instance.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.ISingletonContext.GetSingletons">
+            <summary>Gets all singleton instances in the context.</summary>
+            <returns>An enumeration of all singleton instances.</returns>
+        </member>
+        <member name="T:XmobiTea.Bean.IAutoBindingContext">
+            <summary>
+            Defines methods for automatically binding dependencies in singleton instances.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.IAutoBindingContext.AutoBind(System.Object)">
+            <summary>Automatically binds dependencies to the specified singleton object.</summary>
+            <param name="singletonObj">The singleton object to bind.</param>
+        </member>
+        <member name="T:XmobiTea.Bean.IClassScannerContext">
+            <summary>
+            Defines methods for scanning and retrieving types within a given namespace or assembly.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClass(System.String)">
+            <summary>Scans and retrieves types within the specified namespace.</summary>
+            <param name="prefixNamespace">The namespace to scan.</param>
+            <returns>An enumeration of types within the specified namespace.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClass(System.String,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>Scans and retrieves types within the specified namespace and assemblies.</summary>
+            <param name="prefixNamespace">The namespace to scan.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types within the specified namespace and assemblies.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClassHasCustomAttribute(System.Type,System.Boolean)">
+            <summary>Scans and retrieves types that have the specified custom attribute.</summary>
+            <param name="type">The custom attribute type to scan for.</param>
+            <param name="inherit">Whether to scan for inherited attributes.</param>
+            <returns>An enumeration of types that have the specified custom attribute.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClassHasCustomAttribute(System.Type,System.Boolean,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>Scans and retrieves types that have the specified custom attribute within the specified assemblies.</summary>
+            <param name="type">The custom attribute type to scan for.</param>
+            <param name="inherit">Whether to scan for inherited attributes.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types that have the specified custom attribute within the specified assemblies.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClassFromAssignable(System.Type)">
+            <summary>Scans and retrieves types that are assignable to the specified type.</summary>
+            <param name="type">The type to scan for assignable types.</param>
+            <returns>An enumeration of types that are assignable to the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.IClassScannerContext.ScanClassFromAssignable(System.Type,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>Scans and retrieves types that are assignable to the specified type within the specified assemblies.</summary>
+            <param name="type">The type to scan for assignable types.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types that are assignable to the specified type within the specified assemblies.</returns>
+        </member>
+        <member name="T:XmobiTea.Bean.IBeanContext">
+            <summary>
+            Combines singleton management, auto-binding, and class scanning functionalities.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.BeanContext">
+            <summary>
+            Implements the IBeanContext interface to manage singleton instances,
+            handle auto-binding of dependencies, and scan classes in assemblies.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Bean.BeanContext.singletonObjLst">
+            <summary>Gets the list of singleton instances managed by the context.</summary>
+        </member>
+        <member name="P:XmobiTea.Bean.BeanContext.singletonFactory">
+            <summary>Gets the singleton factory responsible for creating and managing singleton instances.</summary>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Bean.BeanContext"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.CreateSingleton``1(System.Object[])">
+            <summary>
+            Creates a singleton instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the singleton to create.</typeparam>
+            <param name="args">The arguments for the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.CreateSingleton(System.Type,System.Object[])">
+            <summary>
+            Creates a singleton instance of the specified type.
+            </summary>
+            <param name="type">The type of the singleton to create.</param>
+            <param name="args">The arguments for the constructor.</param>
+            <returns>The created singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.GetSingleton``1">
+            <summary>
+            Gets a singleton instance of the specified type.
+            </summary>
+            <typeparam name="T">The type of the singleton.</typeparam>
+            <returns>The singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.GetSingleton(System.Type)">
+            <summary>
+            Gets a singleton instance of the specified type.
+            </summary>
+            <param name="type">The type of the singleton.</param>
+            <returns>The singleton instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.SetSingleton(System.Object,System.Type)">
+            <summary>
+            Sets a singleton instance for the specified type.
+            </summary>
+            <param name="singletonObj">The singleton instance.</param>
+            <param name="type">The type to associate with the singleton.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.SetSingleton``1(``0)">
+            <summary>
+            Sets a singleton instance for the specified type.
+            </summary>
+            <typeparam name="T">The type to associate with the singleton.</typeparam>
+            <param name="singletonObj">The singleton instance.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.GetSingletons">
+            <summary>
+            Gets all singleton instances in the context.
+            </summary>
+            <returns>An enumeration of all singleton instances.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.AutoBind(System.Object)">
+            <summary>
+            Automatically binds dependencies to the specified singleton object.
+            </summary>
+            <param name="singletonObj">The singleton object to bind.</param>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClass(System.String)">
+            <summary>
+            Scans and retrieves types within the specified namespace.
+            </summary>
+            <param name="prefixNamespace">The namespace to scan.</param>
+            <returns>An enumeration of types within the specified namespace.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClass(System.String,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Scans and retrieves types within the specified namespace and assemblies.
+            </summary>
+            <param name="prefixNamespace">The namespace to scan.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types within the specified namespace and assemblies.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClassHasCustomAttribute(System.Type,System.Boolean)">
+            <summary>
+            Scans and retrieves types that have the specified custom attribute.
+            </summary>
+            <param name="type">The custom attribute type to scan for.</param>
+            <param name="inherit">Whether to scan for inherited attributes.</param>
+            <returns>An enumeration of types that have the specified custom attribute.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClassHasCustomAttribute(System.Type,System.Boolean,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Scans and retrieves types that have the specified custom attribute within the specified assemblies.
+            </summary>
+            <param name="type">The custom attribute type to scan for.</param>
+            <param name="inherit">Whether to scan for inherited attributes.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types that have the specified custom attribute within the specified assemblies.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClassFromAssignable(System.Type)">
+            <summary>
+            Scans and retrieves types that are assignable to the specified type.
+            </summary>
+            <param name="type">The type to scan for assignable types.</param>
+            <returns>An enumeration of types that are assignable to the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Bean.BeanContext.ScanClassFromAssignable(System.Type,System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Scans and retrieves types that are assignable to the specified type within the specified assemblies.
+            </summary>
+            <param name="type">The type to scan for assignable types.</param>
+            <param name="assemblies">The assemblies to scan.</param>
+            <returns>An enumeration of types that are assignable to the specified type within the specified assemblies.</returns>
+        </member>
+        <member name="T:XmobiTea.Bean.Support.IAfterAutoBind">
+            <summary>
+            Defines a method that is called after auto-binding is complete.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Support.IAfterAutoBind.OnAfterAutoBind">
+            <summary>
+            Called after the auto-binding process is complete.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.Support.IBeforeAutoBind">
+            <summary>
+            Defines a method that is called before the auto-binding process begins.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Support.IBeforeAutoBind.OnBeforeAutoBind">
+            <summary>
+            Called before the auto-binding process begins.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.Support.IConstructorInvoke">
+            <summary>
+            Defines a method that is called immediately after the constructor is invoked.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Support.IConstructorInvoke.OnConstructorInvoke">
+            <summary>
+            Called immediately after the constructor is invoked.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Bean.Support.IFinalAutoBind">
+            <summary>
+            Defines a method that is called after the final auto-binding all process is completed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Bean.Support.IFinalAutoBind.OnFinalAutoBind">
+            <summary>
+            Called after the final auto-binding all process is completed.
+            </summary>
+        </member>
+    </members>
+</doc>

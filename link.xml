@@ -1,0 +1,18 @@
+<linker>
+  <assembly fullname="XmobiTea.Bean" preserve="all" />
+  <assembly fullname="XmobiTea.Binary" preserve="all" />
+  <assembly fullname="XmobiTea.Binary.MessagePack" preserve="all" />
+  <assembly fullname="XmobiTea.Binary.SimplePack" preserve="all" />
+  <assembly fullname="XmobiTea.Collections.Generic" preserve="all" />
+  <assembly fullname="XmobiTea.Crypto.Aes" preserve="all" />
+  <assembly fullname="XmobiTea.Crypto" preserve="all" />
+  <assembly fullname="XmobiTea.Data.Converter" preserve="all" />
+  <assembly fullname="XmobiTea.Data" preserve="all" />
+  <assembly fullname="XmobiTea.Linq" preserve="all" />
+  <assembly fullname="XmobiTea.Logging" preserve="all" />
+  <assembly fullname="XmobiTea.ProtonNet.Client" preserve="all" />
+  <assembly fullname="XmobiTea.ProtonNet.Networking" preserve="all" />
+  <assembly fullname="XmobiTea.ProtonNet.RpcProtocol" preserve="all" />
+  <assembly fullname="XmobiTea.ProtonNetClient" preserve="all" />
+  <assembly fullname="XmobiTea.ProtonNetCommon" preserve="all" />
+</linker>

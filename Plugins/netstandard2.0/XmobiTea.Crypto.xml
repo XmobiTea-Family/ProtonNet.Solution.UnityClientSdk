@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Crypto</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Crypto.ICryptoProvider">
+            <summary>
+            Defines the interface for a cryptographic provider that supports encryption and decryption of data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.ICryptoProvider.Encrypt(System.Byte[],System.Object)">
+            <summary>
+            Encrypts the specified data using the provided salt.
+            </summary>
+            <param name="data">The data to encrypt.</param>
+            <param name="salt">The salt to use during encryption.</param>
+            <returns>The encrypted data as a byte array.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.ICryptoProvider.Decrypt(System.Byte[],System.Object)">
+            <summary>
+            Decrypts the specified encrypted data using the provided salt.
+            </summary>
+            <param name="encryptedData">The encrypted data to decrypt.</param>
+            <param name="salt">The salt to use during decryption.</param>
+            <returns>The decrypted data as a byte array.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.ICryptoProvider.TryDecrypt(System.Byte[],System.Object,System.Byte[]@)">
+            <summary>
+            Attempts to decrypt the specified encrypted data using the provided salt.
+            </summary>
+            <param name="encryptedData">The encrypted data to decrypt.</param>
+            <param name="salt">The salt to use during decryption.</param>
+            <param name="data">When this method returns, contains the decrypted data if the decryption succeeded, or an empty byte array if it failed.</param>
+            <returns>True if decryption succeeded; otherwise, false.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.ProtonNet.RpcProtocol</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.Helper.BinaryUtils">
+            <summary>
+            Utility class for handling binary operations related to endianness.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.Helper.BinaryUtils.IsBigEndian">
+            <summary>
+            Checks if the system architecture is Big Endian.
+            </summary>
+            <returns>True if the system is Big Endian; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.Helper.BinaryUtils.SwapIfLittleEndian(System.Byte[]@)">
+            <summary>
+            Swaps the byte order of the given buffer if the system architecture is Little Endian.
+            </summary>
+            <param name="buffer">The byte array to potentially swap.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.IOperationDeserializeSupport">
+            <summary>
+            Interface defining the contract for deserialization 
+            support of operation models in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IOperationDeserializeSupport.Deserialize(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserializes the given payload into an operation model using the specified operation type and binary converter.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport">
+            <summary>
+            Implementation of IOperationDeserializeSupport that provides 
+            deserialization support for various operation types.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationModelDeserialize">
+            <summary>
+            Delegate for handling the deserialization of operation models.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.operationModelDeserializeDict">
+            <summary>
+            Dictionary mapping operation types to their corresponding deserialization handlers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.#ctor">
+            <summary>
+            Initializes a new instance of the OperationDeserializeSupport class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.AddOperationModelDeserializes">
+            <summary>
+            Adds the deserialization handlers for the supported operation types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.Deserialize(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserializes the given payload into an operation model using the specified operation type and binary converter.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the operation type is not supported.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationPingDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationPing.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationPongDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationPong.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationRequestDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationRequest.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationResponseDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationResponse.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationEventDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationEvent.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationHandshakeDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationHandshake.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationHandshakeAckDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationHandshakeAck.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationDeserializeSupport.OperationDisconnectDeserialize(XmobiTea.Binary.IBinaryConverter,System.Byte[])">
+            <summary>
+            Deserialization handler for OperationDisconnect.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for deserialization.</param>
+            <param name="payload">The payload to deserialize.</param>
+            <returns>An instance of IOperationModel representing the deserialized operation model.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.IOperationSerializeSupport">
+            <summary>
+            Interface defining the contract for serialization 
+            support of operation models in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IOperationSerializeSupport.Serialize(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serializes the given operation model using the specified operation type and binary converter.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport">
+            <summary>
+            Implementation of IOperationSerializeSupport that provides 
+            serialization support for various operation types.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationModelSerialize">
+            <summary>
+            Delegate for handling the serialization of operation models.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.operationModelSerializeDict">
+            <summary>
+            Dictionary mapping operation types to their corresponding serialization handlers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.#ctor">
+            <summary>
+            Initializes a new instance of the OperationSerializeSupport class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.AddOperationModelSerializes">
+            <summary>
+            Adds the serialization handlers for the supported operation types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.Serialize(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serializes the given operation model using the specified operation type and binary converter.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the operation type is not supported.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationPingSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationPing.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationPongSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationPong.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationHandshakeSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationHandshake.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationHandshakeAckSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationHandshakeAck.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationDisconnectSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationDisconnect.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationRequestSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationRequest.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationResponseSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationResponse.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.OperationSerializeSupport.OperationEventSerialize(XmobiTea.Binary.IBinaryConverter,XmobiTea.ProtonNet.Networking.IOperationModel)">
+            <summary>
+            Serialization handler for OperationEvent.
+            </summary>
+            <param name="binaryConverter">The binary converter to use for serialization.</param>
+            <param name="operationModel">The operation model to serialize.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol">
+            <summary>
+            Interface defining the contract for RPC 
+            communication protocols in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol.Write(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.Networking.SendParameters,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType)">
+            <summary>
+            Writes an operation model and its header to the specified stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized.</param>
+            <param name="sendParameters">The send parameters.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol.WriteEncrypt(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.Networking.SendParameters,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,System.Object)">
+            <summary>
+            Writes and encrypts an operation model and its header to the specified stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized and encrypted.</param>
+            <param name="sendParameters">The send parameters.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="salt">The salt value used for encryption.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol.TryRead(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader@,System.Byte[]@)">
+            <summary>
+            Attempts to read an operation from the stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="header">The operation header.</param>
+            <param name="payload">The operation payload.</param>
+            <returns>True if the operation was successfully read; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol.TryDeserializeOperationModel(System.Byte[],XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.Networking.IOperationModel@)">
+            <summary>
+            Attempts to deserialize the operation model from the provided payload.
+            </summary>
+            <param name="payload">The payload to deserialize.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="operationModel">The deserialized operation model.</param>
+            <returns>True if deserialization was successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.IRpcProtocol.TryDeserializeEncryptOperationModel(System.Byte[],XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,System.Object,XmobiTea.ProtonNet.Networking.IOperationModel@)">
+            <summary>
+            Attempts to deserialize and decrypt the operation model from the provided encrypted payload.
+            </summary>
+            <param name="payloadEncrypt">The encrypted payload to deserialize and decrypt.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="salt">The salt value used for decryption.</param>
+            <param name="operationModel">The deserialized operation model.</param>
+            <returns>True if deserialization and decryption were successful; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader">
+            <summary>
+            Represents the header for an operation in the RPC protocol.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader.PayloadLength">
+            <summary>
+            Gets or sets the length of the payload in bytes.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader.SendParameters">
+            <summary>
+            Gets or sets the parameters related to sending the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader.OperationType">
+            <summary>
+            Gets or sets the type of operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader.ProtocolProviderType">
+            <summary>
+            Gets or sets the type of protocol provider.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader.CryptoProviderType">
+            <summary>
+            Gets or sets the type of crypto provider used for encryption, if applicable.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol">
+            <summary>
+            RpcProtocol class implements 
+            the IRpcProtocol interface to 
+            handle RPC communication protocols.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.protocolProviderDict">
+            <summary>
+            Dictionary to store protocol providers 
+            based on the ProtocolProviderType.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.cryptoProviderDict">
+            <summary>
+            Dictionary to store crypto providers 
+            based on the CryptoProviderType.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.operationDeserializeSupport">
+            <summary>
+            Support object for deserialization of operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.operationSerializeSupport">
+            <summary>
+            Support object for serialization of operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.#ctor">
+            <summary>
+            Initializes a new instance of the RpcProtocol class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.SetProtocolProvider(XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.Binary.IBinaryConverter)">
+            <summary>
+            Sets the protocol provider for the specified ProtocolProviderType.
+            </summary>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="binaryConverter">The binary converter instance.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.GetProtocolProvider(XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType)">
+            <summary>
+            Retrieves the protocol provider for the specified ProtocolProviderType.
+            </summary>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <returns>The binary converter instance.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the protocol provider is not found.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.GetCryptoProvider(XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType)">
+            <summary>
+            Retrieves the crypto provider for the specified CryptoProviderType.
+            </summary>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <returns>The crypto provider instance.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the crypto provider is not found.</exception>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.SetCryptoProvider(XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,XmobiTea.Crypto.ICryptoProvider)">
+            <summary>
+            Sets the crypto provider for the specified CryptoProviderType.
+            </summary>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="cryptoProvider">The crypto provider instance.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.SerializeOperationModel(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType)">
+            <summary>
+            Serializes the operation model into a byte array using the specified protocol provider.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <returns>A byte array representing the serialized operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.SerializeEncryptOperationModel(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,System.Object)">
+            <summary>
+            Serializes and encrypts the operation model into a byte array using the specified protocol and crypto providers.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="salt">The salt value used for encryption.</param>
+            <returns>A byte array representing the serialized and encrypted operation model.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.GetLengthByte(System.Int32)">
+            <summary>
+            Determines the length byte for the given length.
+            </summary>
+            <param name="length">The length of the payload.</param>
+            <returns>The length byte.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.Write(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader,System.Byte[])">
+            <summary>
+            Writes the operation header and payload to the provided stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="header">The operation header.</param>
+            <param name="payload">The payload to write.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.Write(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.Networking.SendParameters,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType)">
+            <summary>
+            Writes the operation model and its header to the stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized.</param>
+            <param name="sendParameters">The send parameters.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.WriteEncrypt(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.Networking.SendParameters,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,System.Object)">
+            <summary>
+            Writes and encrypts the operation model and its header to the stream.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model to be serialized and encrypted.</param>
+            <param name="sendParameters">The send parameters.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="salt">The salt value used for encryption.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.GetOperationHeader(XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.Networking.IOperationModel,XmobiTea.ProtonNet.Networking.SendParameters,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,System.Nullable{XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType})">
+            <summary>
+            Creates an OperationHeader for the given operation and model.
+            </summary>
+            <param name="operationType">The type of the operation.</param>
+            <param name="operationModel">The operation model.</param>
+            <param name="sendParameters">The send parameters.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider, if any.</param>
+            <returns>An instance of OperationHeader.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.TryRead(System.IO.Stream,XmobiTea.ProtonNet.RpcProtocol.Models.OperationHeader@,System.Byte[]@)">
+            <summary>
+            Attempts to read an operation from the stream.
+            </summary>
+            <param name="stream">The stream to read from.</param>
+            <param name="header">The operation header.</param>
+            <param name="payload">The operation payload.</param>
+            <returns>True if the operation was successfully read; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.TryDeserializeOperationModel(System.Byte[],XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.Networking.IOperationModel@)">
+            <summary>
+            Attempts to deserialize the operation model from the provided payload.
+            </summary>
+            <param name="payload">The payload to deserialize.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="operationModel">The deserialized operation model.</param>
+            <returns>True if deserialization was successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.RpcProtocol.RpcProtocol.TryDeserializeEncryptOperationModel(System.Byte[],XmobiTea.ProtonNet.RpcProtocol.Types.OperationType,XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType,XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType,System.Object,XmobiTea.ProtonNet.Networking.IOperationModel@)">
+            <summary>
+            Attempts to deserialize and decrypt the operation model from the provided encrypted payload.
+            </summary>
+            <param name="payloadEncrypt">The encrypted payload to deserialize and decrypt.</param>
+            <param name="operationType">The type of the operation.</param>
+            <param name="protocolProviderType">The type of the protocol provider.</param>
+            <param name="cryptoProviderType">The type of the crypto provider.</param>
+            <param name="salt">The salt value used for decryption.</param>
+            <param name="operationModel">The deserialized operation model.</param>
+            <returns>True if deserialization and decryption were successful; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType">
+            <summary>
+            Enum representing the types of crypto providers 
+            supported in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.CryptoProviderType.Aes">
+            <summary>
+            AES (Advanced Encryption Standard) crypto provider.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType">
+            <summary>
+            Enum representing the various types of operations 
+            supported in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationRequest">
+            <summary>
+            Operation representing a request.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationResponse">
+            <summary>
+            Operation representing a response.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationEvent">
+            <summary>
+            Operation representing an event.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationPing">
+            <summary>
+            Operation representing a ping.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationPong">
+            <summary>
+            Operation representing a pong.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationHandshake">
+            <summary>
+            Operation representing a handshake.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationHandshakeAck">
+            <summary>
+            Operation representing a handshake acknowledgment.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.OperationType.OperationDisconnect">
+            <summary>
+            Operation representing a disconnect.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType">
+            <summary>
+            Enum representing the types of protocol providers 
+            supported in the XmobiTea.ProtonNet library.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType.SimplePack">
+            <summary>
+            SimplePack protocol provider.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.RpcProtocol.Types.ProtocolProviderType.MessagePack">
+            <summary>
+            MessagePack protocol provider.
+            </summary>
+        </member>
+    </members>
+</doc>

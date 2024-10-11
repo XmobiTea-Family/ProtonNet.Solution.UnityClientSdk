@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Crypto.Aes</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Crypto.Aes.CryptoProvider">
+            <summary>
+            Provides AES-based cryptographic operations including encryption and decryption.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Crypto.Aes.CryptoProvider.encrypter">
+            <summary>
+            Gets the encrypter responsible for AES encryption.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Crypto.Aes.CryptoProvider.decrypter">
+            <summary>
+            Gets the decrypter responsible for AES decryption.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.CryptoProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Crypto.Aes.CryptoProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.CryptoProvider.Encrypt(System.Byte[],System.Object)">
+            <summary>
+            Encrypts the specified data using the provided salt (encryption key).
+            </summary>
+            <param name="data">The data to be encrypted.</param>
+            <param name="salt">The salt (encryption key) to be used for encryption.</param>
+            <returns>The encrypted data as a byte array.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.CryptoProvider.Decrypt(System.Byte[],System.Object)">
+            <summary>
+            Decrypts the specified encrypted data using the provided salt (encryption key).
+            </summary>
+            <param name="encryptedData">The encrypted data to be decrypted.</param>
+            <param name="salt">The salt (encryption key) to be used for decryption.</param>
+            <returns>The decrypted data as a byte array.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.CryptoProvider.TryDecrypt(System.Byte[],System.Object,System.Byte[]@)">
+            <summary>
+            Tries to decrypt the specified encrypted data using the provided salt (encryption key).
+            </summary>
+            <param name="encryptedData">The encrypted data to be decrypted.</param>
+            <param name="salt">The salt (encryption key) to be used for decryption.</param>
+            <param name="data">The decrypted data if decryption is successful, or null if it fails.</param>
+            <returns>True if decryption was successful; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.Crypto.Aes.Decrypt.ICryptoDecrypter">
+            <summary>
+            Defines the interface for a cryptographic decrypter.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Decrypt.ICryptoDecrypter.Decrypt(System.Byte[],System.Byte[])">
+            <summary>Decrypts the specified encrypted data using the provided encryption key.</summary>
+            <param name="encryptedData">The data to be decrypted.</param>
+            <param name="encryptKey">The encryption key used to decrypt the data.</param>
+            <returns>The decrypted data as a byte array.</returns>
+        </member>
+        <member name="T:XmobiTea.Crypto.Aes.Decrypt.CryptoDecrypter">
+            <summary>
+            Implementation of the ICryptoDecrypter interface for AES decryption.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Decrypt.CryptoDecrypter.Decrypt(System.Byte[],System.Byte[])">
+            <summary>Decrypts the specified encrypted data using the provided AES encryption key.</summary>
+            <param name="encryptedData">The AES-encrypted data to be decrypted.</param>
+            <param name="encryptKey">The AES encryption key used to decrypt the data.</param>
+            <returns>The decrypted data as a byte array.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Decrypt.CryptoDecrypter.PerformCryptography(System.Security.Cryptography.ICryptoTransform,System.Byte[])">
+            <summary>
+            Performs the cryptographic transformation on the specified data.
+            </summary>
+            <param name="cryptoTransform">The cryptographic transform to apply.</param>
+            <param name="data">The data to be transformed.</param>
+            <returns>The transformed data as a byte array.</returns>
+        </member>
+        <member name="T:XmobiTea.Crypto.Aes.Encrypt.ICryptoEncrypter">
+            <summary>
+            Defines the interface for a cryptographic encrypter.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Encrypt.ICryptoEncrypter.Encrypt(System.Byte[],System.Byte[])">
+            <summary>Encrypts the specified data using the provided encryption key.</summary>
+            <param name="data">The data to be encrypted.</param>
+            <param name="encryptKey">The encryption key used to encrypt the data.</param>
+            <returns>The encrypted data as a byte array.</returns>
+        </member>
+        <member name="T:XmobiTea.Crypto.Aes.Encrypt.CryptoEncrypter">
+            <summary>
+            Implementation of the ICryptoEncrypter interface for AES encryption.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Encrypt.CryptoEncrypter.Encrypt(System.Byte[],System.Byte[])">
+            <summary>Encrypts the specified data using the provided AES encryption key.</summary>
+            <param name="data">The data to be encrypted.</param>
+            <param name="encryptKey">The AES encryption key used to encrypt the data.</param>
+            <returns>The encrypted data as a byte array, including the IV.</returns>
+        </member>
+        <member name="M:XmobiTea.Crypto.Aes.Encrypt.CryptoEncrypter.PerformCryptography(System.Security.Cryptography.ICryptoTransform,System.Byte[])">
+            <summary>
+            Performs the cryptographic transformation on the specified data.
+            </summary>
+            <param name="cryptoTransform">The cryptographic transform to apply.</param>
+            <param name="data">The data to be transformed.</param>
+            <returns>The transformed data as a byte array.</returns>
+        </member>
+    </members>
+</doc>

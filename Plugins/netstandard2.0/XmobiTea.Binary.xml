@@ -1,0 +1,517 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Binary</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Binary.Helper.Convert">
+            <summary>
+            Provides methods for converting objects to various data types.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.Helper.Convert.dataParser">
+            <summary>
+            The data parser instance used to perform the conversions.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:XmobiTea.Binary.Helper.Convert"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToBoolean(System.Object)">
+            <summary>
+            Converts the specified object to a Boolean value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted Boolean value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToSByte(System.Object)">
+            <summary>
+            Converts the specified object to a signed byte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToByte(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned byte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToInt16(System.Object)">
+            <summary>
+            Converts the specified object to a signed 16-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed 16-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToUInt16(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned 16-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned 16-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToInt32(System.Object)">
+            <summary>
+            Converts the specified object to a signed 32-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed 32-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToUInt32(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned 32-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned 32-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToInt64(System.Object)">
+            <summary>
+            Converts the specified object to a signed 64-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed 64-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToUInt64(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned 64-bit integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned 64-bit integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToSingle(System.Object)">
+            <summary>
+            Converts the specified object to a single-precision floating-point value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted single-precision floating-point value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToDouble(System.Object)">
+            <summary>
+            Converts the specified object to a double-precision floating-point value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double-precision floating-point value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToChar(System.Object)">
+            <summary>
+            Converts the specified object to a character value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted character value.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Convert.ToString(System.Object)">
+            <summary>
+            Converts the specified object to a string value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.IDataConverter">
+            <summary>
+            Provides a method to convert an object to a specific data type.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to the target data type.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.IDataConverter`1">
+            <summary>
+            Provides a generic method to convert an object to a specific data type.
+            </summary>
+            <typeparam name="T">The target data type.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataConverter`1.ToData(System.Object)">
+            <summary>
+            Converts the specified object to the target data type.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.BoolDataConverter">
+            <summary>
+            Provides methods for converting objects to Boolean values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.BoolDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a Boolean value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted Boolean value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.CharDataConverter">
+            <summary>
+            Provides methods for converting objects to character values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.CharDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a character value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted character value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.SByteDataConverter">
+            <summary>
+            Provides methods for converting objects to signed byte values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.SByteDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a signed byte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.ByteDataConverter">
+            <summary>
+            Provides methods for converting objects to unsigned byte values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.ByteDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned byte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned byte value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.ShortDataConverter">
+            <summary>
+            Provides methods for converting objects to signed short integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.ShortDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a signed short integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed short integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.UShortDataConverter">
+            <summary>
+            Provides methods for converting objects to unsigned short integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.UShortDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned short integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned short integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.IntDataConverter">
+            <summary>
+            Provides methods for converting objects to signed integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IntDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a signed integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.UIntDataConverter">
+            <summary>
+            Provides methods for converting objects to unsigned integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.UIntDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.LongDataConverter">
+            <summary>
+            Provides methods for converting objects to signed long integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.LongDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a signed long integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed long integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.ULongDataConverter">
+            <summary>
+            Provides methods for converting objects to unsigned long integer values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.ULongDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to an unsigned long integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned long integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.FloatDataConverter">
+            <summary>
+            Provides methods for converting objects to single-precision floating-point values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.FloatDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a single-precision floating-point value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted single-precision floating-point value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.DoubleDataConverter">
+            <summary>
+            Provides methods for converting objects to double-precision floating-point values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.DoubleDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a double-precision floating-point value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double-precision floating-point value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.StringDataConverter">
+            <summary>
+            Provides methods for converting objects to string values.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.StringDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the specified object to a string value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.IDataParser">
+            <summary>
+            Defines methods for parsing various types of data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToBool(System.Object)">
+            <summary>
+            Converts an object to a Boolean value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The Boolean value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToByte(System.Object)">
+            <summary>
+            Converts an object to a byte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The byte value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToChar(System.Object)">
+            <summary>
+            Converts an object to a character value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The character value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToDouble(System.Object)">
+            <summary>
+            Converts an object to a double value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The double value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToFloat(System.Object)">
+            <summary>
+            Converts an object to a float value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The float value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToInt(System.Object)">
+            <summary>
+            Converts an object to an integer value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The integer value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToLong(System.Object)">
+            <summary>
+            Converts an object to a long value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The long value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToSByte(System.Object)">
+            <summary>
+            Converts an object to an sbyte value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The sbyte value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToShort(System.Object)">
+            <summary>
+            Converts an object to a short value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The short value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToString(System.Object)">
+            <summary>
+            Converts an object to a string value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The string value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToUInt(System.Object)">
+            <summary>
+            Converts an object to a uint value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The uint value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToULong(System.Object)">
+            <summary>
+            Converts an object to a ulong value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The ulong value represented by the object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.IDataParser.ToUShort(System.Object)">
+            <summary>
+            Converts an object to a ushort value.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The ushort value represented by the object.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Parsers.DataParser">
+            <summary>
+            Provides an implementation of the <see cref="T:XmobiTea.Binary.Helper.Parsers.IDataParser"/> interface for parsing data types.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Binary.Helper.Parsers.DataParser.valueTypeWithConverterDict">
+            <summary>
+            Gets the dictionary mapping data value types to their corresponding converters.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.DataParser.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Binary.Helper.Parsers.DataParser"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.DataParser.AddValueTypeWithConverters">
+            <summary>
+            Adds the available data type converters to the dictionary.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.Helper.Parsers.DataParser.GetDataConverter(XmobiTea.Binary.Helper.Types.DataValueType)">
+            <summary>
+            Gets the data converter for the specified value type.
+            </summary>
+            <param name="valueType">The type of the data to be converted.</param>
+            <returns>The <see cref="T:XmobiTea.Binary.Helper.Parsers.IDataConverter"/> associated with the specified value type.</returns>
+        </member>
+        <member name="T:XmobiTea.Binary.Helper.Types.DataValueType">
+            <summary>
+            Represents the various data types that can be used in binary operations.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Bool">
+            <summary>Represents a Boolean value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Byte">
+            <summary>Represents a byte value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Char">
+            <summary>Represents a character value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Double">
+            <summary>Represents a double-precision floating point value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Float">
+            <summary>Represents a single-precision floating point value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Int">
+            <summary>Represents a 32-bit signed integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Long">
+            <summary>Represents a 64-bit signed integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.SByte">
+            <summary>Represents an 8-bit signed integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.Short">
+            <summary>Represents a 16-bit signed integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.String">
+            <summary>Represents a string value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.UInt">
+            <summary>Represents a 32-bit unsigned integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.ULong">
+            <summary>Represents a 64-bit unsigned integer value.</summary>
+        </member>
+        <member name="F:XmobiTea.Binary.Helper.Types.DataValueType.UShort">
+            <summary>Represents a 16-bit unsigned integer value.</summary>
+        </member>
+        <member name="T:XmobiTea.Binary.IBinaryConverter">
+            <summary>
+            Defines methods for serializing and deserializing objects to and from binary data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.Serialize``1(``0)">
+            <summary>
+            Serializes the specified object to a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="tObj">The object to serialize.</param>
+            <returns>A byte array representing the serialized object.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.Serialize``1(System.IO.Stream,``0)">
+            <summary>
+            Serializes the specified object and writes the binary data to a stream.
+            </summary>
+            <typeparam name="T">The type of the object to serialize.</typeparam>
+            <param name="stream">The stream to which the binary data is written.</param>
+            <param name="tObj">The object to serialize.</param>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Deserializes an object of the specified type from a stream.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="stream">The stream from which the object is deserialized.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.Deserialize``1(System.Byte[])">
+            <summary>
+            Deserializes an object of the specified type from a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="data">The byte array containing the serialized object.</param>
+            <returns>The deserialized object of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.TryParse``1(System.IO.Stream,``0@)">
+            <summary>
+            Tries to parse and deserialize an object of the specified type from a stream.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="stream">The stream from which the object is deserialized.</param>
+            <param name="tValue">When this method returns, contains the deserialized object of type <typeparamref name="T"/> if the parsing succeeded, or the default value of <typeparamref name="T"/> if the parsing failed.</param>
+            <returns><c>true</c> if the parsing succeeded; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:XmobiTea.Binary.IBinaryConverter.TryParse``1(System.Byte[],``0@)">
+            <summary>
+            Tries to parse and deserialize an object of the specified type from a byte array.
+            </summary>
+            <typeparam name="T">The type of the object to deserialize.</typeparam>
+            <param name="data">The byte array containing the serialized object.</param>
+            <param name="tValue">When this method returns, contains the deserialized object of type <typeparamref name="T"/> if the parsing succeeded, or the default value of <typeparamref name="T"/> if the parsing failed.</param>
+            <returns><c>true</c> if the parsing succeeded; otherwise, <c>false</c>.</returns>
+        </member>
+    </members>
+</doc>

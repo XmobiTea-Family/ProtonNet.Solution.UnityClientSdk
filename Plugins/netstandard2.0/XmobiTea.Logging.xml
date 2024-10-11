@@ -1,0 +1,724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Logging</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Logging.Console.ConsoleLogger">
+            <summary>
+            A logger implementation that outputs logs to the console with various log levels.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLogger.DEBUG">
+            <summary>
+            Represents the debug log level.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLogger.INFO">
+            <summary>
+            Represents the info log level.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLogger.ERROR">
+            <summary>
+            Represents the error log level.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLogger.FATAL">
+            <summary>
+            Represents the fatal log level.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLogger.WARN">
+            <summary>
+            Represents the warning log level.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.name">
+            <summary>
+            Gets the name of the logger.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.IsDebugEnabled">
+            <summary>
+            Gets a value indicating whether debug logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether error logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.IsFatalEnabled">
+            <summary>
+            Gets a value indicating whether fatal logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether info logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.IsWarnEnabled">
+            <summary>
+            Gets a value indicating whether warning logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Console.ConsoleLogger.Name">
+            <summary>
+            Gets the name of the logger.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Logging.Console.ConsoleLogger"/> class.
+            </summary>
+            <param name="name">The name of the logger.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.GenerateFinalMessage(System.String,System.Object)">
+            <summary>
+            Generates the final log message string with timestamp, thread info, and log level.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="message">The log message.</param>
+            <returns>The formatted log message string.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Debug(System.Object)">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Logs a debug message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted debug message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.DebugFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted debug message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Error(System.Object)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Error(System.Object,System.Exception)">
+            <summary>
+            Logs an error message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted error message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.ErrorFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted error message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Fatal(System.Object)">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Logs a fatal message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted fatal message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.FatalFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted fatal message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Info(System.Object)">
+            <summary>
+            Logs an informational message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Info(System.Object,System.Exception)">
+            <summary>
+            Logs an informational message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted informational message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.InfoFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted informational message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Warn(System.Object)">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Logs a warning message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted warning message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLogger.WarnFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted warning message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="T:XmobiTea.Logging.Console.ConsoleLoggerFactory">
+            <summary>
+            Factory class to create instances of <see cref="T:XmobiTea.Logging.Console.ConsoleLogger"/>.
+            This class is a singleton, with the single instance accessible via the <see cref="F:XmobiTea.Logging.Console.ConsoleLoggerFactory.Instance"/> property.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Console.ConsoleLoggerFactory.Instance">
+            <summary>
+            Gets the singleton instance of the <see cref="T:XmobiTea.Logging.Console.ConsoleLoggerFactory"/>.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLoggerFactory.CreateLogger(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:XmobiTea.Logging.Console.ConsoleLogger"/> with the specified name.
+            </summary>
+            <param name="name">The name of the logger.</param>
+            <returns>A new instance of <see cref="T:XmobiTea.Logging.Console.ConsoleLogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.Console.ConsoleLoggerFactory.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:XmobiTea.Logging.Console.ConsoleLoggerFactory"/> class from being created.
+            This constructor is private to enforce the singleton pattern.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Logging.DefaultLogType">
+            <summary>
+            Enumeration representing the default log types.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.DefaultLogType.Empty">
+            <summary>
+            Represents an empty logger that performs no logging operations.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.DefaultLogType.Console">
+            <summary>
+            Represents a console logger that logs messages to the console.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Logging.Empty.EmptyLogger">
+            <summary>
+            Represents a logger that performs no logging actions.
+            This class is a placeholder or no-op (no operation) logger, useful for cases where logging needs to be disabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.name">
+            <summary>
+            Gets the name of the logger.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.IsDebugEnabled">
+            <summary>
+            Always returns <c>false</c>, indicating that debug logging is not enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.IsErrorEnabled">
+            <summary>
+            Always returns <c>false</c>, indicating that error logging is not enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.IsFatalEnabled">
+            <summary>
+            Always returns <c>false</c>, indicating that fatal logging is not enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.IsInfoEnabled">
+            <summary>
+            Always returns <c>false</c>, indicating that informational logging is not enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.IsWarnEnabled">
+            <summary>
+            Always returns <c>false</c>, indicating that warning logging is not enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.Empty.EmptyLogger.Name">
+            <summary>
+            Gets the name of the logger.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Logging.Empty.EmptyLogger"/> class with the specified logger name.
+            </summary>
+            <param name="name">The name of the logger.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Debug(System.Object)">
+            <summary>
+            A no-op method that does nothing when a debug message is logged.
+            </summary>
+            <param name="message">The debug message.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Debug(System.Object,System.Exception)">
+            <summary>
+            A no-op method that does nothing when a debug message and exception are logged.
+            </summary>
+            <param name="message">The debug message.</param>
+            <param name="exception">The associated exception.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted debug message is logged.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.DebugFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted debug message with a format provider is logged.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Error(System.Object)">
+            <summary>
+            A no-op method that does nothing when an error message is logged.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Error(System.Object,System.Exception)">
+            <summary>
+            A no-op method that does nothing when an error message and exception are logged.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="exception">The associated exception.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted error message is logged.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.ErrorFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted error message with a format provider is logged.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Fatal(System.Object)">
+            <summary>
+            A no-op method that does nothing when a fatal message is logged.
+            </summary>
+            <param name="message">The fatal message.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            A no-op method that does nothing when a fatal message and exception are logged.
+            </summary>
+            <param name="message">The fatal message.</param>
+            <param name="exception">The associated exception.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted fatal message is logged.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.FatalFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted fatal message with a format provider is logged.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Info(System.Object)">
+            <summary>
+            A no-op method that does nothing when an informational message is logged.
+            </summary>
+            <param name="message">The informational message.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Info(System.Object,System.Exception)">
+            <summary>
+            A no-op method that does nothing when an informational message and exception are logged.
+            </summary>
+            <param name="message">The informational message.</param>
+            <param name="exception">The associated exception.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted informational message is logged.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.InfoFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted informational message with a format provider is logged.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Warn(System.Object)">
+            <summary>
+            A no-op method that does nothing when a warning message is logged.
+            </summary>
+            <param name="message">The warning message.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.Warn(System.Object,System.Exception)">
+            <summary>
+            A no-op method that does nothing when a warning message and exception are logged.
+            </summary>
+            <param name="message">The warning message.</param>
+            <param name="exception">The associated exception.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted warning message is logged.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLogger.WarnFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            A no-op method that does nothing when a formatted warning message with a format provider is logged.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="T:XmobiTea.Logging.Empty.EmptyLoggerFactory">
+            <summary>
+            Factory class for creating instances of <see cref="T:XmobiTea.Logging.Empty.EmptyLogger"/>.
+            This factory returns a logger that performs no logging operations.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.Empty.EmptyLoggerFactory.Instance">
+            <summary>
+            Singleton instance of <see cref="T:XmobiTea.Logging.Empty.EmptyLoggerFactory"/>.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLoggerFactory.CreateLogger(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:XmobiTea.Logging.Empty.EmptyLogger"/> with the specified logger name.
+            </summary>
+            <param name="name">The name of the logger.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.Empty.EmptyLogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.Empty.EmptyLoggerFactory.#ctor">
+            <summary>
+            Private constructor to enforce singleton pattern.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Logging.ILogger">
+            <summary>
+            Provides a logging interface with various levels of logging.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.IsDebugEnabled">
+            <summary>
+            Gets a value indicating whether debug logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.IsErrorEnabled">
+            <summary>
+            Gets a value indicating whether error logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.IsFatalEnabled">
+            <summary>
+            Gets a value indicating whether fatal logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.IsInfoEnabled">
+            <summary>
+            Gets a value indicating whether info logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.IsWarnEnabled">
+            <summary>
+            Gets a value indicating whether warning logging is enabled.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Logging.ILogger.Name">
+            <summary>
+            Gets the name of the logger.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Debug(System.Object)">
+            <summary>
+            Logs a debug message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Debug(System.Object,System.Exception)">
+            <summary>
+            Logs a debug message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.DebugFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted debug message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.DebugFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted debug message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Error(System.Object)">
+            <summary>
+            Logs an error message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Error(System.Object,System.Exception)">
+            <summary>
+            Logs an error message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.ErrorFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted error message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.ErrorFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted error message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Fatal(System.Object)">
+            <summary>
+            Logs a fatal message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Fatal(System.Object,System.Exception)">
+            <summary>
+            Logs a fatal message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.FatalFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted fatal message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.FatalFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted fatal message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Info(System.Object)">
+            <summary>
+            Logs an informational message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Info(System.Object,System.Exception)">
+            <summary>
+            Logs an informational message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.InfoFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted informational message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.InfoFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted informational message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Warn(System.Object)">
+            <summary>
+            Logs a warning message.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.Warn(System.Object,System.Exception)">
+            <summary>
+            Logs a warning message with an associated exception.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.WarnFormat(System.String,System.Object[])">
+            <summary>
+            Logs a formatted warning message.
+            </summary>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.ILogger.WarnFormat(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Logs a formatted warning message with an <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">The format provider.</param>
+            <param name="format">The format string.</param>
+            <param name="args">The arguments for the format string.</param>
+        </member>
+        <member name="T:XmobiTea.Logging.ILoggerFactory">
+            <summary>
+            Interface representing a factory for creating loggers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.ILoggerFactory.CreateLogger(System.String)">
+            <summary>
+            Creates a logger with the specified name.
+            </summary>
+            <param name="name">The name of the logger to create.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.ILogger"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.Logging.LogManager">
+            <summary>
+            Static class that manages the creation and configuration of loggers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.LogManager.createLoggerCount">
+            <summary>
+            Counter to track the number of created loggers.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Logging.LogManager.loggerFactory">
+            <summary>
+            The factory used to create logger instances.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.#cctor">
+            <summary>
+            Static constructor to set the default logger factory.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.GetLogger``1">
+            <summary>
+            Gets a logger for the specified generic type.
+            </summary>
+            <typeparam name="T">The type for which to get the logger.</typeparam>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.ILogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.GetLogger``1(``0)">
+            <summary>
+            Gets a logger for the specified object.
+            </summary>
+            <typeparam name="T">The type of the object.</typeparam>
+            <param name="obj">The object for which to get the logger.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.ILogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.GetLogger(System.String)">
+            <summary>
+            Gets a logger by the specified name.
+            </summary>
+            <param name="name">The name of the logger.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.ILogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.GetLogger(System.Type)">
+            <summary>
+            Gets a logger for the specified type.
+            </summary>
+            <param name="type">The type for which to get the logger.</param>
+            <returns>An instance of <see cref="T:XmobiTea.Logging.ILogger"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.SetLoggerFactory(XmobiTea.Logging.ILoggerFactory)">
+            <summary>
+            Sets the logger factory to be used for creating loggers.
+            </summary>
+            <param name="factory">The logger factory to set.</param>
+        </member>
+        <member name="M:XmobiTea.Logging.LogManager.SetDefaultLoggerFactory(XmobiTea.Logging.DefaultLogType)">
+            <summary>
+            Sets the default logger factory based on the specified log type.
+            </summary>
+            <param name="defaultLogType">The default log type to set.</param>
+        </member>
+    </members>
+</doc>

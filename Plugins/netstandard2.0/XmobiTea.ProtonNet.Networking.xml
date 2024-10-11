@@ -1,0 +1,488 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.ProtonNet.Networking</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.ProtonNet.Networking.DisconnectReason">
+            <summary>
+            Enumeration representing the reasons for disconnection in the networking layer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.Unknown">
+            <summary>
+            The disconnection reason is unknown.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.CantConnectServer">
+            <summary>
+            The client was unable to connect to the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.MaxSession">
+            <summary>
+            The maximum number of sessions has been reached.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.InvalidOperationHandshake">
+            <summary>
+            The operation handshake was invalid.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.MaxSessionPerUser">
+            <summary>
+            The maximum number of sessions per user has been reached.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.HandshakeTimeout">
+            <summary>
+            The handshake operation timed out.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.IdleTimeout">
+            <summary>
+            The connection was idle for too long and timed out.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.DisconnectReason.DisconnectByClient">
+            <summary>
+            The client disconnected intentionally.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.Extensions.OperationEventExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationEventExtensions.SetEventCode(XmobiTea.ProtonNet.Networking.OperationEvent,System.String)">
+            <summary>
+            Sets the event code of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.
+            </summary>
+            <param name="operationEvent">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> to modify.</param>
+            <param name="eventCode">The event code to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationEventExtensions.SetParameters(XmobiTea.ProtonNet.Networking.OperationEvent,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Sets the parameters of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.
+            </summary>
+            <param name="operationEvent">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> to modify.</param>
+            <param name="parameters">The parameters to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationEventExtensions.AddParameter(XmobiTea.ProtonNet.Networking.OperationEvent,System.String,System.Object)">
+            <summary>
+            Adds a parameter to the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.
+            </summary>
+            <param name="operationEvent">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> to modify.</param>
+            <param name="key">The key of the parameter to add.</param>
+            <param name="value">The value of the parameter to add.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationEventExtensions.RemoveParameter(XmobiTea.ProtonNet.Networking.OperationEvent,System.String)">
+            <summary>
+            Removes a parameter from the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.
+            </summary>
+            <param name="operationEvent">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> to modify.</param>
+            <param name="key">The key of the parameter to remove.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.Extensions.OperationRequestExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationRequestExtensions.SetOperationCode(XmobiTea.ProtonNet.Networking.OperationRequest,System.String)">
+            <summary>
+            Sets the operation code of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.
+            </summary>
+            <param name="operationRequest">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> to modify.</param>
+            <param name="operationCode">The operation code to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationRequestExtensions.SetParameters(XmobiTea.ProtonNet.Networking.OperationRequest,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Sets the parameters of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.
+            </summary>
+            <param name="operationRequest">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> to modify.</param>
+            <param name="parameters">The parameters to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationRequestExtensions.AddParameter(XmobiTea.ProtonNet.Networking.OperationRequest,System.String,System.Object)">
+            <summary>
+            Adds a parameter to the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.
+            </summary>
+            <param name="operationRequest">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> to modify.</param>
+            <param name="key">The key of the parameter to add.</param>
+            <param name="value">The value of the parameter to add.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationRequestExtensions.RemoveParameter(XmobiTea.ProtonNet.Networking.OperationRequest,System.String)">
+            <summary>
+            Removes a parameter from the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.
+            </summary>
+            <param name="operationRequest">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> to modify.</param>
+            <param name="key">The key of the parameter to remove.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.SetOperationCode(XmobiTea.ProtonNet.Networking.OperationResponse,System.String)">
+            <summary>
+            Sets the operation code of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="operationCode">The operation code to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.SetParameters(XmobiTea.ProtonNet.Networking.OperationResponse,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Sets the parameters of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="parameters">The parameters to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.AddParameter(XmobiTea.ProtonNet.Networking.OperationResponse,System.String,System.Object)">
+            <summary>
+            Adds a parameter to the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="key">The key of the parameter to add.</param>
+            <param name="value">The value of the parameter to add.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.RemoveParameter(XmobiTea.ProtonNet.Networking.OperationResponse,System.String)">
+            <summary>
+            Removes a parameter from the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="key">The key of the parameter to remove.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.SetReturnCode(XmobiTea.ProtonNet.Networking.OperationResponse,System.Byte)">
+            <summary>
+            Sets the return code of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="returnCode">The return code to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.Extensions.OperationResponseExtensions.SetDebugMessage(XmobiTea.ProtonNet.Networking.OperationResponse,System.String)">
+            <summary>
+            Sets the debug message of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.
+            </summary>
+            <param name="operationResponse">The <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> to modify.</param>
+            <param name="debugMessage">The debug message to set.</param>
+            <returns>The modified <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/>.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.IOperationModel">
+            <summary>
+            Defines the interface for operation models in the networking layer.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationDisconnect">
+            <summary>
+            Represents a disconnect operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationDisconnect.Reason">
+            <summary>
+            Gets or sets the reason code for the disconnection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationDisconnect.Message">
+            <summary>
+            Gets or sets a message providing additional information about the disconnection.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationEvent">
+            <summary>
+            Represents an event operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationEvent.EventCode">
+            <summary>
+            Gets or sets the event code that identifies the event.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationEvent.Parameters">
+            <summary>
+            Gets or sets the parameters associated with the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationEvent.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationEvent.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> class with a specific event code.
+            </summary>
+            <param name="eventCode">The event code that identifies the event.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationEvent.#ctor(System.String,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationEvent"/> class with a specific event code and parameters.
+            </summary>
+            <param name="eventCode">The event code that identifies the event.</param>
+            <param name="parameters">The parameters associated with the event.</param>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationEvent.Item(System.String)">
+            <summary>
+            Gets or sets the parameter value associated with the specified key.
+            </summary>
+            <param name="parameterKey">The key of the parameter.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationHandshake">
+            <summary>
+            Represents a handshake operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationHandshake.SessionId">
+            <summary>
+            Gets or sets the session ID associated with the handshake.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationHandshake.EncryptKey">
+            <summary>
+            Gets or sets the encryption key used during the handshake.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationHandshake.AuthToken">
+            <summary>
+            Gets or sets the authentication token used for validating the handshake.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationHandshakeAck">
+            <summary>
+            Represents a handshake acknowledgment operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationHandshakeAck.ConnectionId">
+            <summary>
+            Gets or sets the connection ID associated with the handshake.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationHandshakeAck.ServerSessionId">
+            <summary>
+            Gets or sets the server session ID received during the handshake.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationPing">
+            <summary>
+            Represents a Ping operation in the networking layer, typically used to check connectivity or latency.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationPong">
+            <summary>
+            Represents a Pong operation in the networking layer, typically used as a response to a Ping.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationRequest">
+            <summary>
+            Represents a request for an operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationRequest.OperationCode">
+            <summary>
+            Gets or sets the operation code that identifies the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationRequest.RequestId">
+            <summary>
+            Gets or sets the unique request ID for the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationRequest.Parameters">
+            <summary>
+            Gets or sets the parameters associated with the operation request.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationRequest.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> class with a specific operation code.
+            </summary>
+            <param name="operationCode">The operation code that identifies the operation.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationRequest.#ctor(System.String,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationRequest"/> class with a specific operation code and parameters.
+            </summary>
+            <param name="operationCode">The operation code that identifies the operation.</param>
+            <param name="parameters">The parameters associated with the operation request.</param>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationRequest.Item(System.String)">
+            <summary>
+            Gets or sets the parameter value associated with the specified key.
+            </summary>
+            <param name="parameterKey">The key of the parameter.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.OperationResponse">
+            <summary>
+            Represents the response to an operation in the networking layer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.OperationCode">
+            <summary>
+            Gets or sets the operation code that identifies the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.ResponseId">
+            <summary>
+            Gets or sets the unique response ID for the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.ReturnCode">
+            <summary>
+            Gets or sets the return code indicating the result of the operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.Parameters">
+            <summary>
+            Gets or sets the parameters associated with the operation response.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.DebugMessage">
+            <summary>
+            Gets or sets a debug message providing additional information about the operation result.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationResponse.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationResponse.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> class with a specific operation code.
+            </summary>
+            <param name="operationCode">The operation code that identifies the operation.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNet.Networking.OperationResponse.#ctor(System.String,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNet.Networking.OperationResponse"/> class with a specific operation code and parameters.
+            </summary>
+            <param name="operationCode">The operation code that identifies the operation.</param>
+            <param name="parameters">The parameters associated with the operation response.</param>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.OperationResponse.Item(System.String)">
+            <summary>
+            Gets or sets the parameter value associated with the specified key.
+            </summary>
+            <param name="parameterKey">The key of the parameter.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.ReturnCode">
+            <summary>
+            Static class containing return codes for various network operations.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.ReturnCode.Ok">
+            <summary>
+            The operation completed successfully.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.ReturnCode.OperationTimeout">
+            <summary>
+            The operation timed out.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.ReturnCode.OperationInvalid">
+            <summary>
+            The operation was invalid.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.ReturnCode.OperationInvalidInServer">
+            <summary>
+            The operation was invalid when performed on the server.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.ReturnCode.OperationNotAuthorized">
+            <summary>
+            The operation was not authorized.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.SendParameters">
+            <summary>
+            Struct representing parameters used during a send operation.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.SendParameters.ChannelId">
+            <summary>
+            Gets or sets the ID of the channel through which the data is sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.SendParameters.Unreliable">
+            <summary>
+            Gets or sets a value indicating whether the data is sent unreliably.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.SendParameters.Encrypted">
+            <summary>
+            Gets or sets a value indicating whether the data should be encrypted.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.SendParameters.Immediately">
+            <summary>
+            Gets or sets a value indicating whether the data should be sent immediately.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNet.Networking.SendParameters.Sync">
+            <summary>
+            Gets or sets a value indicating whether the operation should be synchronous.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNet.Networking.SendResult">
+            <summary>
+            Enumeration representing the result of a send operation.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.Ok">
+            <summary>
+            The operation completed successfully.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.Disconnected">
+            <summary>
+            The connection was disconnected.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.SendBufferFull">
+            <summary>
+            The send buffer is full, preventing the operation from completing.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.MessageTooBig">
+            <summary>
+            The message is too large to be sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.SessionNull">
+            <summary>
+            The session is null, indicating an invalid or missing session.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.EncryptionNotSupported">
+            <summary>
+            The operation failed because encryption is not supported.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNet.Networking.SendResult.Failed">
+            <summary>
+            The send operation failed due to an unspecified error.
+            </summary>
+        </member>
+    </members>
+</doc>

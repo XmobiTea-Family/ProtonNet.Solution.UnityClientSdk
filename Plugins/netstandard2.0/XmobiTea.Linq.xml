@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Linq</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Linq.EnumerableExtensions">
+            <summary>
+            Provides a set of extension methods for working with collections that implement <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Where``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence of elements to filter.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains elements from the input sequence that satisfy the condition.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Cast``1(System.Collections.IEnumerable)">
+            <summary>
+            Casts the elements of an <see cref="T:System.Collections.IEnumerable"/> to the specified type.
+            </summary>
+            <typeparam name="T">The type to cast the elements of <paramref name="source"/> to.</typeparam>
+            <param name="source">The <see cref="T:System.Collections.IEnumerable"/> that contains the elements to cast.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains each element of the source sequence cast to the specified type.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Determines whether a sequence contains a specified element.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to search for the specified value.</param>
+            <param name="value">The value to locate in the sequence.</param>
+            <returns><c>true</c> if the source sequence contains an element that has the specified value; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.IndexOf``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Returns the zero-based index of the first occurrence of a value in a sequence.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to search for the specified value.</param>
+            <param name="value">The value to locate in the sequence.</param>
+            <returns>The zero-based index of the first occurrence of <paramref name="value"/> in the sequence, if found; otherwise, <c>-1</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.IndexOfLast``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Returns the zero-based index of the last occurrence of a value in a sequence.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to search for the specified value.</param>
+            <param name="value">The value to locate in the sequence.</param>
+            <returns>The zero-based index of the last occurrence of <paramref name="value"/> in the sequence, if found; otherwise, <c>-1</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Find``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0})">
+            <summary>
+            Searches for an element that matches the conditions defined by the specified predicate, and returns the first occurrence within the entire sequence.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to search for an element that matches the conditions defined by <paramref name="predicate"/>.</param>
+            <param name="predicate">The function that defines the conditions of the element to search for.</param>
+            <returns>The first element that matches the conditions defined by the predicate, if found; otherwise, the default value for type <typeparamref name="T"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.FindLast``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Searches for an element that matches the conditions defined by the specified predicate, and returns the last occurrence within the entire sequence.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to search for an element that matches the conditions defined by <paramref name="predicate"/>.</param>
+            <param name="predicate">The function that defines the conditions of the element to search for.</param>
+            <returns>The last element that matches the conditions defined by the predicate, if found; otherwise, the default value for type <typeparamref name="T"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="predicate"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Select``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Projects each element of a sequence into a new form.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <typeparam name="T">The type of the value returned by <paramref name="selector"/>.</typeparam>
+            <param name="source">A sequence of values to project.</param>
+            <param name="selector">A transform function to apply to each element.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are the result of invoking the transform function on each element of <paramref name="source"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="selector"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.ToList``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to a <see cref="T:System.Collections.Generic.List`1"/>.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence of elements to convert to a list.</param>
+            <returns>A <see cref="T:System.Collections.Generic.List`1"/> that contains elements from the input sequence.</returns>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.ToArray``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts an <see cref="T:System.Collections.Generic.IEnumerable`1"/> to an array.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence of elements to convert to an array.</param>
+            <returns>An array that contains elements from the input sequence.</returns>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Skip``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">A sequence of elements to return from after skipping the specified count.</param>
+            <param name="skip">The number of elements to skip before returning the remaining elements.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the elements from the input sequence after the specified number of elements have been bypassed.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when <paramref name="skip"/> is less than 0.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.Limit``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>
+            <typeparam name="T">The type of the elements of <paramref name="source"/>.</typeparam>
+            <param name="source">The sequence to return elements from.</param>
+            <param name="limit">The number of elements to return.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the specified number of elements from the start of the input sequence.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when <paramref name="limit"/> is less than 0.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Sorts the elements of a sequence in ascending order according to a key.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
+            <param name="source">A sequence of elements to order.</param>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are sorted according to a key.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="keySelector"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:XmobiTea.Linq.EnumerableExtensions.OrderByDescending``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Sorts the elements of a sequence in descending order according to a key.
+            </summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source"/>.</typeparam>
+            <typeparam name="TKey">The type of the key returned by <paramref name="keySelector"/>.</typeparam>
+            <param name="source">A sequence of elements to order.</param>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> whose elements are sorted in descending order according to a key.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="keySelector"/> is <c>null</c>.</exception>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1028 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.Data</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.Data.GNArray">
+            <summary>
+            Represents a generic array data structure with various utility methods.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.GNArray._array">
+            <summary>
+            Internal list to store array elements.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Data.GNArray"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Add(System.Object)">
+            <summary>
+            Adds an object to the array.
+            </summary>
+            <param name="value">The value to add.</param>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Values">
+            <summary>
+            Gets the collection of values in the array.
+            </summary>
+            <returns>A collection of objects in the array.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Clear">
+            <summary>
+            Clears all elements from the array.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Remove(System.Int32)">
+            <summary>
+            Removes an element at the specified index.
+            </summary>
+            <param name="index">The index of the element to remove.</param>
+            <returns>True if the element was removed successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Count">
+            <summary>
+            Gets the number of elements in the array.
+            </summary>
+            <returns>The count of elements in the array.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.ToArray``1">
+            <summary>
+            Converts the array to an array of the specified type.
+            </summary>
+            <typeparam name="T">The type of elements in the resulting array.</typeparam>
+            <returns>An array of elements of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.ToList``1">
+            <summary>
+            Converts the array to a list of the specified type.
+            </summary>
+            <typeparam name="T">The type of elements in the resulting list.</typeparam>
+            <returns>A list of elements of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.GetObject(System.Int32)">
+            <summary>
+            Gets the object at the specified index.
+            </summary>
+            <param name="k">The index of the object to retrieve.</param>
+            <returns>The object at the specified index, or null if the index is out of bounds.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.ToData">
+            <summary>
+            Converts the array to a data object.
+            </summary>
+            <returns>A list of data objects.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.ToString">
+            <summary>
+            Returns a string representation of the array.
+            </summary>
+            <returns>A string representing the array.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.NewBuilder">
+            <summary>
+            Creates a new instance of the <see cref="T:XmobiTea.Data.GNArray.Builder"/> class for building a <see cref="T:XmobiTea.Data.GNArray"/>.
+            </summary>
+            <returns>A new <see cref="T:XmobiTea.Data.GNArray.Builder"/> instance.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.GNArray.Builder">
+            <summary>
+            A builder class for constructing instances of <see cref="T:XmobiTea.Data.GNArray"/>.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Builder.Add(System.Object)">
+            <summary>
+            Adds a value to the builder's array.
+            </summary>
+            <param name="value">The value to add.</param>
+            <returns>The current <see cref="T:XmobiTea.Data.GNArray.Builder"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Builder.AddAll(System.Collections.IList)">
+            <summary>
+            Adds all elements from the specified list to the builder's array.
+            </summary>
+            <param name="list">The list of elements to add.</param>
+            <returns>The current <see cref="T:XmobiTea.Data.GNArray.Builder"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Builder.Build">
+            <summary>
+            Builds the <see cref="T:XmobiTea.Data.GNArray"/> instance.
+            </summary>
+            <returns>A new <see cref="T:XmobiTea.Data.GNArray"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNArray.Builder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Data.GNArray.Builder"/> class.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.GNData`1">
+            <summary>
+            Abstract class representing generic data operations.
+            </summary>
+            <typeparam name="TKey">The type of the key used to access data.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.CreateUseDataFromOriginData(System.Object)">
+            <summary>
+            Creates data that can be used from the original data.
+            </summary>
+            <param name="value">The original data value.</param>
+            <returns>A data object suitable for use, or the original value if no conversion is needed.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.CreateDataFromUseData(System.Object)">
+            <summary>
+            Converts the use data back into its original form.
+            </summary>
+            <param name="value">The data used in the application.</param>
+            <returns>The original data object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetObject(`0)">
+            <summary>
+            Abstract method to get an object based on the provided key.
+            </summary>
+            <param name="k">The key to retrieve the object.</param>
+            <returns>The object associated with the key.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetSByte(`0,System.SByte)">
+            <summary>
+            Gets a signed byte value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The signed byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetByte(`0,System.Byte)">
+            <summary>
+            Gets a byte value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetShort(`0,System.Int16)">
+            <summary>
+            Gets a short value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetUShort(`0,System.UInt16)">
+            <summary>
+            Gets an unsigned short value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The unsigned short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetInt(`0,System.Int32)">
+            <summary>
+            Gets an int value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The int value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetUInt(`0,System.UInt32)">
+            <summary>
+            Gets an unsigned int value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The unsigned int value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetFloat(`0,System.Single)">
+            <summary>
+            Gets a float value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The float value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetLong(`0,System.Int64)">
+            <summary>
+            Gets a long value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetULong(`0,System.UInt64)">
+            <summary>
+            Gets an unsigned long value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The unsigned long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetDouble(`0,System.Double)">
+            <summary>
+            Gets a double value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The double value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetBool(`0,System.Boolean)">
+            <summary>
+            Gets a boolean value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The boolean value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetString(`0,System.String)">
+            <summary>
+            Gets a string value associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the value.</param>
+            <param name="defaultValue">The default value if the key does not exist.</param>
+            <returns>The string value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetObject(`0,System.Object)">
+            <summary>
+            Gets an object associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the object.</param>
+            <param name="defaultValue">The default object if the key does not exist.</param>
+            <returns>The object value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetArray``1(`0,``0[])">
+            <summary>
+            Gets an array of a specified type associated with the provided key.
+            </summary>
+            <typeparam name="T">The type of elements in the array.</typeparam>
+            <param name="k">The key to retrieve the array.</param>
+            <param name="defaultValue">The default array if the key does not exist.</param>
+            <returns>An array of the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetList``1(`0,System.Collections.Generic.IList{``0})">
+            <summary>
+            Gets a list of a specified type associated with the provided key.
+            </summary>
+            <typeparam name="T">The type of elements in the list.</typeparam>
+            <param name="k">The key to retrieve the list.</param>
+            <param name="defaultValue">The default list if the key does not exist.</param>
+            <returns>A list of the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetDictionary``1(`0,System.Collections.Generic.IDictionary{System.String,``0})">
+            <summary>
+            Gets a dictionary of a specified type associated with the provided key.
+            </summary>
+            <typeparam name="TObject">The type of values in the dictionary.</typeparam>
+            <param name="k">The key to retrieve the dictionary.</param>
+            <param name="defaultValue">The default dictionary if the key does not exist.</param>
+            <returns>A dictionary with string keys and values of the specified type.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetGNArray(`0,XmobiTea.Data.GNArray)">
+            <summary>
+            Gets a GNArray object associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the GNArray.</param>
+            <param name="defaultValue">The default GNArray if the key does not exist.</param>
+            <returns>The GNArray object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.GetGNHashtable(`0,XmobiTea.Data.GNHashtable)">
+            <summary>
+            Gets a GNHashtable object associated with the provided key.
+            </summary>
+            <param name="k">The key to retrieve the GNHashtable.</param>
+            <param name="defaultValue">The default GNHashtable if the key does not exist.</param>
+            <returns>The GNHashtable object.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.CustomGet(`0)">
+            <summary>
+            Custom method to retrieve an object based on the key and its type.
+            </summary>
+            <param name="k">The key to retrieve the object.</param>
+            <returns>The object, converted to the appropriate type if necessary.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNData`1.ToData">
+            <summary>
+            Abstract method to convert the data to an object.
+            </summary>
+            <returns>The converted object.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.GNHashtable">
+            <summary>
+            Represents a generic hashtable data structure with various utility methods.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.GNHashtable._dict">
+            <summary>
+            Internal dictionary to store key-value pairs.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Data.GNHashtable"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Add(System.String,System.Object)">
+            <summary>
+            Adds a key-value pair to the hashtable.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The value of the element to add.</param>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Values">
+            <summary>
+            Gets the collection of values in the hashtable.
+            </summary>
+            <returns>A collection of objects in the hashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Keys">
+            <summary>
+            Gets the collection of keys in the hashtable.
+            </summary>
+            <returns>A collection of keys in the hashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.ContainsKey(System.String)">
+            <summary>
+            Determines whether the hashtable contains a specific key.
+            </summary>
+            <param name="key">The key to locate in the hashtable.</param>
+            <returns>True if the hashtable contains the specified key; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Clear">
+            <summary>
+            Clears all elements from the hashtable.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Remove(System.String)">
+            <summary>
+            Removes the element with the specified key from the hashtable.
+            </summary>
+            <param name="key">The key of the element to remove.</param>
+            <returns>True if the element is successfully removed; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Count">
+            <summary>
+            Gets the number of elements contained in the hashtable.
+            </summary>
+            <returns>The count of elements in the hashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.ToDictionary``1">
+            <summary>
+            Converts the hashtable to a dictionary of the specified type.
+            </summary>
+            <typeparam name="T">The type of values in the resulting dictionary.</typeparam>
+            <returns>A dictionary with string keys and values of type <typeparamref name="T"/>.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.GetObject(System.String)">
+            <summary>
+            Gets the object associated with the specified key.
+            </summary>
+            <param name="k">The key of the object to retrieve.</param>
+            <returns>The object associated with the specified key, or null if the key is not found.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.ToData">
+            <summary>
+            Converts the hashtable to a data object.
+            </summary>
+            <returns>A dictionary containing the data representation of the hashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.ToString">
+            <summary>
+            Returns a string representation of the hashtable.
+            </summary>
+            <returns>A string representing the hashtable.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.NewBuilder">
+            <summary>
+            Creates a new instance of the <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> class for building a <see cref="T:XmobiTea.Data.GNHashtable"/>.
+            </summary>
+            <returns>A new <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> instance.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.GNHashtable.Builder">
+            <summary>
+            A builder class for constructing instances of <see cref="T:XmobiTea.Data.GNHashtable"/>.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.GNHashtable.Builder._dict">
+            <summary>
+            Internal dictionary to store key-value pairs during construction.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Builder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> class.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Builder.Add(System.String,System.Object)">
+            <summary>
+            Adds a key-value pair to the builder's dictionary.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The value of the element to add.</param>
+            <returns>The current <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Builder.AddAll(System.Collections.IDictionary)">
+            <summary>
+            Adds all key-value pairs from the specified dictionary to the builder's dictionary.
+            </summary>
+            <param name="dict">The dictionary of elements to add.</param>
+            <returns>The current <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Builder.AddAll``1(System.Collections.Generic.IDictionary{System.String,``0})">
+            <summary>
+            Adds all key-value pairs from the specified dictionary to the builder's dictionary.
+            </summary>
+            <param name="dict">The dictionary of elements to add.</param>
+            <returns>The current <see cref="T:XmobiTea.Data.GNHashtable.Builder"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.GNHashtable.Builder.Build">
+            <summary>
+            Builds the <see cref="T:XmobiTea.Data.GNHashtable"/> instance.
+            </summary>
+            <returns>A new <see cref="T:XmobiTea.Data.GNHashtable"/> instance.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Convert">
+            <summary>
+            Static class providing conversion methods to various data types.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Helper.Convert.dataParser">
+            <summary>
+            The data parser instance used for conversions.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.#cctor">
+            <summary>
+            Static constructor to initialize the data parser.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToBoolean(System.Object)">
+            <summary>
+            Converts the given object to a boolean.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted boolean value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToSByte(System.Object)">
+            <summary>
+            Converts the given object to a signed byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToByte(System.Object)">
+            <summary>
+            Converts the given object to a byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToInt16(System.Object)">
+            <summary>
+            Converts the given object to a short (Int16).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToUInt16(System.Object)">
+            <summary>
+            Converts the given object to an unsigned short (UInt16).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToInt32(System.Object)">
+            <summary>
+            Converts the given object to an integer (Int32).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToUInt32(System.Object)">
+            <summary>
+            Converts the given object to an unsigned integer (UInt32).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToInt64(System.Object)">
+            <summary>
+            Converts the given object to a long (Int64).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToUInt64(System.Object)">
+            <summary>
+            Converts the given object to an unsigned long (UInt64).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToSingle(System.Object)">
+            <summary>
+            Converts the given object to a float (Single).
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted float value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToDouble(System.Object)">
+            <summary>
+            Converts the given object to a double.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToChar(System.Object)">
+            <summary>
+            Converts the given object to a char.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted char value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Convert.ToString(System.Object)">
+            <summary>
+            Converts the given object to a string.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.IDataConverter">
+            <summary>
+            Interface for data conversion.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a data object.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted data object.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.IDataConverter`1">
+            <summary>
+            Generic interface for data conversion.
+            </summary>
+            <typeparam name="T">The type to which the object is converted.</typeparam>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataConverter`1.ToData(System.Object)">
+            <summary>
+            Converts the given object to a data object of type T.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted data object of type T.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.BoolDataConverter">
+            <summary>
+            Converter class for converting various types to a boolean.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.BoolDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a boolean.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted boolean value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.BoolDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a boolean.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted boolean value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.CharDataConverter">
+            <summary>
+            Converter class for converting various types to a char.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.CharDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a char.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted char value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.CharDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a char.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted char value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.SByteDataConverter">
+            <summary>
+            Converter class for converting various types to a signed byte.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.SByteDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a signed byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.SByteDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a signed byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.ByteDataConverter">
+            <summary>
+            Converter class for converting various types to a byte.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ByteDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ByteDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted byte value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.ShortDataConverter">
+            <summary>
+            Converter class for converting various types to a short.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ShortDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ShortDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted short value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.UShortDataConverter">
+            <summary>
+            Converter class for converting various types to an unsigned short.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.UShortDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.UShortDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned short value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.IntDataConverter">
+            <summary>
+            Converter class for converting various types to an integer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IntDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to an integer.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IntDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to an integer.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.UIntDataConverter">
+            <summary>
+            Converter class for converting various types to an unsigned integer.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.UIntDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned integer.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned integer value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.UIntDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned integer.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned integer value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.LongDataConverter">
+            <summary>
+            Converter class for converting various types to a long.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.LongDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.LongDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted long value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.ULongDataConverter">
+            <summary>
+            Converter class for converting various types to an unsigned long.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ULongDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.ULongDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to an unsigned long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned long value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.FloatDataConverter">
+            <summary>
+            Converter class for converting various types to a float.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.FloatDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a float.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted float value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.FloatDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a float.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted float value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.DoubleDataConverter">
+            <summary>
+            Converter class for converting various types to a double.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.DoubleDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a double.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.DoubleDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a double.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.StringDataConverter">
+            <summary>
+            Converter class for converting various types to a string.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.StringDataConverter.XmobiTea#Data#Helper#Parsers#IDataConverter#ToData(System.Object)">
+            <summary>
+            Converts the given object to a string.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.StringDataConverter.ToData(System.Object)">
+            <summary>
+            Converts the given object to a string.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.IDataParser">
+            <summary>
+            Interface defining methods for parsing objects into various data types.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToBool(System.Object)">
+            <summary>
+            Converts the given object to a boolean.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted boolean value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToByte(System.Object)">
+            <summary>
+            Converts the given object to a byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToChar(System.Object)">
+            <summary>
+            Converts the given object to a char.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted char value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToDouble(System.Object)">
+            <summary>
+            Converts the given object to a double.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted double value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToFloat(System.Object)">
+            <summary>
+            Converts the given object to a float.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted float value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToInt(System.Object)">
+            <summary>
+            Converts the given object to an int.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted int value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToLong(System.Object)">
+            <summary>
+            Converts the given object to a long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToSByte(System.Object)">
+            <summary>
+            Converts the given object to a signed byte.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted signed byte value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToShort(System.Object)">
+            <summary>
+            Converts the given object to a short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted short value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToString(System.Object)">
+            <summary>
+            Converts the given object to a string.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted string value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToUInt(System.Object)">
+            <summary>
+            Converts the given object to an unsigned int.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned int value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToULong(System.Object)">
+            <summary>
+            Converts the given object to an unsigned long.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned long value.</returns>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.IDataParser.ToUShort(System.Object)">
+            <summary>
+            Converts the given object to an unsigned short.
+            </summary>
+            <param name="obj">The object to convert.</param>
+            <returns>The converted unsigned short value.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Parsers.DataParser">
+            <summary>
+            Implementation of the IDataParser interface for converting objects to various data types.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.Data.Helper.Parsers.DataParser.valueTypeWithConverterDict">
+            <summary>
+            Dictionary mapping data value types to their respective data converters.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.DataParser.#ctor">
+            <summary>
+            Initializes a new instance of the DataParser class and populates the converter dictionary.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.DataParser.AddValueTypeWithConverters">
+            <summary>
+            Populates the converter dictionary with the appropriate data converters.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.Helper.Parsers.DataParser.GetDataConverter(XmobiTea.Data.Helper.Types.DataValueType)">
+            <summary>
+            Retrieves the data converter for the specified data value type.
+            </summary>
+            <param name="valueType">The data value type.</param>
+            <returns>The corresponding data converter.</returns>
+        </member>
+        <member name="T:XmobiTea.Data.Helper.Types.DataValueType">
+            <summary>
+            Enum representing different types of data values.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Bool">
+            <summary>
+            Represents a boolean value (true or false).
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Byte">
+            <summary>
+            Represents an 8-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Char">
+            <summary>
+            Represents a single Unicode character.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Double">
+            <summary>
+            Represents a double-precision floating-point number.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Float">
+            <summary>
+            Represents a single-precision floating-point number.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Int">
+            <summary>
+            Represents a 32-bit signed integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Long">
+            <summary>
+            Represents a 64-bit signed integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.SByte">
+            <summary>
+            Represents an 8-bit signed integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.Short">
+            <summary>
+            Represents a 16-bit signed integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.String">
+            <summary>
+            Represents a sequence of characters.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.UInt">
+            <summary>
+            Represents a 32-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.ULong">
+            <summary>
+            Represents a 64-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.Data.Helper.Types.DataValueType.UShort">
+            <summary>
+            Represents a 16-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.Data.IGNData">
+            <summary>
+            Defines a contract for classes that can convert their data into a specific format.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.Data.IGNData.ToData">
+            <summary>
+            Converts the implementing object to a data representation.
+            </summary>
+            <returns>
+            An object representing the data of the implementing class. 
+            The exact type of this object will depend on the implementation.
+            </returns>
+        </member>
+    </members>
+</doc>

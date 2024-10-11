@@ -1,0 +1,2356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XmobiTea.ProtonNetClient</name>
+    </assembly>
+    <members>
+        <member name="T:XmobiTea.ProtonNetClient.IClient">
+            <summary>
+            Defines the interface for a client that can connect, disconnect, 
+            and send data over a network. Supports both synchronous and 
+            asynchronous operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.Connect">
+            <summary>
+            Connects the client to the server.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.Reconnect">
+            <summary>
+            Reconnects the client to the server.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.Disconnect">
+            <summary>
+            Disconnects the client from the server.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.ConnectAsync">
+            <summary>
+            Asynchronously connects the client to the server.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.ReconnectAsync">
+            <summary>
+            Asynchronously reconnects the client to the server.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.DisconnectAsync">
+            <summary>
+            Asynchronously disconnects the client from the server.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.GetNetworkStatistics">
+            <summary>
+            Retrieves the network statistics associated with the client.
+            </summary>
+            <returns>An object implementing <see cref="T:XmobiTea.ProtonNetCommon.INetworkStatistics"/> containing network statistics.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.Send(System.Byte[])">
+            <summary>
+            Sends data to the server.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.SendAsync(System.Byte[])">
+            <summary>
+            Asynchronously sends data to the server.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IClient.SendAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Asynchronously sends data to the server starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.IHttpClient">
+            <summary>
+            Defines the interface for an HTTP client that can send requests 
+            and handle responses over a network. Inherits from <see cref="T:XmobiTea.ProtonNetClient.IClient"/>.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IHttpClient.SendRequest(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request synchronously.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IHttpClient.SendRequestAsync(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request asynchronously.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>True if the request was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.HttpClient">
+            <summary>
+            Represents an HTTP client that handles sending requests and 
+            receiving responses over a TCP connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.HttpClient.Request">
+            <summary>
+            Gets the current HTTP request being processed by the client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.HttpClient.Response">
+            <summary>
+            Gets the current HTTP response received from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.HttpClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.SendRequest(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request synchronously using the provided request data.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.SendRequestAsync(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request asynchronously using the provided request data.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>True if the request was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles data received from the server. Processes HTTP response headers 
+            and body data accordingly.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.OnDisconnected">
+            <summary>
+            Handles the disconnection event and processes any remaining 
+            HTTP response body data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.OnReceivedResponseHeader(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when an HTTP response header has been successfully received.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.OnReceivedResponse(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when an entire HTTP response has been successfully received.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpClient.OnReceivedResponseError(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Called when an error occurs during the processing of an HTTP response.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response that caused the error.</param>
+            <param name="error">A message describing the error.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.HttpsClient">
+            <summary>
+            Represents an HTTPS client that handles sending requests and 
+            receiving responses over an SSL/TLS-encrypted TCP connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.HttpsClient.Request">
+            <summary>
+            Gets the current HTTP request being processed by the client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.HttpsClient.Response">
+            <summary>
+            Gets the current HTTP response received from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions,XmobiTea.ProtonNetCommon.SslOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.HttpsClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+            <param name="sslOptions">The SSL/TLS context for secure communication.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.SendRequest(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request synchronously using the provided request data.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.SendRequestAsync(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Sends an HTTP request asynchronously using the provided request data.
+            </summary>
+            <param name="request">The HTTP request to be sent.</param>
+            <returns>True if the request was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles data received from the server. Processes HTTP response headers 
+            and body data accordingly.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.OnDisconnected">
+            <summary>
+            Handles the disconnection event and processes any remaining 
+            HTTP response body data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.OnReceivedResponseHeader(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when an HTTP response header has been successfully received.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.OnReceivedResponse(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when an entire HTTP response has been successfully received.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.HttpsClient.OnReceivedResponseError(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Called when an error occurs during the processing of an HTTP response.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="response">The received HTTP response that caused the error.</param>
+            <param name="error">A message describing the error.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.ITcpClient">
+            <summary>
+            Represents the interface for a TCP client that can connect, 
+            disconnect, and send data over a network.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.TcpClient">
+            <summary>
+            Implements a TCP client for connecting to a server, sending, 
+            and receiving data. Provides both synchronous and asynchronous operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.Id">
+            <summary>
+            Gets the unique identifier for this TCP client instance.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.Address">
+            <summary>
+            Gets the server address to which the client is connected.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.Port">
+            <summary>
+            Gets the port number on the server to which the client is connected.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.EndPoint">
+            <summary>
+            Gets the endpoint representing the server's address and port.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.Socket">
+            <summary>
+            Gets the underlying socket used for the connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.Options">
+            <summary>
+            Gets the options used to configure the TCP client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.IsConnecting">
+            <summary>
+            Gets a value indicating whether the client is currently connecting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.IsConnected">
+            <summary>
+            Gets a value indicating whether the client is connected to the server.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.IsDisposed">
+            <summary>
+            Gets a value indicating whether the client has been disposed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.IsSocketDisposed">
+            <summary>
+            Gets a value indicating whether the socket has been disposed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.networkStatistics">
+            <summary>
+            Interface for tracking and updating network statistics.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.sendLock">
+            <summary>
+            An object used for synchronizing access to the send buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.receiveBuffer">
+            <summary>
+            The buffer used for storing received data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetClient.TcpClient.sendBuffer">
+            <summary>
+            The buffer used for storing data to be sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetClient.TcpClient.sendBufferFlush">
+            <summary>
+            The buffer used for flushing data to be sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.sendBufferFlushOffset">
+            <summary>
+            The offset in the send buffer flush process.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.connectEventArg">
+            <summary>
+            The event argument used for asynchronous connect operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.receiving">
+            <summary>
+            Indicates whether the client is currently receiving data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.receiveEventArg">
+            <summary>
+            The event argument used for asynchronous receive operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.sending">
+            <summary>
+            Indicates whether the client is currently sending data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.TcpClient.sendEventArg">
+            <summary>
+            The event argument used for asynchronous send operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.TcpClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.CreateRandomId">
+            <summary>
+            Creates a random identifier for the TCP client instance.
+            </summary>
+            <returns>A random string identifier.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.CreateSocket">
+            <summary>
+            Creates a new socket for the connection.
+            </summary>
+            <returns>A new <see cref="P:XmobiTea.ProtonNetClient.TcpClient.Socket"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.GetNetworkStatistics">
+            <summary>
+            Gets the network statistics associated with the client.
+            </summary>
+            <returns>An object implementing <see cref="T:XmobiTea.ProtonNetCommon.INetworkStatistics"/> containing network statistics.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Connect">
+            <summary>
+            Connects the client to the server synchronously.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Disconnect">
+            <summary>
+            Disconnects the client from the server synchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Reconnect">
+            <summary>
+            Reconnects the client to the server by first disconnecting 
+            and then reconnecting.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ConnectAsync">
+            <summary>
+            Connects the client to the server asynchronously.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.DisconnectAsync">
+            <summary>
+            Disconnects the client from the server asynchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ReconnectAsync">
+            <summary>
+            Reconnects the client to the server asynchronously by first 
+            disconnecting and then reconnecting.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Send(System.Byte[])">
+            <summary>
+            Sends data to the server synchronously.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server synchronously starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.SendAsync(System.Byte[])">
+            <summary>
+            Sends data to the server asynchronously.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.SendAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server asynchronously starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.TryReceive">
+            <summary>
+            Attempts to receive data from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.TrySend">
+            <summary>
+            Attempts to send data to the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ClearBuffers">
+            <summary>
+            Clears the send and receive buffers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnAsyncCompleted(System.Object,System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Handles the completion of asynchronous socket operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ProcessConnect(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the connection event.
+            </summary>
+            <param name="e">The event args containing the connection details.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.SetSocketOption">
+            <summary>
+            Sets the socket options based on the TCP client options.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ReserveBuffer">
+            <summary>
+            Reserves the necessary buffer capacity based on the TCP client options.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ProcessReceive(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the data received from the server.
+            </summary>
+            <param name="e">The event args containing the received data.</param>
+            <returns>True if more data is expected; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.ProcessSend(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the data sent to the server.
+            </summary>
+            <param name="e">The event args containing the sent data.</param>
+            <returns>True if more data needs to be sent; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnConnecting">
+            <summary>
+            Called when the client is in the process of connecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnConnected">
+            <summary>
+            Called when the client has successfully connected to the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnDisconnecting">
+            <summary>
+            Called when the client is in the process of disconnecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnDisconnected">
+            <summary>
+            Called when the client has successfully disconnected from the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Called when data is received from the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnSent(System.Int32,System.Int32)">
+            <summary>
+            Called when data is successfully sent to the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="sent">The number of bytes sent.</param>
+            <param name="pending">The number of bytes pending in the send buffer.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnEmpty">
+            <summary>
+            Called when the send buffer is empty.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.OnError(System.Net.Sockets.SocketError)">
+            <summary>
+            Called when an error occurs during socket operations.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.SendErrorInternal(System.Net.Sockets.SocketError)">
+            <summary>
+            Sends an internal error event to the <see cref="M:XmobiTea.ProtonNetClient.TcpClient.OnError(System.Net.Sockets.SocketError)"/> method.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Dispose">
+            <summary>
+            Disposes the TCP client, releasing all resources.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.TcpClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the TCP client, releasing managed resources if specified.
+            </summary>
+            <param name="disposingManagedResources">True to release managed resources; otherwise, false.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.SslClient">
+            <summary>
+            Implements an SSL/TLS client for secure communication over a TCP connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.SslOptions">
+            <summary>
+            Gets the Ssl options used for SSL/TLS encryption and authentication.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsHandshaking">
+            <summary>
+            Gets a value indicating whether the SSL/TLS handshake is in progress.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsHandshaked">
+            <summary>
+            Gets a value indicating whether the SSL/TLS handshake has been completed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.sslStream">
+            <summary>
+            The SSL stream used for handling the secure communication channel.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.sslStreamId">
+            <summary>
+            A unique identifier for the SSL stream instance, used to track connections.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.Id">
+            <summary>
+            A unique identifier for this client instance.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.Address">
+            <summary>
+            The address of the remote server to which the client is connecting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.Port">
+            <summary>
+            The port number on the remote server to which the client is connecting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.EndPoint">
+            <summary>
+            The endpoint representing the address and port of the remote server.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.Socket">
+            <summary>
+            The socket used for network communication.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.Options">
+            <summary>
+            Configuration options for the TCP client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsConnecting">
+            <summary>
+            Indicates whether the client is currently in the process of connecting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsConnected">
+            <summary>
+            Indicates whether the client is currently connected to the server.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsDisposed">
+            <summary>
+            Indicates whether the client has been disposed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.IsSocketDisposed">
+            <summary>
+            Indicates whether the socket has been disposed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.networkStatistics">
+            <summary>
+            Interface for tracking and updating network statistics.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.sendLock">
+            <summary>
+            An object used for synchronizing access to the send buffer.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.receiveBuffer">
+            <summary>
+            The buffer used for storing received data.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetClient.SslClient.sendBuffer">
+            <summary>
+            The buffer used for storing data to be sent.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetClient.SslClient.sendBufferFlush">
+            <summary>
+            The buffer used for flushing data to be sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.sendBufferFlushOffset">
+            <summary>
+            The offset in the send buffer flush process.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.connectEventArg">
+            <summary>
+            The event argument used for asynchronous connect operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.receiving">
+            <summary>
+            Indicates whether the client is currently receiving data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.SslClient.sending">
+            <summary>
+            Indicates whether the client is currently sending data.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions,XmobiTea.ProtonNetCommon.SslOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.SslClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+            <param name="sslOptions">The Ssl options for secure communication.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.CreateRandomId">
+            <summary>
+            Creates a random identifier for the SSL client instance.
+            </summary>
+            <returns>A random string identifier.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.CreateSocket">
+            <summary>
+            Creates a new socket for the connection.
+            </summary>
+            <returns>A new <see cref="P:XmobiTea.ProtonNetClient.SslClient.Socket"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.GetNetworkStatistics">
+            <summary>
+            Gets the network statistics associated with the client.
+            </summary>
+            <returns>An object implementing <see cref="T:XmobiTea.ProtonNetCommon.INetworkStatistics"/> containing network statistics.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Connect">
+            <summary>
+            Connects the client to the server synchronously and initiates 
+            the SSL/TLS handshake.
+            </summary>
+            <returns>True if the connection and handshake are successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Disconnect">
+            <summary>
+            Disconnects the client from the server synchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Reconnect">
+            <summary>
+            Reconnects the client to the server by first disconnecting, 
+            then reconnecting and initiating the SSL/TLS handshake.
+            </summary>
+            <returns>True if the reconnection and handshake are successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ConnectAsync">
+            <summary>
+            Connects the client to the server asynchronously and initiates 
+            the SSL/TLS handshake.
+            </summary>
+            <returns>True if the connection and handshake are successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.DisconnectAsync">
+            <summary>
+            Disconnects the client from the server asynchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ReconnectAsync">
+            <summary>
+            Reconnects the client to the server asynchronously by first 
+            disconnecting, then reconnecting and initiating the SSL/TLS handshake.
+            </summary>
+            <returns>True if the reconnection and handshake are successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Send(System.Byte[])">
+            <summary>
+            Sends data to the server synchronously through the SSL/TLS stream.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server synchronously through the SSL/TLS stream 
+            starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.SendAsync(System.Byte[])">
+            <summary>
+            Sends data to the server asynchronously through the SSL/TLS stream.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.SendAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server asynchronously through the SSL/TLS stream 
+            starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.TryReceive">
+            <summary>
+            Attempts to receive data from the server through the SSL/TLS stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.TrySend">
+            <summary>
+            Attempts to send data to the server through the SSL/TLS stream.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ClearBuffers">
+            <summary>
+            Clears the send and receive buffers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnAsyncCompleted(System.Object,System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Handles the completion of asynchronous socket operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ProcessConnect(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the connection event and initiates the SSL/TLS handshake.
+            </summary>
+            <param name="e">The event args containing the connection details.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.SetSocketOption">
+            <summary>
+            Sets the socket options based on the TCP client options.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ReserveBuffer">
+            <summary>
+            Reserves the necessary buffer capacity based on the TCP client options.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ProcessHandshake(System.IAsyncResult)">
+            <summary>
+            Processes the SSL/TLS handshake.
+            </summary>
+            <param name="result">The result of the asynchronous handshake operation.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ProcessReceive(System.IAsyncResult)">
+            <summary>
+            Processes the data received from the server through the SSL/TLS stream.
+            </summary>
+            <param name="result">The result of the asynchronous receive operation.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.ProcessSend(System.IAsyncResult)">
+            <summary>
+            Processes the data sent to the server through the SSL/TLS stream.
+            </summary>
+            <param name="result">The result of the asynchronous send operation.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnConnecting">
+            <summary>
+            Called when the client is in the process of connecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnConnected">
+            <summary>
+            Called when the client has successfully connected to the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnHandshaking">
+            <summary>
+            Called when the SSL/TLS handshake is in progress.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnHandshaked">
+            <summary>
+            Called when the SSL/TLS handshake has been completed.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnDisconnecting">
+            <summary>
+            Called when the client is in the process of disconnecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnDisconnected">
+            <summary>
+            Called when the client has successfully disconnected from the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Called when data is received from the server through the SSL/TLS stream.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnSent(System.Int32,System.Int32)">
+            <summary>
+            Called when data is successfully sent to the server through the SSL/TLS stream.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="sent">The number of bytes sent.</param>
+            <param name="pending">The number of bytes pending in the send buffer.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnEmpty">
+            <summary>
+            Called when the send buffer is empty.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.OnError(System.Net.Sockets.SocketError)">
+            <summary>
+            Called when an error occurs during socket operations.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.SendErrorInternal(System.Net.Sockets.SocketError)">
+            <summary>
+            Sends an internal error event to the <see cref="M:XmobiTea.ProtonNetClient.SslClient.OnError(System.Net.Sockets.SocketError)"/> method.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Dispose">
+            <summary>
+            Disposes the SSL client, releasing all resources.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.SslClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the SSL client, releasing managed resources if specified.
+            </summary>
+            <param name="disposingManagedResources">True to release managed resources; otherwise, false.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.IUdpClient">
+            <summary>
+            Defines the interface for a UDP client that can connect, 
+            disconnect, send, and receive data over a network.
+            Supports both synchronous and asynchronous operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.Send(System.Net.EndPoint,System.Byte[])">
+            <summary>
+            Sends data to the specified endpoint synchronously.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.Send(System.Net.EndPoint,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the specified endpoint synchronously, starting 
+            from a specific position in the buffer.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.SendAsync(System.Net.EndPoint,System.Byte[])">
+            <summary>
+            Sends data to the specified endpoint asynchronously.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.SendAsync(System.Net.EndPoint,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the specified endpoint asynchronously, starting 
+            from a specific position in the buffer.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.JoinMulticastGroup(System.String)">
+            <summary>
+            Joins a multicast group by the specified address.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IUdpClient.LeaveMulticastGroup(System.String)">
+            <summary>
+            Leaves a multicast group by the specified address.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.UdpClient">
+            <summary>
+            Implements a UDP client for sending and receiving data over 
+            a network. Provides both synchronous and asynchronous operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.Id">
+            <summary>
+            Gets the unique identifier for this UDP client instance.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.Address">
+            <summary>
+            Gets the server address to which the client is connected.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.Port">
+            <summary>
+            Gets the port number on the server to which the client is connected.
+            </summary>
+        </member>
+        <member name="F:XmobiTea.ProtonNetClient.UdpClient.EndPoint">
+            <summary>
+            Gets or sets the endpoint representing the server's address and port.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.Socket">
+            <summary>
+            Gets the underlying socket used for the connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.Options">
+            <summary>
+            Gets the options used to configure the UDP client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.IsConnecting">
+            <summary>
+            Gets a value indicating whether the client is currently connecting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.IsConnected">
+            <summary>
+            Gets a value indicating whether the client is connected to the server.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.networkStatistics">
+            <summary>
+            Interface for tracking and updating network statistics.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.receiveEndPoint">
+            <summary>
+            The endpoint from which data is received.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.receiveBuffer">
+            <summary>
+            The buffer used for storing received data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.sendEndPoint">
+            <summary>
+            The endpoint to which data is sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.sendBuffer">
+            <summary>
+            The buffer used for storing data to be sent.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.receiving">
+            <summary>
+            Indicates whether the client is currently receiving data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.receiveEventArg">
+            <summary>
+            The event argument used for asynchronous receive operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.sending">
+            <summary>
+            Indicates whether the client is currently sending data.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.sendEventArg">
+            <summary>
+            The event argument used for asynchronous send operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.UdpClientOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.UdpClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">UDP client options for configuring the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.CreateRandomId">
+            <summary>
+            Creates a random identifier for the UDP client instance.
+            </summary>
+            <returns>A random string identifier.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.GetNetworkStatistics">
+            <summary>
+            Gets the network statistics associated with the client.
+            </summary>
+            <returns>An object implementing <see cref="T:XmobiTea.ProtonNetCommon.INetworkStatistics"/> containing network statistics.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.CreateSocket">
+            <summary>
+            Creates a new socket for the connection.
+            </summary>
+            <returns>A new <see cref="P:XmobiTea.ProtonNetClient.UdpClient.Socket"/> instance.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Connect">
+            <summary>
+            Connects the client to the server synchronously.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Disconnect">
+            <summary>
+            Disconnects the client from the server synchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Reconnect">
+            <summary>
+            Reconnects the client to the server by first disconnecting 
+            and then reconnecting.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.ConnectAsync">
+            <summary>
+            Connects the client to the server asynchronously.
+            </summary>
+            <returns>True if the connection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.DisconnectAsync">
+            <summary>
+            Disconnects the client from the server asynchronously.
+            </summary>
+            <returns>True if the disconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.ReconnectAsync">
+            <summary>
+            Reconnects the client to the server asynchronously by first 
+            disconnecting and then reconnecting.
+            </summary>
+            <returns>True if the reconnection is successful; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.JoinMulticastGroup(System.String)">
+            <summary>
+            Joins a multicast group by the specified address.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.LeaveMulticastGroup(System.String)">
+            <summary>
+            Leaves a multicast group by the specified address.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Send(System.Byte[])">
+            <summary>
+            Sends data to the server synchronously.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server synchronously starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Send(System.Net.EndPoint,System.Byte[])">
+            <summary>
+            Sends data to the specified endpoint synchronously.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Send(System.Net.EndPoint,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the specified endpoint synchronously, starting 
+            from a specific position in the buffer.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.SendAsync(System.Byte[])">
+            <summary>
+            Sends data to the server asynchronously.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.SendAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the server asynchronously starting from a specific position in the buffer.
+            </summary>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.SendAsync(System.Net.EndPoint,System.Byte[])">
+            <summary>
+            Sends data to the specified endpoint asynchronously.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.SendAsync(System.Net.EndPoint,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to the specified endpoint asynchronously, starting 
+            from a specific position in the buffer.
+            </summary>
+            <param name="endPoint">The endpoint to which the data is sent.</param>
+            <param name="buffer">The data to send.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the data was sent successfully; otherwise, false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.TryReceive">
+            <summary>
+            Attempts to receive data from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.TrySend">
+            <summary>
+            Attempts to send data to the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.ClearBuffers">
+            <summary>
+            Clears the send and receive buffers.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnAsyncCompleted(System.Object,System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Handles the completion of asynchronous socket operations.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.ProcessReceiveFrom(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the data received from the server.
+            </summary>
+            <param name="e">The event args containing the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.ProcessSendTo(System.Net.Sockets.SocketAsyncEventArgs)">
+            <summary>
+            Processes the data sent to the server.
+            </summary>
+            <param name="e">The event args containing the sent data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnConnecting">
+            <summary>
+            Called when the client is in the process of connecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnConnected">
+            <summary>
+            Called when the client has successfully connected to the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnDisconnecting">
+            <summary>
+            Called when the client is in the process of disconnecting.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnDisconnected">
+            <summary>
+            Called when the client has successfully disconnected from the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnJoinedMulticastGroup(System.String)">
+            <summary>
+            Called when the client successfully joins a multicast group.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnLeftMulticastGroup(System.String)">
+            <summary>
+            Called when the client successfully leaves a multicast group.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="address">The address of the multicast group.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnReceived(System.Net.EndPoint,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Called when data is received from the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="endPoint">The endpoint from which the data is received.</param>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnSent(System.Net.EndPoint,System.Int32)">
+            <summary>
+            Called when data is successfully sent to the server.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="endPoint">The endpoint to which the data was sent.</param>
+            <param name="sent">The number of bytes sent.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnEmpty">
+            <summary>
+            Called when the send buffer is empty.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.OnError(System.Net.Sockets.SocketError)">
+            <summary>
+            Called when an error occurs during socket operations.
+            Can be overridden in derived classes to handle the event.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.SendErrorInternal(System.Net.Sockets.SocketError)">
+            <summary>
+            Sends an internal error event to the <see cref="M:XmobiTea.ProtonNetClient.UdpClient.OnError(System.Net.Sockets.SocketError)"/> method.
+            </summary>
+            <param name="error">The socket error that occurred.</param>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.IsDisposed">
+            <summary>
+            Gets a value indicating whether the client has been disposed.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.UdpClient.IsSocketDisposed">
+            <summary>
+            Gets a value indicating whether the socket has been disposed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Dispose">
+            <summary>
+            Disposes the UDP client, releasing all resources.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.UdpClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the UDP client, releasing managed resources if specified.
+            </summary>
+            <param name="disposingManagedResources">True to release managed resources; otherwise, false.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.IWsClient">
+            <summary>
+            Defines the interface for a WebSocket client that can send and receive 
+            various types of data frames over a network.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendText(System.Byte[])">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendText(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendTextAsync(System.Byte[])">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendTextAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendBinary(System.Byte[])">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendBinary(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendBinaryAsync(System.Byte[])">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendBinaryAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendClose(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendClose(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendCloseAsync(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendCloseAsync(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPing(System.Byte[])">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPingAsync(System.Byte[])">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPingAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPong(System.Byte[])">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPongAsync(System.Byte[])">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.IWsClient.SendPongAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.WsClient">
+            <summary>
+            Implements a WebSocket client over an HTTP connection. 
+            Supports both synchronous and asynchronous operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.WsClient.webSocket">
+            <summary>
+            Gets the WebSocket instance associated with this client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.WsClient.syncConnect">
+            <summary>
+            Gets or sets a value indicating whether the connection is synchronous.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.WsClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.Connect">
+            <summary>
+            Establishes a synchronous connection to the WebSocket server.
+            </summary>
+            <returns>True if connected successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.ConnectAsync">
+            <summary>
+            Establishes an asynchronous connection to the WebSocket server.
+            </summary>
+            <returns>True if connection initiation is successful, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendText(System.Byte[])">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendText(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendTextAsync(System.Byte[])">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendTextAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendBinary(System.Byte[])">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendBinary(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendBinaryAsync(System.Byte[])">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendBinaryAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendClose(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendClose(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendCloseAsync(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendCloseAsync(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPing(System.Byte[])">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPingAsync(System.Byte[])">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPingAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPong(System.Byte[])">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPongAsync(System.Byte[])">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendPongAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnConnected">
+            <summary>
+            Called when the client has successfully connected to the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnDisconnecting">
+            <summary>
+            Called when the client is in the process of disconnecting.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnDisconnected">
+            <summary>
+            Called when the client has successfully disconnected from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Processes the data received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnReceivedResponseHeader(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Processes the response header received from the server.
+            </summary>
+            <param name="response">The HTTP response received.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnReceivedResponse(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Processes the response body received from the server.
+            </summary>
+            <param name="response">The HTTP response received.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnReceivedResponseError(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Handles errors in the response received from the server.
+            </summary>
+            <param name="response">The HTTP response that caused the error.</param>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Prepares the WebSocket connection by setting the necessary headers.
+            </summary>
+            <param name="request">The HTTP request being sent to initiate the WebSocket connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsConnected(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when the WebSocket connection is successfully established.
+            </summary>
+            <param name="response">The HTTP response that confirms the WebSocket upgrade.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsConnected(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Called when the WebSocket connection is successfully established.
+            </summary>
+            <param name="request">The HTTP request that initiated the WebSocket connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest,XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            OnWsConnecting
+            </summary>
+            <param name="request">The HTTP request that initiated the WebSocket connection.</param>
+            <param name="response">The HTTP response that initiated the WebSocket connection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsDisconnecting">
+            <summary>
+            Called when the WebSocket connection is in the process of disconnecting.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsDisconnected">
+            <summary>
+            Called when the WebSocket connection is successfully disconnected.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Processes the WebSocket frames received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsClose(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Handles a close frame received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the close frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the close frame.</param>
+            <param name="status">The close status code.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles a ping frame received from the server by sending a pong frame.
+            </summary>
+            <param name="buffer">The buffer containing the ping frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the ping frame.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles a pong frame received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the pong frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the pong frame.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsError(System.String)">
+            <summary>
+            Handles a WebSocket error by reporting it to the client.
+            </summary>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.OnWsError(System.Net.Sockets.SocketError)">
+            <summary>
+            Handles a WebSocket error by reporting it to the client.
+            </summary>
+            <param name="error">The socket error.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WsClient.SendUpgrade(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Upgrades the HTTP connection to a WebSocket connection.
+            </summary>
+            <param name="response">The HTTP response confirming the upgrade.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.WssClient">
+            <summary>
+            Implements a WebSocket Secure (WSS) client over an HTTPS connection. 
+            Supports both synchronous and asynchronous operations.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.WssClient.webSocket">
+            <summary>
+            Gets the WebSocket instance associated with this client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.WssClient.syncConnect">
+            <summary>
+            Gets or sets a value indicating whether the connection is synchronous.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.WssClient.WsNonce">
+            <summary>
+            Gets the WebSocket nonce used during the handshake.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.#ctor(System.String,System.Int32,XmobiTea.ProtonNetClient.Options.TcpClientOptions,XmobiTea.ProtonNetCommon.SslOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:XmobiTea.ProtonNetClient.WssClient"/> class.
+            </summary>
+            <param name="address">The server address to connect to.</param>
+            <param name="port">The port number on the server.</param>
+            <param name="options">TCP client options for configuring the connection.</param>
+            <param name="sslOptions">The Ssl options used for establishing the secure connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.Connect">
+            <summary>
+            Establishes a synchronous connection to the WebSocket server.
+            </summary>
+            <returns>True if connected successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.ConnectAsync">
+            <summary>
+            Establishes an asynchronous connection to the WebSocket server.
+            </summary>
+            <returns>True if connection initiation is successful, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendText(System.Byte[])">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendText(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendTextAsync(System.Byte[])">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendTextAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a text message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the text message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendBinary(System.Byte[])">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendBinary(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendBinaryAsync(System.Byte[])">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendBinaryAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a binary message asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the binary message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendClose(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendClose(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code synchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendCloseAsync(System.Int32,System.Byte[])">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendCloseAsync(System.Int32,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a close frame with a status code asynchronously to the server.
+            </summary>
+            <param name="status">The close status code.</param>
+            <param name="buffer">The byte array containing the close message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPing(System.Byte[])">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPingAsync(System.Byte[])">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPingAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a ping frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the ping message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPong(System.Byte[])">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame synchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>The number of bytes sent.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPongAsync(System.Byte[])">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendPongAsync(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends a pong frame asynchronously to the server.
+            </summary>
+            <param name="buffer">The byte array containing the pong message.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The number of bytes to send.</param>
+            <returns>True if the message was sent successfully, otherwise false.</returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnConnecting">
+            <summary>
+            Called when the client is in the process of connecting to the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnConnected">
+            <summary>
+            Called when the client has successfully connected to the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnHandshaking">
+            <summary>
+            Called when the SSL/TLS handshake is in progress.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnHandshaked">
+            <summary>
+            Called when the SSL/TLS handshake is successfully completed.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnDisconnecting">
+            <summary>
+            Called when the client is in the process of disconnecting.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnDisconnected">
+            <summary>
+            Called when the client has successfully disconnected from the server.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Processes the data received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnReceivedResponseHeader(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Processes the response header received from the server.
+            </summary>
+            <param name="response">The HTTP response received.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnReceivedResponse(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Processes the response body received from the server.
+            </summary>
+            <param name="response">The HTTP response received.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnReceivedResponseError(XmobiTea.ProtonNetCommon.HttpResponse,System.String)">
+            <summary>
+            Handles errors in the response received from the server.
+            </summary>
+            <param name="response">The HTTP response that caused the error.</param>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Prepares the WebSocket connection by setting the necessary headers.
+            </summary>
+            <param name="request">The HTTP request being sent to initiate the WebSocket connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsConnected(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Called when the WebSocket connection is successfully established.
+            </summary>
+            <param name="response">The HTTP response that confirms the WebSocket upgrade.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsConnected(XmobiTea.ProtonNetCommon.HttpRequest)">
+            <summary>
+            Called when the WebSocket connection is successfully established.
+            </summary>
+            <param name="request">The HTTP request that initiated the WebSocket connection.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsConnecting(XmobiTea.ProtonNetCommon.HttpRequest,XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            OnWsConnecting
+            </summary>
+            <param name="request">The HTTP request that initiated the WebSocket connection.</param>
+            <param name="response">The HTTP response that initiated the WebSocket connection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsDisconnecting">
+            <summary>
+            Called when the WebSocket connection is in the process of disconnecting.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsDisconnected">
+            <summary>
+            Called when the WebSocket connection is successfully disconnected.
+            </summary>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsReceived(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Processes the WebSocket frames received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the received data.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the received data.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsClose(System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Handles a close frame received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the close frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the close frame.</param>
+            <param name="status">The close status code.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsPing(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles a ping frame received from the server by sending a pong frame.
+            </summary>
+            <param name="buffer">The buffer containing the ping frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the ping frame.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsPong(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Handles a pong frame received from the server.
+            </summary>
+            <param name="buffer">The buffer containing the pong frame.</param>
+            <param name="position">The starting position in the buffer.</param>
+            <param name="length">The length of the pong frame.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsError(System.String)">
+            <summary>
+            Handles a WebSocket error by reporting it to the client.
+            </summary>
+            <param name="error">The error message.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.OnWsError(System.Net.Sockets.SocketError)">
+            <summary>
+            Handles a WebSocket error by reporting it to the client.
+            </summary>
+            <param name="error">The socket error.</param>
+        </member>
+        <member name="M:XmobiTea.ProtonNetClient.WssClient.SendUpgrade(XmobiTea.ProtonNetCommon.HttpResponse)">
+            <summary>
+            Upgrades the HTTP connection to a WebSocket connection.
+            </summary>
+            <param name="response">The HTTP response confirming the upgrade.</param>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.Options.TcpClientOptions">
+            <summary>
+            Represents the configuration options for a TCP client.
+            Provides properties to configure various TCP settings 
+            such as dual mode, keep-alive, buffer sizes, and more.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.DualMode">
+            <summary>
+            Gets or sets a value indicating whether the TCP client 
+            operates in dual mode (IPv4/IPv6).
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.KeepAlive">
+            <summary>
+            Gets or sets a value indicating whether TCP keep-alive 
+            is enabled for the connection.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.TcpKeepAliveTime">
+            <summary>
+            Gets or sets the duration, in seconds, before the first 
+            keep-alive packet is sent. 
+            This property is only applicable in .NET Core.
+            A value of -1 indicates the default system setting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.TcpKeepAliveInterval">
+            <summary>
+            Gets or sets the interval, in seconds, between subsequent 
+            keep-alive packets if no acknowledgment is received. 
+            This property is only applicable in .NET Core.
+            A value of -1 indicates the default system setting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.TcpKeepAliveRetryCount">
+            <summary>
+            Gets or sets the number of keep-alive probes that will 
+            be sent before dropping the connection. 
+            This property is only applicable in .NET Core.
+            A value of -1 indicates the default system setting.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.NoDelay">
+            <summary>
+            Gets or sets a value indicating whether the TCP NoDelay 
+            option is enabled, which disables the Nagle algorithm.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.ReceiveBufferLimit">
+            <summary>
+            Gets or sets the maximum size, in bytes, of the receive 
+            buffer. A value of 0 indicates no limit.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.ReceiveBufferCapacity">
+            <summary>
+            Gets or sets the initial capacity, in bytes, of the receive 
+            buffer. Default value is 8192 bytes.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.SendBufferLimit">
+            <summary>
+            Gets or sets the maximum size, in bytes, of the send 
+            buffer. A value of 0 indicates no limit.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.TcpClientOptions.SendBufferCapacity">
+            <summary>
+            Gets or sets the initial capacity, in bytes, of the send 
+            buffer. Default value is 8192 bytes.
+            </summary>
+        </member>
+        <member name="T:XmobiTea.ProtonNetClient.Options.UdpClientOptions">
+            <summary>
+            Represents the configuration options for a UDP client.
+            Provides properties to configure various UDP settings 
+            such as dual mode, address reuse, multicast, buffer sizes, and more.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.DualMode">
+            <summary>
+            Gets or sets a value indicating whether the UDP client 
+            operates in dual mode (IPv4/IPv6).
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.ReuseAddress">
+            <summary>
+            Gets or sets a value indicating whether the UDP socket 
+            can be bound to an address that is already in use.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.ExclusiveAddressUse">
+            <summary>
+            Gets or sets a value indicating whether the UDP socket 
+            should use an exclusive address.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.Multicast">
+            <summary>
+            Gets or sets a value indicating whether multicast is 
+            enabled for the UDP client.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.ReceiveBufferLimit">
+            <summary>
+            Gets or sets the maximum size, in bytes, of the receive 
+            buffer. A value of 0 indicates no limit.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.ReceiveBufferCapacity">
+            <summary>
+            Gets or sets the initial capacity, in bytes, of the receive 
+            buffer. Default value is 8192 bytes.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.SendBufferLimit">
+            <summary>
+            Gets or sets the maximum size, in bytes, of the send 
+            buffer. A value of 0 indicates no limit.
+            </summary>
+        </member>
+        <member name="P:XmobiTea.ProtonNetClient.Options.UdpClientOptions.SendBufferCapacity">
+            <summary>
+            Gets or sets the initial capacity, in bytes, of the send 
+            buffer. Default value is 8192 bytes.
+            </summary>
+        </member>
+    </members>
+</doc>
