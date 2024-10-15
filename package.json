@@ -5,7 +5,6 @@
   "description": "XmobiTea Unity package",
   "unity": "2020.3",
   "dependencies": {
-    "com.xmobitea.changx.app": "1.0.0"
   },
   "keywords": [
     "chang x",

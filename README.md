@@ -21,7 +21,7 @@ Supports Unity platforms:
 * import via `Unity Package Manager`
     1. Open `Package Manager` by `Window/PackageManager`
     2. Press `+` -> `Add package from git URL...`
-    3. Type `https://github.com/XmobiTea-Family/ProtonNet.Solution.UnityClientSdk` then press `Add`
+    3. Type `https://github.com/XmobiTea-Family/ProtonNet.Solution.UnityClientSdk.git` then press `Add`
 
 ## III. How to use
 
